@@ -1,0 +1,200 @@
+.carousel__wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.carousel__viewport {
+  @include side-margins;
+  margin: 0 auto;
+  width: 100%;
+  max-width: $max-width-small;
+
+  @include mq($xl) {
+    max-width: $max-width;
+  }
+}
+
+// Account for half carousels with two or four slides.
+.static-carousel--half,
+.static-carousel--quarter {
+  .static-carousel__slides {
+    display: flex;
+    align-items: center;
+    margin-left: -1rem;
+    margin-right: -1rem;
+  }
+  .carousel__slide {
+    flex-shrink: 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+.static-carousel--half .carousel__slide {
+  @include mq($md) {
+    width: 50%;
+  }
+}
+.static-carousel--quarter .carousel__slide {
+  width: 50%;
+  @include mq($md) {
+    width: 25%;
+  }
+}
+
+.carousel__track {
+  @include transition(transform, $time: 0.4s);
+  display: flex;
+  align-items: flex-start;
+  margin-left: -1rem;
+  margin-right: -1rem;
+  position: relative;
+}
+.carousel__wrapper .carousel__slide {
+  flex-shrink: 0;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.carousel__wrapper[data-carousel-size='half'] .carousel__slide {
+  @include mq($sm) {
+    width: 50%;
+  }
+}
+.carousel__wrapper[data-carousel-size='quarter'] .carousel__slide {
+  width: 50%;
+
+  @include mq($sm) {
+    width: 25%;
+  }
+}
+
+.carousel__slide {
+  flex-shrink: 0;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  width: 100%;
+}
+
+.carousel__slide--noimg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+}
+
+// Add a clone for halves.
+.carousel-clone {
+  position: absolute;
+  left: -50%;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+// Controls
+// -----------
+
+.carousel__control {
+  @include transition(opacity);
+  border: 0;
+  position: absolute;
+  top: 50%;
+  height: 200px;
+  width: 124px;
+  margin-top: -100px;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: $spacing-sm;
+  min-width: 62px;
+  opacity: 0;
+
+  &--prev {
+    left: 0;
+  }
+
+  &--next {
+    right: 0;
+  }
+
+  &.sized {
+    top: 0;
+    margin-top: 0;
+    opacity: 1;
+
+    @include mq($lg) {
+      opacity: 0;
+      background-color: rgba($c-purple, 0.2);
+      width: calc(50vw - #{$max-width / 2});
+    }
+  }
+
+  .carousel__wrapper:hover &,
+  &:focus {
+    outline: none;
+    background-color: rgba(0, 0, 0, 0.05);
+    opacity: 1;
+
+    @include mq($lg) {
+      background-color: $c-overlay;
+    }
+  }
+
+  span {
+    @include hide();
+  }
+
+  svg {
+    width: 32px;
+
+    polyline {
+      stroke-width: 2;
+    }
+  }
+}
+
+// Slide
+// -----------
+
+.slide__content {
+  margin-top: $spacing-sm;
+
+  .carousel__slide--noimg & {
+    margin-top: 0;
+    width: 100%;
+    max-width: 600px;
+    padding: $spacing;
+  }
+}
+
+.slide__image {
+  width: 100%;
+  img {
+    width: 100%;
+  }
+}
+
+.slide__title {
+  font-weight: $fw-regular;
+}
+
+.slide__price {
+  color: $c-blue;
+  margin-top: 0.25em;
+}
+
+.slide__caption {
+  margin-top: 0;
+  color: $c-gray;
+  font-size: $fs-sm;
+  margin-bottom: $spacing;
+}
+
+.slide__description {
+  max-width: 600px;
+  margin-top: 0.25em;
+  color: $c-blue;
+}

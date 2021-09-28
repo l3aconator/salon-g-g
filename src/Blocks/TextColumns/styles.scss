@@ -1,0 +1,45 @@
+.wp-block-salon-text-columns {
+  background-color: $c-gray-purple;
+  margin-left: -$spacing-sm;
+  margin-right: -$spacing-sm;
+  padding-top: $spacing;
+  padding-bottom: $spacing;
+
+  @include mq($md) {
+    margin-left: -$spacing;
+    margin-right: -$spacing;
+    padding-top: $spacing-lg;
+    padding-bottom: $spacing-lg;
+  }
+
+  @include mq($xl) {
+    margin-left: calc(-50vw + #{$max-width / 2} - #{$spacing});
+    margin-right: calc(-50vw + #{$max-width / 2} - #{$spacing});
+  }
+
+  &:last-child {
+    margin-bottom: -4rem;
+  }
+}
+
+.text-columns__wrapper {
+  @include mq($md) {
+    @include ungrid;
+    display: flex;
+  }
+}
+.text-columns__col {
+  flex: 1;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  > * + * {
+    margin-top: 1em;
+  }
+
+  @include mq($md, 'max') {
+    + .text-columns__col {
+      margin-top: $spacing;
+    }
+  }
+}

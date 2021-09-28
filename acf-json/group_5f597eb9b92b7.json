@@ -1,0 +1,275 @@
+{
+  "key": "group_5f597eb9b92b7",
+  "title": "Site Settings",
+  "fields": [
+    {
+      "key": "field_5f59893cf247b",
+      "label": "Contact",
+      "name": "site_contact",
+      "type": "group",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "block",
+      "sub_fields": [
+        {
+          "key": "field_5f597f63f9c4e",
+          "label": "Email",
+          "name": "email",
+          "type": "email",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": ""
+        },
+        {
+          "key": "field_5f59898bf247c",
+          "label": "Phone",
+          "name": "phone",
+          "type": "text",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": "",
+          "maxlength": ""
+        },
+        {
+          "key": "field_5f59899df247d",
+          "label": "Address",
+          "name": "address",
+          "type": "textarea",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "placeholder": "",
+          "maxlength": "",
+          "rows": 3,
+          "new_lines": "br"
+        }
+      ]
+    },
+    {
+      "key": "field_60f9fe0ac407c",
+      "label": "Designers",
+      "name": "site_designers",
+      "type": "group",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "block",
+      "sub_fields": [
+        {
+          "key": "field_60f9fe19c407d",
+          "label": "Inquiry Button Text",
+          "name": "inquiry_button",
+          "type": "text",
+          "instructions": "The text of the call to action that will prompt a user to email Salon to inquire about a designer's work.",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "Inquire About Custom Work",
+          "placeholder": "Inquire About Custom Work",
+          "prepend": "",
+          "append": "",
+          "maxlength": ""
+        },
+        {
+          "key": "field_60f9fe6fc407e",
+          "label": "Inquiry Email Subject",
+          "name": "inquiry_email_subject",
+          "type": "text",
+          "instructions": "This text will form the default subject of the email sent to the Salon team when a user clicks on the inquiry call to action. You can use the <code>{{ designerName }}</code> shortcode to dynamically pull in the designer's name.",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "Designer Inquiry - {{ designerName }}",
+          "placeholder": "Designer Inquiry - {{ designerName }}",
+          "prepend": "",
+          "append": "",
+          "maxlength": ""
+        }
+      ]
+    },
+    {
+      "key": "field_5f77be17d62d1",
+      "label": "Exhibitions",
+      "name": "site_exhibitions",
+      "type": "group",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "block",
+      "sub_fields": [
+        {
+          "key": "field_5f77be27d62d2",
+          "label": "RSVP Form",
+          "name": "rsvp_form",
+          "type": "acf_cf7",
+          "instructions": "Choose a contact form to use as the RSVP form for exhibitions.",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          }
+        }
+      ]
+    },
+    {
+      "key": "field_5f597ec6f9c48",
+      "label": "Footer",
+      "name": "site_footer",
+      "type": "group",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "block",
+      "sub_fields": [
+        {
+          "key": "field_5f597ef5f9c49",
+          "label": "Description",
+          "name": "description",
+          "type": "textarea",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "placeholder": "",
+          "maxlength": "",
+          "rows": 4,
+          "new_lines": ""
+        },
+        {
+          "key": "field_5f597f04f9c4a",
+          "label": "Social Media",
+          "name": "social_media",
+          "type": "repeater",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "collapsed": "",
+          "min": 0,
+          "max": 0,
+          "layout": "table",
+          "button_label": "Add site",
+          "sub_fields": [
+            {
+              "key": "field_5f597f13f9c4b",
+              "label": "Site",
+              "name": "site",
+              "type": "text",
+              "instructions": "The name of the social media site.",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "placeholder": "",
+              "prepend": "",
+              "append": "",
+              "maxlength": ""
+            },
+            {
+              "key": "field_5f597f24f9c4c",
+              "label": "Link",
+              "name": "link",
+              "type": "url",
+              "instructions": "The url to the social media site.",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "placeholder": ""
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "options_page",
+        "operator": "==",
+        "value": "site-settings"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "seamless",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "modified": 1626996441
+}

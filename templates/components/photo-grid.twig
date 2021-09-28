@@ -1,0 +1,27 @@
+
+<div class="photo-grid">
+  {% for photo in photos %}
+    {% if photo.link %}
+    <a href="{{ photo.link }}" class="photo-grid__cell {{ photo.class }}">
+    {% else %}
+    <div class="photo-grid__cell {{ photo.class }}">
+    {% endif %}
+
+    <img src="{{ photo.image.src }}" srcset="{{ photo.image.srcset }}" alt="{{ photo.image.alt }}">
+
+    {% if photo.link %}
+      <span class="photo-grid__cart-icon">
+        {% include "includes/icons/cart.svg" %}
+      </span>
+
+      <div class="photo-grid__hover">
+        <p class="photo-grid__hover-title">{{ photo.title }}</p>
+        <span class="photo-grid__hover-btn" href="{{ photo.link }}">View in Shop</span>
+      </div>
+
+    </a>
+    {% else %}
+    </div>
+    {% endif %}
+  {% endfor %}
+</div>

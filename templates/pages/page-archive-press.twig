@@ -1,0 +1,23 @@
+{% extends "pages/single.twig" %}
+
+{% set loop_posts = post.show_featured_post ? posts[1:] : posts %}
+
+{% block additionalContent %}
+  {% if post.show_featured_post %}
+  {% include "components/featured-press.twig" with { tease: posts[0] } %}
+  {% endif %}
+{% endblock %}
+
+{% block archiveContent %}
+
+  <div class="site-wrapper archive-wrap">
+    {% if posts %}
+      <div class="archive-loop {% if post.show_featured_post %}archive-loop--hide-first-mobile{% endif %}">
+        {% for tease in posts %}
+          {% include ['components/tease-press.twig', 'components/tease.twig'] with {tease: tease} %}
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+
+{% endblock %}

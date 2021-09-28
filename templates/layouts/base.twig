@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-us">
+
+{% include "includes/head.twig" %}
+
+<body class="{{ body_class }}{% if pagename %} page-name-{{ pagename }}{% endif %} theme--{{ post.header_theme }}">
+
+  <a href="#content" class="skip-to-content" tabindex="0">Skip to content</a>
+
+  {% include "components/header.twig" %}
+
+  <main id="content" class="main" tabindex="-1">
+    {% block pageBody %}
+    {% endblock %}
+  </main>
+
+  {% block footer %}
+    {% include "components/footer.twig" %}
+  {% endblock %}
+
+  {{ function('wp_footer') }}
+
+</body>
+
+</html>

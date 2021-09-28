@@ -1,0 +1,16 @@
+<article class="archive-tease">
+  <div class="tease__image">
+    {% include "components/overlay-link.twig" with {
+      href: tease.link,
+      imgSrc: tease.post_image ? tease.post_image.src('feature_square') : false,
+      imgAlt: tease.post_image ? tease.post_image.alt : false,
+      placeholder: true,
+      hoverImg: tease.hover_image ? tease.hover_image.src('feature_square') : false,
+      buttonText: 'View Work'
+    } %}
+  </div>
+
+  <h2 class="tease__title">
+    <a class="tease__link" href="{{ tease.link }}">{{ tease.title }}</a>
+  </h2>
+</article>

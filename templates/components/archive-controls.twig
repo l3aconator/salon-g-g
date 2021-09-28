@@ -1,0 +1,52 @@
+<div class="archive__controls">
+
+  {% if filters | length > 0 %}
+  <div class="control__filters">
+    {% for f in filters %}
+      {% set localActive = f.label %}
+      {% for opt in f.options %}
+        {% if opt.title == active_filter %}
+          {% set localActive = opt.title %}
+        {% endif %}
+      {% endfor %}
+      <div class="control__hover">
+        <span class="control__active">{{ localActive }}</span>
+        <div class="control__hover-dropdown">
+          <ul class="control__hover-list">
+            {% for opt in f.options %}
+              {% set link = shop and opt.post_type == 'designer' ? opt.shop_link : opt.link %}
+              <li><a href="{{ link }}">{{ opt.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+
+      <select class="control__select" onchange="this.value ? window.location = this.value : null">
+        <option value="">{{ f.label }}</option>
+        {% for opt in f.options %}
+          {% set link = shop and opt.post_type == 'designer' ? opt.shop_link : opt.link %}
+          <option value="{{ link }}" {{ opt.title == active_filter ? 'selected' : '' }}>{{ opt.title }}</option>
+        {% endfor %}
+      </select>
+    {% endfor %}
+
+    {% if is_shop and hide_instock is empty %}
+      <div class="control__instock-filter">
+        <label class="instock-filter">
+          <input type="checkbox" {{ in_stock_only ? 'checked' : '' }}>
+          <a class="instock-filter__link" href="{{ in_stock_filter_link }}">In-stock only</a>
+        </label>
+      </div>
+    {% endif %}
+  </div>
+  {% endif %}
+
+  <form role="search" method="get" class="archive-search" action="{{ site.url }}">
+    <label class="archive-search__label" for="archive-search-field"><span class="screen-reader-text">Search for</span> {% include "includes/icons/search.svg" %}</label>
+    <input name="s" class="archive-search__input" id="archive-search-field" type="search" placeholder="Search" value="{{ query ?: '' }}">
+
+    {% if search_type %}
+    <input type="hidden" name="post_type" value="{{ search_type }}">
+    {% endif %}
+  </form>
+</div>

@@ -1,0 +1,17 @@
+
+<article class="carousel__slide carousel__slide--designer {{ item.post_image is empty ? ' carousel__slide--noimg' : '' }}" {{ clone ? '' : 'data-slide' }}>
+  {% if item.post_image %}
+    <div class="slide__image">
+      {% include "components/overlay-link.twig" with {
+        href: item.shop_link,
+        imgSrc: item.post_image.src('feature_square'),
+        imgAlt: item.post_image.alt,
+        buttonText: 'Shop'
+      } %}
+    </div>
+  {% endif %}
+
+  <div class="slide__content">
+    <h3 class="slide__title"><a href="{{ item.shop_link }}" class="slide__content-link">{{ item.title }}</a></h3>
+  </div>
+</article>

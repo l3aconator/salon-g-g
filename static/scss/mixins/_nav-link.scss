@@ -1,0 +1,38 @@
+@mixin nav-link {
+  color: $c-white;
+  font-weight: $fw-regular;
+  font-size: 2rem;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  display: inline-block;
+  cursor: pointer;
+
+  @include mq($md) {
+    @include transition(color);
+    font-size: $fs-sm;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+
+    .theme--dark &,
+    .site-header--fixed & {
+      color: $c-text;
+    }
+  }
+
+  .current-menu-ancestor &,
+  .current_page_parent &,
+  .current-menu-item & {
+    font-weight: $fw-bold;
+    box-shadow: inset 0 -0.15em 0 currentColor;
+  }
+
+  @include mq($md, 'max') {
+    @include transition(transform);
+    transition-delay: 0.3s;
+    transform: translateY(100%);
+
+    .menu--open & {
+      transform: translateY(0);
+    }
+  }
+}

@@ -1,0 +1,3 @@
+@mixin fixed($value) {
+  @include shorthander(fixed, $value);
+}

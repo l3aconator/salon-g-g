@@ -1,0 +1,12 @@
+.woocommerce .shop-main nav.woocommerce-pagination ul {
+  border: 0;
+}
+.woocommerce .shop-main nav.woocommerce-pagination ul li {
+  border: 0;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+.woocommerce .shop-main nav.woocommerce-pagination ul li a,
+.woocommerce .shop-main nav.woocommerce-pagination ul li span {
+  color: $c-text;
+}

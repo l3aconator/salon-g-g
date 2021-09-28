@@ -1,0 +1,12 @@
+<div class="modal js-modal"{% if id %} id="{{ id }}"{% endif %}{% if fixedWidth %} data-fixed-width="true"{% endif %}>
+  <div class="modal__content">
+    <div class="modal__header">
+      {% if title %}
+        <h4 class="modal__title">{{ title }}</h4>
+      {% endif %}
+      <button class="modal__close icon js-modal-trigger">{% include "includes/icons/close.svg" %}</button>
+    </div>
+
+    {% block modalContent %}{% endblock %}
+  </div>
+</div>

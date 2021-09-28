@@ -1,0 +1,187 @@
+// ---------------------------------------------------------------------------
+// LINKS AND BUTTONS
+// ---------------------------------------------------------------------------
+
+a {
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  border: 1px solid $c-gray;
+  line-height: inherit;
+}
+
+.btn,
+.wp-block-button__link,
+.woocommerce #content a.button,
+.woocommerce #content button.button,
+.woocommerce #content input.button,
+.woocommerce #content .woocommerce-button,
+.woocommerce table.shop_table button.button,
+#add_payment_method .wc-proceed-to-checkout a.checkout-button,
+.woocommerce-cart .wc-proceed-to-checkout a.checkout-button,
+.woocommerce-checkout .wc-proceed-to-checkout a.checkout-button,
+.woocommerce-checkout .woocommerce-checkout-review-order .button.alt,
+.wpcf7-submit {
+  @include transition(background-color border-color color);
+  cursor: pointer;
+  color: inherit;
+  display: block;
+  border: 1px solid transparent;
+  text-align: center;
+  padding: 0.75em 1.25em;
+  font-weight: $fw-regular;
+  font-size: 1rem;
+  background-color: $c-white;
+  line-height: inherit;
+  background-color: transparent;
+  border-radius: 0;
+
+  &:hover {
+    background-color: $c-gray-e;
+    border-color: $c-gray-e;
+    color: inherit;
+  }
+
+  &--inline {
+    display: inline-block;
+  }
+
+  &--white {
+    background-color: $c-white;
+    border-color: $c-white;
+
+    &:hover {
+      background-color: $c-white;
+    }
+  }
+
+  &--dark-bg:hover {
+    color: $c-text;
+  }
+}
+
+.cta-link {
+  @include transition(color);
+  color: inherit;
+  font-weight: $fw-regular;
+
+  .cta-link__arrow {
+    @include transition(transform);
+    display: inline-block;
+  }
+
+  &:hover {
+    color: $c-black;
+
+    .cta-link__arrow {
+      transform: translateX(3px);
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------
+// HEADERS
+// ---------------------------------------------------------------------------
+
+.sectionheader {
+  @include headline;
+  margin-bottom: 0.25em;
+}
+
+.subheader {
+  font-size: $fs-lg;
+  font-weight: $fw-bold;
+}
+
+.colheader {
+  font-size: $fs-sm;
+  font-weight: $fw-bold;
+}
+
+// ---------------------------------------------------------------------------
+// CONTENT
+// ---------------------------------------------------------------------------
+
+.simple-page-header {
+  margin-top: $spacing-sm;
+}
+
+.content,
+.wp-block-column,
+.woocommerce-MyAccount-content {
+  > * + * {
+    margin-top: 1em;
+  }
+
+  a:not(.btn):not(.wp-block-button__link):not(.reset_variations):not(.woocommerce-button) {
+    @include hover($padding-bottom: 0.1em, $inactive-border: -0.06em);
+    color: $c-blue;
+  }
+}
+
+.woocommerce-info a:not(.btn):not(.wp-block-button__link):not(.reset_variations) {
+  @include hover($padding-bottom: 0.1em, $inactive-border: -0.06em);
+  color: $c-blue;
+}
+
+.wp-block-editor-content {
+  .has-text-align-right {
+    text-align: right;
+  }
+
+  .has-text-align-center {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  iframe {
+    max-width: 100%;
+  }
+
+  > h1,
+  > h2,
+  > h3,
+  > h4,
+  > h5,
+  > h6,
+  > p {
+    max-width: 660px;
+
+    @include mq(1000px, 1200px) {
+      margin-left: calc(50vw - 500px);
+    }
+    @include mq(1200px) {
+      margin-left: 100px;
+    }
+  }
+
+  > h1,
+  > h2,
+  > h3,
+  > h4 {
+    font-family: $ff-headline;
+  }
+
+  > h1 {
+    font-size: 2.222rem;
+  }
+  > h2 {
+    font-size: $fs-xl;
+  }
+  > h3 {
+    margin-top: 1rem;
+    font-size: $fs-base;
+  }
+  > h4 {
+    font-size: $fs-sm;
+    margin-top: 1rem;
+  }
+}

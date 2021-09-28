@@ -1,0 +1,30 @@
+{% if tease.press_link %}
+  {% set link = tease.press_link %}
+{% elseif tease.press_asset %}
+  {% set file = tease.meta('press_asset') %}
+  {% set link = file.url %}
+{% endif %}
+
+
+<article class="site-wrapper">
+  <div class="featured-press">
+    <div class="featured-press__content">
+      <h2 class="featured-press__title">{{ tease.title }}</h2>
+
+      {% if tease.content %}
+      <div class="featured-press__preview tease__description content">{{ tease.content }}</div>
+      {% endif %}
+
+      {% if link %}
+      <a href="{{ link }}" target="_blank" ref="nofollow noreferrer" class="btn btn--inline">Read More</a>
+      {% endif %}
+
+    </div>
+
+    {% if tease.thumbnail %}
+      <div class="featured-press__image">
+        <img src="{{ tease.thumbnail.src('grid_image') }}" srcset="{{ tease.thumbnail.srcset }}" alt="{{ tease.thumbnail.alt }}">
+      </div>
+    {% endif %}
+  </div>
+</article>

@@ -1,0 +1,12 @@
+{% extends "pages/single.twig" %}
+
+{% block recirculation %}
+
+{% if post.similar_designers %}
+<div class="gallery__recirc recirc">
+  <h2 class="site-wrapper sectionheader">Similar Designers</h2>
+  {% include "components/carousel.twig" with { items: post.similar_designers, options: { loop: true }, template: 'designer' } %}
+</div>
+{% endif %}
+
+{% endblock %}

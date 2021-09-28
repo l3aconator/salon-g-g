@@ -1,0 +1,92 @@
+$close-btn-padding: 18px;
+
+.modal {
+  @include transition(opacity visibility z-index);
+  position: fixed;
+  z-index: -1;
+  opacity: 0;
+  visibility: hidden;
+  background-color: rgba($c-black, 0.5);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: $spacing / 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include mq($sm) {
+    padding: $spacing;
+  }
+
+  &.modal--visible {
+    opacity: 1;
+    visibility: visible;
+    z-index: 999;
+  }
+}
+
+.modal__content {
+  background-color: $c-white;
+  overflow: auto;
+  max-height: 90vh;
+  max-width: 762px;
+  padding: $spacing / 2;
+  text-align: left;
+
+  @include mq($sm) {
+    padding: $spacing;
+  }
+
+  [data-fixed-width] & {
+    width: 100%;
+  }
+}
+
+.modal__header {
+  display: flex;
+  margin-bottom: $spacing-sm;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.modal__close {
+  @include transition(background-color);
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  cursor: pointer;
+  padding: $close-btn-padding;
+  background-color: transparent;
+  border-radius: 0;
+  margin: #{$close-btn-padding * -0.5} #{$close-btn-padding * -1} 0 auto;
+  border: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 56px;
+
+  &:hover {
+    background-color: $c-gray-purple;
+  }
+
+  svg g {
+    stroke: $c-black;
+  }
+}
+
+.modal__video-wrapper {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}

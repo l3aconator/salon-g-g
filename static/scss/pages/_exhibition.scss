@@ -1,0 +1,44 @@
+.gallery__details {
+  &--has-img {
+    padding: $spacing;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 100%;
+  }
+}
+
+.details__pane {
+  background-color: $c-white;
+  padding: $spacing;
+  box-shadow: 0 0 12px rgba($c-black, 0.2);
+
+  @include mq($md) {
+    .gallery__details--has-img & {
+      width: 50%;
+      margin-left: auto;
+    }
+  }
+}
+
+.details__header {
+  margin-bottom: $spacing;
+}
+
+.details__facts {
+  dt,
+  dd {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+.details__facts,
+.details__content,
+.details__address,
+.details__rsvp-button {
+  margin-top: $spacing;
+}
+
+.details__rsvp-button {
+  width: 100%;
+}

@@ -1,0 +1,38 @@
+.wp-block[data-type='salon/split-content'] {
+  max-width: 960px;
+
+  > .container {
+    @include mq() {
+      display: flex;
+
+      > .block-editor-inner-blocks,
+      > .button-container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        width: 50%;
+        flex-shrink: 0;
+      }
+    }
+  }
+
+  .empty-button-container {
+    height: 100%;
+    background-color: #f8f8f8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .replace-img-button {
+    background-color: transparent;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    cursor: pointer;
+  }
+
+  .remove-img-button {
+    text-align: right;
+  }
+}

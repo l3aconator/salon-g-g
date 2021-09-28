@@ -1,0 +1,127 @@
+{
+  "key": "group_5f4f34803ec7b",
+  "title": "Images",
+  "fields": [
+    {
+      "key": "field_5f4f384fb7c19",
+      "label": "Hero Banner",
+      "name": "hero_banner",
+      "type": "image",
+      "instructions": "A banner image to display at the top of the page. This image should be at least <code>1400px</code> wide. The image will fill the hero space.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "100",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "array",
+      "preview_size": "medium",
+      "library": "all",
+      "min_width": "",
+      "min_height": "",
+      "min_size": "",
+      "max_width": "",
+      "max_height": "",
+      "max_size": "",
+      "mime_types": ""
+    },
+    {
+      "key": "field_5f4f386db7c1a",
+      "label": "Feature Photo",
+      "name": "feature_photo",
+      "type": "image",
+      "instructions": "A featured image for this post. This will appear in the tease, and alongside the intro content on the singular page. This image can be any size.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "array",
+      "preview_size": "medium",
+      "library": "all",
+      "min_width": "",
+      "min_height": "",
+      "min_size": "",
+      "max_width": "",
+      "max_height": "",
+      "max_size": "",
+      "mime_types": ""
+    },
+    {
+      "key": "field_5f861dc1d51d6",
+      "label": "Tease Hover Photo",
+      "name": "tease_hover_photo",
+      "type": "image",
+      "instructions": "An image that will replace the featured photo when the tease is hovered on. For designers, this could be an image of their work. This image should be <code>480px &times; 480px</code>.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "array",
+      "preview_size": "medium",
+      "library": "all",
+      "min_width": "",
+      "min_height": "",
+      "min_size": "",
+      "max_width": "",
+      "max_height": "",
+      "max_size": "",
+      "mime_types": ""
+    },
+    {
+      "key": "field_5f86269673153",
+      "label": "Wide Photo",
+      "name": "wide_photo",
+      "type": "image",
+      "instructions": "Add a wide image here for display in wide contexts, like carousels. This photo should be <code>1200px &times; 620px</code>",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "array",
+      "preview_size": "medium",
+      "library": "all",
+      "min_width": "",
+      "min_height": "",
+      "min_size": "",
+      "max_width": "",
+      "max_height": "",
+      "max_size": "",
+      "mime_types": ""
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "designer"
+      }
+    ],
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "exhibition"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "acf_after_title",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "Add a space for additional post images.",
+  "modified": 1602792259
+}

@@ -1,0 +1,17 @@
+@import '../../static/scss/variables';
+
+@mixin mq() {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@import './SplitContent/editor.scss';
+@import './TextColumns/editor.scss';
+
+// Column block
+// -----------
+
+.wp-block-columns {
+  max-width: 960px;
+}

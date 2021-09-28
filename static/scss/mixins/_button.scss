@@ -1,0 +1,21 @@
+@mixin button($text: $c-black, $bg: $c-white) {
+  @include default-text;
+  color: $text;
+  display: inline-block;
+  padding: 6px 15px 7px 15px;
+  border-radius: 100px;
+  border: 1px solid;
+  box-shadow: none;
+
+  &:hover,
+  &:focus {
+    background: $text;
+    border: 1px solid $text;
+    color: $bg;
+    box-shadow: none;
+  }
+
+  @include mq($sm) {
+    padding: 8px 15px 9px 15px;
+  }
+}

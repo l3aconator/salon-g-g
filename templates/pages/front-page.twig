@@ -1,0 +1,100 @@
+{% extends "layouts/base.twig" %}
+
+{% block pageBody %}
+
+<article class="single single--page">
+
+  {% if post.hero %}
+    {% embed "components/banner.twig" with { extra_classes: 'home__banner' } %}
+      {% block bannerContent %}
+        {% if post.hero_headline %}
+        <div class="banner__headline"><p>{{ post.hero_headline }}</p></div>
+        {% endif %}
+        <p class="scroll-trigger">
+          Scroll Down
+          <span class="icon">{% include "includes/icons/chevron-down.svg" %}</span>
+        </p>
+      {% endblock %}
+    {% endembed %}
+  {% endif %}
+
+  {% include "components/cart-flag.twig" %}
+
+  {% if post.callout_blocks %}
+    <section class="site-wrapper">
+      <div class="callout__wrapper">
+        {% for callout in post.callout_blocks %}
+          <article class="callout__el">
+            <a href="{{ callout.link.link }}" class="callout__link" style="background-image: url({{ callout.image.src('homepage_callout') }})">
+              <span class="btn callout__overlay-text">{{ callout.title }}</span>
+            </a>
+          </article>
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
+
+  {% if post.carousel_items %}
+    <section class="home__carousel">
+      <h2 class="site-wrapper sectionheader">{{ post.feature_carousel.title | default('Featured') }}</h2>
+      {% include "components/carousel.twig" with { items: post.carousel_items, options: { loop: true } } %}
+    </section>
+  {% endif %}
+
+</article>
+
+{% if post.subscribe_block %}
+<section class="homepage-block subscribe-block input--dark">
+  <div class="site-wrapper site-wrapper--xsmall">
+    <p class="subscribe-block__text">{{ post.subscribe_block.text }}</p>
+
+    <!-- Begin Mailchimp Signup Form -->
+    <div id="mc_embed_signup">
+      <form action="https://salondesign.us20.list-manage.com/subscribe/post?u=73a79ff3adea80c9c6606184f&amp;id=a0088ce2d3" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate subscribe-form" target="_blank" novalidate>
+        {# <div class="mc-field-group">
+          <label for="mce-FNAME">First Name </label>
+          <input type="text" value="" name="FNAME" class="" id="mce-FNAME">
+        </div>
+        <div class="mc-field-group">
+          <label for="mce-LNAME">Last Name </label>
+          <input type="text" value="" name="LNAME" class="" id="mce-LNAME">
+        </div> #}
+        <div class="mc-field-group">
+          <input type="email" value="" name="EMAIL" placeholder="Your Email" class="subscribe-form__input" id="mce-EMAIL">
+        </div>
+        <div id="mce-responses" class="clear">
+          <div class="response" id="mce-error-response" style="display:none"></div>
+          <div class="response" id="mce-success-response" style="display:none"></div>
+        </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+        <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_73a79ff3adea80c9c6606184f_a0088ce2d3" tabindex="-1" value=""></div>
+        <button class="subscribe-form__submit" type="submit">Subscribe</button>
+    </form>
+    </div>
+    <!--End mc_embed_signup-->
+
+    {% if post.subscribe_block.link %}
+    <a class="subscribe-block__link" href="{{ post.subscribe_block.link.url }}" target="{{ post.subscribe_block.link.target }}">{{ post.subscribe_block.link.title }}</a>
+    {% endif %}
+
+
+  </div>
+</section>
+{% endif %}
+
+{% if post.contact_block %}
+<section class="homepage-block site-wrapper site-wrapper--xsmall">
+  <h3 class="sectionheader">{{ post.contact_block.title }}</h3>
+  <p class="contact-block__text">{{ post.contact_block.content }}</p>
+
+  <button class="contact-block__btn btn js-modal-trigger">{{ post.contact_block.button_text | default('Contact Us') }}</button>
+
+  {% embed "components/modal.twig" with { title: post.contact_block.modal_title } %}
+    {% block modalContent %}
+      {{ post.contact_block.form }}
+    {% endblock %}
+  {% endembed %}
+</section>
+{% endif %}
+
+
+{% endblock %}

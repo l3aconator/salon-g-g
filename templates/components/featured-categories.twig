@@ -1,0 +1,11 @@
+<div class="category-grid">
+  {% for _block in blocks %}
+    <a class="category-grid__block" href="{{ _block.link }}">
+      <div class="category-grid__image" style="background-image: url({{ _block.image }})"></div>
+      <div class="cateogry-grid__wrap">
+        <h4 class="category-grid__title">{{ _block.title }}</h4>
+        <span class="category-grid__cta cta-link">Shop now <span class="cta-link__arrow">&rarr;</span></span>
+      </div>
+    </a>
+  {% endfor %}
+</div>

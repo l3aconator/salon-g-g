@@ -1,0 +1,407 @@
+{
+  "key": "group_5f62af74c8dbc",
+  "title": "Homepage",
+  "fields": [
+    {
+      "key": "field_60ac48750333d",
+      "label": "Hero Headline",
+      "name": "hero_headline",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": "",
+      "maxlength": ""
+    },
+    {
+      "key": "field_5f62b07d96d56",
+      "label": "Callout Blocks",
+      "name": "callout_blocks",
+      "type": "repeater",
+      "instructions": "Add any number of callouts which will be featured as blocks at the top of the homepage.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "collapsed": "",
+      "min": 0,
+      "max": 6,
+      "layout": "block",
+      "button_label": "Add block",
+      "sub_fields": [
+        {
+          "key": "field_5f62b15196d57",
+          "label": "Title",
+          "name": "title",
+          "type": "text",
+          "instructions": "The text that will appear as the button overlaid on the callout.",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": "",
+          "maxlength": ""
+        },
+        {
+          "key": "field_5f62b19d96d58",
+          "label": "Link",
+          "name": "link",
+          "type": "relationship",
+          "instructions": "The content that this callout will link to.",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "post_type": ["page", "designer", "exhibition", "product"],
+          "taxonomy": "",
+          "filters": ["search", "post_type"],
+          "elements": "",
+          "min": "",
+          "max": 1,
+          "return_format": "object"
+        },
+        {
+          "key": "field_5f62ba00273d8",
+          "label": "Override Image",
+          "name": "image",
+          "type": "image",
+          "instructions": "Use this field to set an image for this callout. If none is provided, the theme will try to get the featured image from the selected post that this is linking to.",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "return_format": "array",
+          "preview_size": "medium",
+          "library": "all",
+          "min_width": "",
+          "min_height": "",
+          "min_size": "",
+          "max_width": "",
+          "max_height": "",
+          "max_size": "",
+          "mime_types": ""
+        }
+      ]
+    },
+    {
+      "key": "field_5f62cafb8bb13",
+      "label": "Feature Carousel",
+      "name": "feature_carousel",
+      "type": "group",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "block",
+      "sub_fields": [
+        {
+          "key": "field_5f62cb2b8bb14",
+          "label": "Title",
+          "name": "title",
+          "type": "text",
+          "instructions": "A title that will appear above the carousel.",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": "",
+          "maxlength": ""
+        },
+        {
+          "key": "field_5f62bac07b965",
+          "label": "Carousel Items",
+          "name": "items",
+          "type": "repeater",
+          "instructions": "Add any number of featured items to display in a carousel.",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "collapsed": "",
+          "min": 0,
+          "max": 0,
+          "layout": "table",
+          "button_label": "Add feature",
+          "sub_fields": [
+            {
+              "key": "field_5f62bac07b967",
+              "label": "Link",
+              "name": "link",
+              "type": "relationship",
+              "instructions": "The content that this callout will link to.",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "post_type": ["page", "designer", "exhibition", "product"],
+              "taxonomy": "",
+              "filters": ["search", "post_type"],
+              "elements": "",
+              "min": "",
+              "max": 1,
+              "return_format": "object"
+            },
+            {
+              "key": "field_5f62bac07b968",
+              "label": "Override Image",
+              "name": "image",
+              "type": "image",
+              "instructions": "Use this field to set an image for this callout. If none is provided, the theme will try to get the wide image from the selected post. Note that this image should be <code>1200px &times;  620px</code>.",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "return_format": "array",
+              "preview_size": "medium",
+              "library": "all",
+              "min_width": "",
+              "min_height": "",
+              "min_size": "",
+              "max_width": "",
+              "max_height": "",
+              "max_size": "",
+              "mime_types": ""
+            },
+            {
+              "key": "field_5f62d626a5824",
+              "label": "Override Description",
+              "name": "description",
+              "type": "textarea",
+              "instructions": "Add an excerpt for this content. If none is provided, an excerpt will attempt to be created from the linked content.",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "placeholder": "",
+              "maxlength": "",
+              "rows": 2,
+              "new_lines": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "field_5f768627a8e20",
+      "label": "Subscribe Block",
+      "name": "subscribe_block",
+      "type": "group",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "block",
+      "sub_fields": [
+        {
+          "key": "field_5f768635a8e21",
+          "label": "Text",
+          "name": "text",
+          "type": "textarea",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "placeholder": "",
+          "maxlength": "",
+          "rows": 4,
+          "new_lines": ""
+        },
+        {
+          "key": "field_60dbc365d34a7",
+          "label": "Link",
+          "name": "link",
+          "type": "link",
+          "instructions": "Add an optional link that will appear underneath the subscribe input form.",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "return_format": "array"
+        }
+      ]
+    },
+    {
+      "key": "field_5f768643a8e22",
+      "label": "Contact Block",
+      "name": "contact_block",
+      "type": "group",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "block",
+      "sub_fields": [
+        {
+          "key": "field_5f76864ea8e23",
+          "label": "Title",
+          "name": "title",
+          "type": "text",
+          "instructions": "The headline for this block.",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": "",
+          "maxlength": ""
+        },
+        {
+          "key": "field_5f768662a8e24",
+          "label": "Content",
+          "name": "content",
+          "type": "textarea",
+          "instructions": "Add a paragraph of copy to encourage visitors to submit a contact form.",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "placeholder": "",
+          "maxlength": "",
+          "rows": 4,
+          "new_lines": ""
+        },
+        {
+          "key": "field_5f7686e1a8e25",
+          "label": "Button Text",
+          "name": "button_text",
+          "type": "text",
+          "instructions": "The text that will appear on the button that will open the form modal.",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "Contact Us",
+          "placeholder": "Contact Us",
+          "prepend": "",
+          "append": "",
+          "maxlength": ""
+        },
+        {
+          "key": "field_5f76876089510",
+          "label": "Modal Title",
+          "name": "modal_title",
+          "type": "text",
+          "instructions": "The title that will appear above the form in the modal.",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": "",
+          "maxlength": ""
+        },
+        {
+          "key": "field_5f76872756ee2",
+          "label": "Form",
+          "name": "form",
+          "type": "acf_cf7",
+          "instructions": "Choose the form that will be rendered in the modal triggered by the button in this block.",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          }
+        }
+      ]
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "page_type",
+        "operator": "==",
+        "value": "front_page"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "seamless",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": ["the_content"],
+  "active": true,
+  "description": "",
+  "modified": 1625015167
+}

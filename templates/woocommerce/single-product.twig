@@ -1,0 +1,55 @@
+{% extends 'layouts/base.twig' %}
+
+{% set hasImage = post.thumbnail or post.product_gallery  %}
+
+{% block pageBody %}
+
+{{ fn('timber_set_product', post) }}
+
+<div class="main-frame">
+  {% include "components/cart-flag.twig" %}
+
+  {% do action('woocommerce_before_single_product') %}
+
+  <article itemscope itemtype="http://schema.org/Product" class="single single-product-details {{ post.class }} site-wrapper">
+
+    <div class="single__main">
+      {% if hasImage %}<div class="single__grid">{% endif %}
+
+      {% if hasImage %}
+      <div class="single__col single__figure">
+        {% include "components/product-gallery.twig" %}
+      </div>
+      {% endif %}
+
+      <div class="single__col content">
+        <h1 class="product__title">{{ post.title }}</h1>
+
+        {% if post.designer %}
+        <p>Designer: <a href="{{ post.designer.link }}">{{ post.designer.title }}</a></p>
+        {% endif %}
+
+        {% do action('woocommerce_before_single_product_summary') %}
+
+        <div class="content">{{ post.content }}</div>
+
+        <div class="summary entry-summary">
+          {% do action('woocommerce_single_product_summary') %}
+        </div>
+
+        {% do action('woocommerce_after_single_product_summary') %}
+      </div>
+
+      {% if hasImage %}</div>{% endif %}
+
+    </div>
+
+    <meta itemprop="url" content="{{ post.link }}" />
+
+  </article>
+
+  {% do action('woocommerce_after_single_product') %}
+
+</div>
+
+{% endblock  %}

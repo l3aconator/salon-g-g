@@ -1,0 +1,3 @@
+@mixin body-text($color: inherit) {
+  @include default-text($color, $fw-light, $lh-base);
+}

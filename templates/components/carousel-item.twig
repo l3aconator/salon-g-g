@@ -1,0 +1,55 @@
+{% set image = item.override_image ?: item.carousel_image %}
+{% set description = item.override_description ?: item.preview %}
+{% set post_type = item.post_type %}
+{% set button_text =
+  post_type == 'designer' ? 'View Work' :
+  post_type == 'product' ? 'View Product' :
+  post_type == 'exhibition' ? 'View Gallery' :
+  'Learn More' %}
+
+<article class="carousel__slide{{ image is empty ? ' carousel__slide--noimg' : '' }}" {{ clone ? '' : 'data-slide' }}>
+  {% if image %}
+    <div class="slide__image">
+      {% if item.link %}
+        {% include "components/overlay-link.twig" with {
+          href: item.link,
+          imgSrc: image.src('carousel_image'),
+          imgAlt: image.alt,
+          buttonText: button_text
+        } %}
+      {% else %}
+        {% if image.src is empty %}
+        {% set image = Image(image) %}
+        {% endif %}
+
+        <img src="{{ image.src('carousel_image') }}" alt="{{ image.alt }}">
+      {% endif %}
+    </div>
+  {% endif %}
+
+  <div class="slide__content">
+
+    {% if image and image.caption %}
+    <p class="slide__caption">{{ image.caption }}</p>
+    {% endif %}
+
+    {% if item.title %}
+    <h3 class="slide__title">{{ item.title }}</h3>
+    {% endif %}
+
+    {% if post_type == 'product' %}
+    <p class="slide__price">${{ item.price }}</p>
+    {% endif %}
+
+    {% if item.override_description or (description and post_type != 'product') %}
+    <p class="slide__description">{{ description }}</p>
+    {% endif %}
+
+    {% if image is empty %}
+    <br>
+    <a href="{{ item.link }}" class="btn btn--inline">{{ button_text }}</a>
+    {% endif %}
+
+  </div>
+
+</article>

@@ -1,0 +1,160 @@
+{
+  "key": "group_5f6c0fde35919",
+  "title": "Event Details",
+  "fields": [
+    {
+      "key": "field_5f6ce4c49d4fc",
+      "label": "Gallery Name",
+      "name": "gallery_name",
+      "type": "text",
+      "instructions": "An optional gallery name. This will appear at the top of the description text.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": "",
+      "maxlength": ""
+    },
+    {
+      "key": "field_5f6c11d734b67",
+      "label": "Related Designer",
+      "name": "related_designer",
+      "type": "relationship",
+      "instructions": "The designer of this gallery.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "post_type": ["designer"],
+      "taxonomy": "",
+      "filters": ["search"],
+      "elements": "",
+      "min": "",
+      "max": "",
+      "return_format": "object"
+    },
+    {
+      "key": "field_5f6c1020a632d",
+      "label": "Opening Day",
+      "name": "opening_day",
+      "type": "date_picker",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "display_format": "F j, Y",
+      "return_format": "F j, Y",
+      "first_day": 1
+    },
+    {
+      "key": "field_5f6c103ca632e",
+      "label": "Closing Day",
+      "name": "closing_day",
+      "type": "date_picker",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "display_format": "F j, Y",
+      "return_format": "F j, Y",
+      "first_day": 1
+    },
+    {
+      "key": "field_5f6c1050a632f",
+      "label": "Event Details",
+      "name": "event_details",
+      "type": "textarea",
+      "instructions": "A space to add gallery hours or any other relevant information.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "placeholder": "",
+      "maxlength": "",
+      "rows": 6,
+      "new_lines": "br"
+    },
+    {
+      "key": "field_5f6c0ff7a632c",
+      "label": "Address",
+      "name": "exhibition_address",
+      "type": "textarea",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "placeholder": "",
+      "maxlength": "",
+      "rows": 4,
+      "new_lines": "br"
+    },
+    {
+      "key": "field_5f6c0fe5a632b",
+      "label": "Image",
+      "name": "details_bg_image",
+      "type": "image",
+      "instructions": "You can add a static image here to background the event details. For example, a screenshot of a map of the gallery's address.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "array",
+      "preview_size": "medium",
+      "library": "all",
+      "min_width": "",
+      "min_height": "",
+      "min_size": "",
+      "max_width": "",
+      "max_height": "",
+      "max_size": "",
+      "mime_types": ""
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "exhibition"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "acf_after_title",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "modified": 1602792053
+}

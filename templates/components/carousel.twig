@@ -1,0 +1,95 @@
+{% set length = items|length %}
+{% set template_options = ['components/carousel-item.twig'] %}
+
+{% if template %}
+{% set template_options = ['components/carousel-item-' ~ template ~ '.twig']|merge(template_options) %}
+{% endif %}
+
+{% if length == 1 %}
+  <div class="site-wrapper site-wrapper--ungrid">
+    {% include template_options with {item: items[0]} %}
+  </div>
+{% elseif options.size == 'half' and length == 2 %}
+  <div class="site-wrapper static-carousel--half">
+    <div class="static-carousel__slides">
+    {% for item in items %}
+      {% include template_options with {item: item} %}
+    {% endfor %}
+    </div>
+  </div>
+
+
+{% elseif options.size == 'quarter' and length < 5 %}
+
+  <div class="site-wrapper static-carousel--quarter">
+    <div class="static-carousel__slides">
+    {% for item in items %}
+      {% include template_options with {item: item} %}
+    {% endfor %}
+    </div>
+  </div>
+
+{% elseif length > 1 %}
+
+  {% set first = items[0] %}
+  {% set last = items|last %}
+  {% set second = length > 2 ? items[1] : last %}
+  {% set penultimate = length > 2 ? items[length - 2] : first %}
+
+  {% set start_position = options.size == 'quarter' ? '-75' : options.size == 'half' ? '-100' : '-200' %}
+
+  <div
+    class="carousel__wrapper js-carousel"
+    {{ options.loop ? ' data-carousel-loop="true"' : '' }}
+    {{ options.size ? ' data-carousel-size="' ~ options.size ~ '"' : '' }}
+  >
+    <div class="carousel__viewport">
+      <div class="carousel__track" data-track style="{{ options.loop ? 'transform: translate3d(' ~ start_position ~ '%, 0, 0)' : '' }}">
+
+        {% if options.loop %}
+        {# Clone #}
+        {% if options.size == 'half' %}
+          {% set clone_item = length > 4 ? items[length - 3] : length > 3 ? second : first %}
+          <div class="carousel-clone">
+          {% include template_options with {item: clone_item, clone: true} %}
+          </div>
+        {% elseif options.size == 'quarter' %}
+          {% include template_options with {item: items[length - 3]} %}
+        {% endif %}
+
+        {% include template_options with {item: penultimate} %}
+        {% include template_options with {item: last} %}
+        {% endif %}
+
+        {% for item in items %}
+          {% include template_options with {item: item} %}
+        {% endfor %}
+
+        {% if options.loop %}
+        {# Clone #}
+        {% include template_options with {item: first} %}
+        {% include template_options with {item: second} %}
+        {% if options.size == 'quarter' %}
+          {% include template_options with {item: items[2]} %}
+          {% include template_options with {item: items[3]} %}
+        {% endif %}
+        {% endif %}
+
+      </div>
+    </div>
+
+    <button class="carousel__control carousel__control--prev" data-control="prev">
+      <span>Previous</span>
+      {% include "includes/icons/chevron-left.svg" %}
+    </button>
+
+    <button class="carousel__control carousel__control--next" data-control="next">
+      <span>Next</span>
+      {% include "includes/icons/chevron-right.svg" %}
+    </button>
+  </div>
+
+{% endif %}
+
+
+

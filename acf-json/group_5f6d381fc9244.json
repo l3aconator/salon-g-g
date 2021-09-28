@@ -1,0 +1,136 @@
+{
+  "key": "group_5f6d381fc9244",
+  "title": "Photo Grid",
+  "fields": [
+    {
+      "key": "field_5f584f1c3f7c7",
+      "label": "Photo Grid",
+      "name": "photo_grid",
+      "type": "repeater",
+      "instructions": "A grid of featured images. The blocks in the grid can either be a static image featuring the designer's work or a product. Images can be any size, but will scale proportionately to fit their grid space. The grid will follow the below pattern, with the numbers referring to the index of this list.\r\n\r\n<pre>\r\n         ________\r\n        |        |\r\n _____  |   2    |\r\n|  1  | |        |\r\n|_____| |________|\r\n ________   _____\r\n|        | |  4  |\r\n|   3    | |_____|\r\n|        |\r\n|________|\r\n</pre>",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "collapsed": "",
+      "min": 0,
+      "max": 0,
+      "layout": "row",
+      "button_label": "Add block",
+      "sub_fields": [
+        {
+          "key": "field_5f584f303f7c8",
+          "label": "Type",
+          "name": "photo_type",
+          "type": "radio",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "choices": {
+            "Photo": "Photo",
+            "Product": "Product"
+          },
+          "allow_null": 0,
+          "other_choice": 0,
+          "default_value": "",
+          "layout": "horizontal",
+          "return_format": "value",
+          "save_other_choice": 0
+        },
+        {
+          "key": "field_5f584f533f7c9",
+          "label": "Photo",
+          "name": "photo",
+          "type": "image",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": [
+            [
+              {
+                "field": "field_5f584f303f7c8",
+                "operator": "==",
+                "value": "Photo"
+              }
+            ]
+          ],
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "return_format": "array",
+          "preview_size": "medium",
+          "library": "all",
+          "min_width": "",
+          "min_height": "",
+          "min_size": "",
+          "max_width": "",
+          "max_height": "",
+          "max_size": "",
+          "mime_types": ""
+        },
+        {
+          "key": "field_5f5850d63f7ca",
+          "label": "Product",
+          "name": "product",
+          "type": "post_object",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": [
+            [
+              {
+                "field": "field_5f584f303f7c8",
+                "operator": "==",
+                "value": "Product"
+              }
+            ]
+          ],
+          "wrapper": {
+            "width": "24",
+            "class": "",
+            "id": ""
+          },
+          "post_type": ["product"],
+          "taxonomy": "",
+          "allow_null": 0,
+          "multiple": 0,
+          "return_format": "object",
+          "ui": 1
+        }
+      ]
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "exhibition"
+      }
+    ],
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "acf/photo-grid"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "modified": 1623896982
+}

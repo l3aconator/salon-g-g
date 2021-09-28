@@ -1,0 +1,19 @@
+@import '../../static/scss/variables';
+@import '../../static/scss/functions/_functions';
+@import '../../static/scss/mixins/_mixins';
+
+@import './TextColumns/styles.scss';
+
+.wp-block-columns {
+  @include ungrid();
+  margin-top: $spacing;
+  margin-bottom: $spacing;
+
+  @include mq($md) {
+    @include flex-between();
+  }
+
+  .wp-block-column {
+    @include two-up;
+  }
+}

@@ -1,0 +1,267 @@
+{
+  "key": "group_5f6957ce7e5d5",
+  "title": "Shop Page",
+  "fields": [
+    {
+      "key": "field_5f695dea3f809",
+      "label": "Featured Banner",
+      "name": "featured_banner",
+      "type": "group",
+      "instructions": "Content that will appear in the banner at the top of the page.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "block",
+      "sub_fields": [
+        {
+          "key": "field_5f695e193f80a",
+          "label": "Featured Category",
+          "name": "category",
+          "type": "taxonomy",
+          "instructions": "Select a category to feature.",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "taxonomy": "product_cat",
+          "field_type": "select",
+          "allow_null": 0,
+          "add_term": 0,
+          "save_terms": 0,
+          "load_terms": 0,
+          "return_format": "id",
+          "multiple": 0
+        },
+        {
+          "key": "field_5f695e353f80b",
+          "label": "Description",
+          "name": "description",
+          "type": "textarea",
+          "instructions": "Add some promotional text for this category.",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "placeholder": "",
+          "maxlength": "",
+          "rows": 2,
+          "new_lines": ""
+        },
+        {
+          "key": "field_5f696293fe56b",
+          "label": "Image",
+          "name": "image",
+          "type": "image",
+          "instructions": "Upload a transparent PNG image here, which will be displayed offset in the header banner. This image should be generally square.",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "return_format": "array",
+          "preview_size": "medium",
+          "library": "all",
+          "min_width": "",
+          "min_height": "",
+          "min_size": "",
+          "max_width": "",
+          "max_height": "",
+          "max_size": "",
+          "mime_types": ""
+        }
+      ]
+    },
+    {
+      "key": "field_5f696654395cf",
+      "label": "Product Carousel",
+      "name": "product_carousel_1",
+      "type": "group",
+      "instructions": "A carousel of up to six products filtered by the selected tag. This carousel will appear below the page banner and above the featured categories grid. This carousel will pull at most the latest six products with the tag.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "block",
+      "sub_fields": [
+        {
+          "key": "field_5f696691395d0",
+          "label": "Title",
+          "name": "title",
+          "type": "text",
+          "instructions": "A title that will appear above the carousel.",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": "",
+          "maxlength": ""
+        },
+        {
+          "key": "field_5f6961066d68e",
+          "label": "Tag",
+          "name": "tag",
+          "type": "taxonomy",
+          "instructions": "Choose the tag to display products from.",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "taxonomy": "product_tag",
+          "field_type": "select",
+          "allow_null": 1,
+          "add_term": 0,
+          "save_terms": 0,
+          "load_terms": 0,
+          "return_format": "",
+          "multiple": 0
+        }
+      ]
+    },
+    {
+      "key": "field_5f6aceb9f4e39",
+      "label": "Featured Categories",
+      "name": "featured_categories",
+      "type": "group",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "block",
+      "sub_fields": [
+        {
+          "key": "field_5f6aced9f4e3a",
+          "label": "Title",
+          "name": "title",
+          "type": "text",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": "",
+          "maxlength": ""
+        },
+        {
+          "key": "field_5f69618a6d691",
+          "label": "Categories",
+          "name": "categories",
+          "type": "repeater",
+          "instructions": "Choose up to four categories to feature.",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "collapsed": "",
+          "min": 0,
+          "max": 4,
+          "layout": "table",
+          "button_label": "Add category",
+          "sub_fields": [
+            {
+              "key": "field_5f696702395d4",
+              "label": "Category",
+              "name": "category",
+              "type": "taxonomy",
+              "instructions": "The category to link to.",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "taxonomy": "product_cat",
+              "field_type": "select",
+              "allow_null": 0,
+              "add_term": 0,
+              "save_terms": 0,
+              "load_terms": 0,
+              "return_format": "id",
+              "multiple": 0
+            },
+            {
+              "key": "field_5f696728395d5",
+              "label": "Image",
+              "name": "image",
+              "type": "image",
+              "instructions": "<p>An image to feature in this category's grid block. This image will fill up the block's space. The text for the block will appear in the upper right corner, so it is recommended to have that space in the image empty.</p>\r\n\r\n<p>If this is in the first or fourth space, the image should be around <code>860px &times; 440px</code>. If it is in the second or third space, the image should be around <code>860px &times; 220px</code>.",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "return_format": "array",
+              "preview_size": "medium",
+              "library": "all",
+              "min_width": "",
+              "min_height": "",
+              "min_size": "",
+              "max_width": "",
+              "max_height": "",
+              "max_size": "",
+              "mime_types": ""
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "page_type",
+        "operator": "==",
+        "value": "shop_page"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "seamless",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": ["the_content"],
+  "active": true,
+  "description": "",
+  "modified": 1624322847
+}

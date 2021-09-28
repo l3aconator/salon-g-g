@@ -1,0 +1,60 @@
+{% extends 'layouts/base.twig' %}
+
+{% block pageBody %}
+<div class="main-frame">
+  {% include "components/cart-flag.twig" %}
+
+  <div class="site-wrapper shop-main">
+
+    <header class="shop-archive__header">
+      {% include "components/archive-controls.twig" with {
+        shop: true,
+        search_type: 'product',
+        active_filter: title,
+        filters: [
+          {
+            label: 'Category',
+            options: categories
+          },
+          {
+            label: 'Designers',
+            options: designers
+          }
+        ]
+      } %}
+
+      {% if query %}
+        <h1 class="sectionheader">Search results for: <span class="archive__query">{{ query }}</span></h1>
+      {% elseif title %}
+        <h1 class="sectionheader">{{ title }}</h1>
+      {% endif %}
+    </header>
+
+    {% do action('woocommerce_before_main_content') %}
+    {% do action('woocommerce_before_shop_loop') %}
+
+    {% if products and products|length %}
+      <div class="archive-loop">
+        {% for tease in products %}
+          {% include ["components/tease-product.twig"] with { tease: tease } %}
+        {% endfor %}
+      </div>
+
+      {% if pagination %}
+        {% include "components/pagination.twig" with {pagination: pagination} %}
+      {% endif %}
+
+    {% else %}
+      {% if type == 'product_cat' %}
+        <p>There are no products{{ in_stock_only ? ' in stock' : '' }} in this category.</p>
+      {% else %}
+        <p>No products.</p>
+      {% endif %}
+    {% endif %}
+
+    {% do action('woocommerce_after_shop_loop') %}
+    {% do action('woocommerce_after_main_content') %}
+  </div>
+</div>
+
+{% endblock  %}

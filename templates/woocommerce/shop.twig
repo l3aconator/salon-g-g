@@ -1,0 +1,74 @@
+{% extends 'layouts/base.twig' %}
+
+{% block pageBody %}
+
+<div class="shop-banner">
+  <div class="site-wrapper">
+    <div class="shop-banner__wrapper{{ post.banner_image ? ' shop-banner__wrapper--half' : ''}}">
+      {% if post.banner_image %}
+        <div class="shop-banner__image">
+          <img src="{{ post.banner_image.src }}" alt="{{ post.banner_image.alt }}">
+        </div>
+      {% endif %}
+
+      <h1 class="shop-header">{{ post.banner_title }}</h1>
+
+      {% if post.banner_description %}
+      <p class="shop-banner__description">{{ post.banner_description }}</p>
+      {% endif %}
+
+      {% if post.banner_link %}
+      <a class="shop-banner__link cta-link" href="{{ post.banner_link }}">Shop {{ post.banner_term }} <span class="cta-link__arrow">&rarr;</span></a>
+      {% endif %}
+
+    </div>
+  </div>
+</div>
+
+<div class="main-frame main-frame--shop">
+  {% include "components/cart-flag.twig" %}
+
+  <div class="shop-main">
+
+    <div class="site-wrapper">
+      {% include "components/archive-controls.twig" with {
+        shop: true,
+        hide_instock: true,
+        search_type: 'product',
+        active_filter: title,
+        filters: [
+          {
+            label: 'Category',
+            options: categories
+          },
+          {
+            label: 'Designers',
+            options: designers
+          }
+        ]
+      } %}
+    </div>
+
+    {% do action('woocommerce_before_main_content') %}
+    {% do action('woocommerce_before_shop_loop') %}
+
+    {% set carousel_1 = post.carousel_1 %}
+    {% if carousel_1 %}
+      {% include "components/shop-carousel.twig" with { carousel: carousel_1 } %}
+    {% endif %}
+
+    {% set featured_categories = post.featured_categories %}
+
+    {% if featured_categories %}
+    <section class="shop-section">
+      <h2 class="sectionheader sectionheader--shop site-wrapper">{{ featured_categories.title }}</h2>
+      {% include "components/featured-categories.twig" with { blocks: featured_categories.blocks } %}
+    </section>
+    {% endif %}
+
+    {% do action('woocommerce_after_shop_loop') %}
+    {% do action('woocommerce_after_main_content') %}
+  </div>
+</div>
+
+{% endblock  %}

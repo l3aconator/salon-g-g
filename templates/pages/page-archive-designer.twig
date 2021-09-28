@@ -1,0 +1,19 @@
+{% extends "pages/page-archive.twig" %}
+
+{% block additionalContent %}
+
+<div class="site-wrapper archive-header">
+  {% include "components/archive-controls.twig" with {
+    active_filter: term,
+    search_type: 'designer',
+    filters: types | length > 0 ? [
+      {
+        label: 'Type',
+        options: types
+      }
+    ] : []
+  } %}
+</div>
+
+{% endblock %}
+

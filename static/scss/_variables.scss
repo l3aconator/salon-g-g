@@ -1,0 +1,102 @@
+// ---------------------------------------------------------------------------
+// COLORS
+// ---------------------------------------------------------------------------
+
+$c-black: #000000;
+$c-gray: #777777;
+$c-gray-e: #e4e6ea;
+$c-gray-f: #f8f8f8;
+$c-white: #ffffff;
+$c-yellow: #ffff00;
+$c-dark-blue: #1e2c4f;
+$c-blue: #274f6e;
+$c-purple: #625f6e;
+$c-light-purple: #778097;
+$c-gray-purple: #e9edf3;
+$c-red: #ff0000;
+
+$c-overlay: rgba($c-black, 0.5);
+$c-text: $c-dark-blue;
+
+// ---------------------------------------------------------------------------
+// Colors to toggle for accessibility
+// ---------------------------------------------------------------------------
+
+:root {
+  --primary: $c-black;
+}
+
+// ---------------------------------------------------------------------------
+// FONTS
+// ---------------------------------------------------------------------------
+
+// Font size
+// -----------
+
+$fs-xxl: 2.6rem;
+$fs-xl: 1.666666rem;
+$fs-lg: 1.333rem;
+$fs-base: 18px;
+$fs-sm: 0.8889rem;
+
+// Font family
+// -----------
+$ff-body: 'Euclid', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+  'Noto Sans', sans-serif;
+$ff-headline: 'Saol', 'Palatino Linotype', Palatino, Palladio, 'URW Palladio L', 'Book Antiqua',
+  Baskerville, 'Bookman Old Style', 'Bitstream Charter', 'Nimbus Roman No9 L', Garamond,
+  'Apple Garamond', 'ITC Garamond Narrow', 'New Century Schoolbook', 'Century Schoolbook',
+  'Century Schoolbook L', Georgia, serif;
+
+// Font weight
+// -----------
+
+$fw-light: 100;
+$fw-regular: 400;
+$fw-bold: 700;
+
+// Line height
+// -----------
+$lh-base: 1.4;
+$lh-lg: 1.55;
+
+// ---------------------------------------------------------------------------
+// LAYOUT
+// ---------------------------------------------------------------------------
+
+$max-width: 1200px;
+$max-width-small: 1000px;
+
+$mobile-logo-width: 120px;
+
+$header-offset: 152px;
+$mobile-cart-banner-height: 48px;
+
+// ---------------------------------------------------------------------------
+// SPACING
+// ---------------------------------------------------------------------------
+
+$spacing-xl: 120px;
+$spacing-lg: 4rem;
+$spacing: 2rem;
+$spacing-sm: 1rem;
+
+// ---------------------------------------------------------------------------
+// BREAKPOINTS
+// ---------------------------------------------------------------------------
+
+$xxs: 380px;
+$xs: 510px;
+$sm: 600px;
+$md: 768px;
+$lg: 960px;
+$xl: 1200px;
+$xxl: 1400px;
+$xxxl: 1800px;
+
+// ---------------------------------------------------------------------------
+// Easing
+// ---------------------------------------------------------------------------
+
+$timing: cubic-bezier(0.645, 0.045, 0.355, 1);
+$timing-butter: cubic-bezier(0.215, 0.61, 0.355, 1);

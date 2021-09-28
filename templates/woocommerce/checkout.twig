@@ -1,0 +1,19 @@
+{% set feature_photo = post.feature_photo ? Image(post.feature_photo) : false %}
+
+{% extends "layouts/base.twig" %}
+
+{% block pageBody %}
+
+<div class="main-frame single single--page">
+  <header class="site-wrapper simple-page-header">
+    <h1 class="sectionheader">{{ post.title }}</h1>
+  </header>
+  <article class="site-wrapper single__main">
+    <div class="wp-block-editor-content">
+      {{ post.content }}
+    </div>
+  </article>
+</div>
+
+{% endblock %}
+

@@ -1,0 +1,8 @@
+@mixin default-text($color: inherit, $weight: 300, $lh: 1.2) {
+  font-size: $fs-base;
+  color: $color;
+  font-family: $ff-body;
+  font-weight: $weight;
+  line-height: $lh;
+  letter-spacing: 0;
+}

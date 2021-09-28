@@ -1,0 +1,45 @@
+{
+  "key": "group_5f6c0e464814b",
+  "title": "Similar Designers",
+  "fields": [
+    {
+      "key": "field_5f4f34b93ea84",
+      "label": "Similar Designers",
+      "name": "designer_recirc",
+      "type": "relationship",
+      "instructions": "Choose up to six designers to include in a carousel at the bottom of this designer's page.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "post_type": ["designer"],
+      "taxonomy": "",
+      "filters": ["search"],
+      "elements": "",
+      "min": "",
+      "max": 6,
+      "return_format": "object"
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "designer"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "seamless",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "modified": 1623897528
+}

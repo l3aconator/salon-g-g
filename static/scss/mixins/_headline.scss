@@ -1,0 +1,7 @@
+@mixin headline($color: $c-text) {
+  font-size: 4rem;
+  font-size: clamp(3rem, 8vw, 4rem);
+  font-family: $ff-headline;
+  color: $color;
+  line-height: 1;
+}

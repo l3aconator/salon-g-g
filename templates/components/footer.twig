@@ -1,0 +1,64 @@
+{% set footer = options.site_footer %}
+{% set contact = options.site_contact %}
+
+<footer class="site-footer">
+  <div class="site-wrapper site-footer__wrapper">
+    <div class="site-footer__lead">
+      <a href="{{ site.link }}" class="site-footer__logo">{% include "includes/icons/logo.svg" %}</a>
+      <div class="site-footer__description">{{ footer.description | wpautop }}</div>
+
+      <!-- Begin Mailchimp Signup Form -->
+      <div id="mc_embed_signup">
+        <form action="https://salondesign.us20.list-manage.com/subscribe/post?u=73a79ff3adea80c9c6606184f&amp;id=a0088ce2d3" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate site-footer__subscribe" target="_blank" novalidate>
+          {# <div class="mc-field-group">
+            <label for="mce-FNAME">First Name </label>
+            <input type="text" value="" name="FNAME" class="" id="mce-FNAME">
+          </div>
+          <div class="mc-field-group">
+            <label for="mce-LNAME">Last Name </label>
+            <input type="text" value="" name="LNAME" class="" id="mce-LNAME">
+          </div> #}
+          <div class="mc-field-group">
+            <input type="email" value="" name="EMAIL" placeholder="Your Email" class="site-footer__subscribe-input" id="mce-EMAIL">
+          </div>
+          <div id="mce-responses" class="clear">
+            <div class="response" id="mce-error-response" style="display:none"></div>
+            <div class="response" id="mce-success-response" style="display:none"></div>
+          </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+          <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_73a79ff3adea80c9c6606184f_a0088ce2d3" tabindex="-1" value=""></div>
+          <button class="site-footer__subscribe-submit btn btn--dark-bg" type="submit">Subscribe</button>
+        </form>
+      </div>
+      <!--End mc_embed_signup-->
+    </div>
+
+    <div class="site-footer__follow">
+      <div class="site-footer__col-wrapper">
+        {% if footer.social_media and footer.social_media | length > 0 %}
+        <h4 class="colheader">Follow Us</h4>
+
+        <ul>
+          {% for item in footer.social_media %}
+            <li class="social__item"><a href="{{ item.link }}" target="_blank" rel="nofollow noreferrer" class="social__link">{{ item.site }}</a></li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </div>
+    </div>
+    <div class="site-footer__contact">
+      <div class="site-footer__col-wrapper">
+        <h4 class="colheader">Contact Us</h4>
+
+        <p>
+          {% if contact.email %}<span class="contact__item"><a href="mailto{{ contact.email }}">{{ contact.email }}</a></span>{% endif %}
+          {% if contact.phone %}<span class="contact__item"><a href="tel:{{ contact.phone }}">{{ contact.phone }}</a></span>{% endif %}
+          {% if contact.address %}<span class="contact__item">{{ contact.address }}</span>{% endif %}
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-wrapper">
+    <p class="site-footer__copyright">&copy; Copyright Salon LLC. All rights reserved.
+  </div>
+</footer>

@@ -1,0 +1,27 @@
+{% if post.product_gallery %}
+
+{% set first = post.product_gallery[0] %}
+
+<div class="js-product-gallery">
+  <figure class="product-gallery__viewport">
+    <img class="product-gallery__img product-gallery__img--active js-initial-img" src="{{ first.full }}" alt="{{ first.alt }}">
+  </figure>
+
+  <ul class="product-gallery">
+    {% for img in post.product_gallery %}
+      <li class="product-gallery__item">
+        <button class="product-gallery__thumb {{ first == img ? ' product-gallery__thumb--active' : '' }}" type="button" data-src="{{ img.full }}" data-alt="{{ img.alt }}">
+          <img src="{{ img.thumbnail }}">
+        </button>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+
+{% else %}
+
+<figure>
+  <img src="{{ post.thumbnail.src('shop_single') }}" srcset="{{ post.thumbnail.srcset }}" alt="{{ post.thumbnail.alt }}">
+</figure>
+
+{% endif %}

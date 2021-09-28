@@ -1,0 +1,9 @@
+@mixin side-margins {
+  padding-left: $spacing-sm;
+  padding-right: $spacing-sm;
+
+  @include mq($md) {
+    padding-left: $spacing;
+    padding-right: $spacing;
+  }
+}

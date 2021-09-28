@@ -1,0 +1,12 @@
+.press-tease__blank {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.tease__title--press {
+  font-family: $ff-headline;
+  font-size: $fs-lg;
+  margin-bottom: $spacing-sm;
+}

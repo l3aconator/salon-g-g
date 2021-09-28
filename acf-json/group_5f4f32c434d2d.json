@@ -1,0 +1,44 @@
+{
+  "key": "group_5f4f32c434d2d",
+  "title": "Products",
+  "fields": [
+    {
+      "key": "field_5f4f32cc8f8be",
+      "label": "Designer",
+      "name": "designer",
+      "type": "post_object",
+      "instructions": "Choose the design of this product.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "post_type": ["designer"],
+      "taxonomy": "",
+      "allow_null": 0,
+      "multiple": 0,
+      "return_format": "object",
+      "ui": 1
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "product"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "modified": 1602792762
+}

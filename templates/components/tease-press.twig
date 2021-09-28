@@ -1,0 +1,32 @@
+{% if tease.press_link %}
+  {% set link = tease.press_link %}
+{% elseif tease.press_asset %}
+  {% set file = tease.meta('press_asset') %}
+  {% set link = file.url %}
+{% endif %}
+
+<article class="archive-tease press-tease">
+  {% if link and tease.thumbnail %}
+    {% include "components/overlay-link.twig" with {
+      href: link,
+      imgSrc: tease.thumbnail.src('grid_image'),
+      imgAlt: tease.thumbnail.alt,
+      buttonText: 'Read',
+      external: true
+    } %}
+  {% elseif link %}
+    <div class="press-tease__blank">
+      <div>
+        <h2 class="tease__title--press">{{ tease.title }}</h2>
+        <a href="{{ link }}" class="btn btn--inline">Read</a>
+      </div>
+    </div>
+  {% elseif tease.thumbnail %}
+    <img src="{{ tease.thumbnail.src('grid_image') }}" srcset="{{ tease.thumbnail.srcset }}" alt="{{ tease.thumbnail.alt }}">
+  {% else %}
+    <div class="press-tease__blank">
+      <h2 class="tease__title--press">{{ tease.title }}</h2>
+    </div>
+  {% endif %}
+
+</article>

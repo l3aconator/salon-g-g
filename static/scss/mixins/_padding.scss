@@ -1,0 +1,7 @@
+@mixin padding {
+  padding: 20px;
+
+  @include mq($md) {
+    padding: 40px;
+  }
+}

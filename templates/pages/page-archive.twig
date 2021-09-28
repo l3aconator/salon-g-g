@@ -1,0 +1,21 @@
+{% extends "pages/single.twig" %}
+
+{% block archiveContent %}
+
+<div class="site-wrapper archive-wrap">
+
+  {% if posts and posts.found_posts > 0 %}
+    <div class="archive-loop">
+      {% for tease in posts %}
+        {% include ['components/tease-' ~ post_type ~ '.twig', 'components/tease.twig'] with {tease: tease} %}
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="">
+      <p>{{ no_posts | default('No posts.') }}</p>
+    </div>
+  {% endif %}
+</div>
+
+{% endblock %}
+

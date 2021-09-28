@@ -1,0 +1,5 @@
+<div class="banner {{ post.hero ? 'banner--img' : '' }} {{ extra_classes }}" style="{{ post.hero ? 'background-image: url(' ~ post.hero.src('hero') ~ ')' }}">
+  {% block bannerContent %}
+  <h1 class="site-wrapper single__title">{{ post.title }}</h1>
+  {% endblock %}
+</div>

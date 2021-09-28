@@ -1,0 +1,12 @@
+<a href="{{ href }}" class="overlay__link {{ imgSrc is empty and showOverlayIfNoImage ? 'overlay__link--show-overlay' : '' }}"{{ external ? ' target="_blank" ref="nofollow noreferrer"' : ''}}>
+  {% if imgSrc %}
+    <img src="{{ imgSrc }}" alt="{{ imgAlt }}">
+  {% elseif placeholder %}
+    <div class="tease__image-placeholder"></div>
+  {% endif %}
+
+  <div class="overlay-hover-block"{{ hoverImg ? ' style="background-image: url(' ~ hoverImg ~ ')"' : '' }}>
+    {% if overlayText %}<p class="overlay-hover__text">{{ overlayText }}{% endif %}
+    <p class="btn btn--white">{{ buttonText }}</p>
+  </div>
+</a>

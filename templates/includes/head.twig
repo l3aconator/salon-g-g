@@ -1,0 +1,10 @@
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>{% if wp_title %}{{ wp_title }} | {{ site.name }}{% else %}{{ site.name }}{% endif %}</title>
+
+  {{ function('wp_head') }}
+
+  <link rel="stylesheet" href="{{ theme.link }}/dist/app.css?v={{ theme_version }}" type="text/css" media="all" />
+  <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/73a79ff3adea80c9c6606184f/8c2439c5216324ea3b80bac01.js");</script>
+</head>

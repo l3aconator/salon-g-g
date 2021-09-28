@@ -1,0 +1,76 @@
+{
+  "key": "group_5f581c235bf3e",
+  "title": "Archive Page Template",
+  "fields": [
+    {
+      "key": "field_5f581fa04f394",
+      "label": "Post Type",
+      "name": "archive_post_type",
+      "type": "select",
+      "instructions": "Choose the post type for this archive page.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "press": "Press",
+        "designer": "Designers"
+      },
+      "default_value": false,
+      "allow_null": 0,
+      "multiple": 0,
+      "ui": 0,
+      "return_format": "value",
+      "ajax": 0,
+      "placeholder": ""
+    },
+    {
+      "key": "field_5f861c20ef88f",
+      "label": "Show Featured Post",
+      "name": "show_featured_post",
+      "type": "true_false",
+      "instructions": "If checked, this page will display the latest post of the selected post type in a featured treatment at the top of the page.",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_5f581fa04f394",
+            "operator": "==",
+            "value": "press"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "message": "",
+      "default_value": 1,
+      "ui": 0,
+      "ui_on_text": "",
+      "ui_off_text": ""
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "page_template",
+        "operator": "==",
+        "value": "page-template-archive.php"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "seamless",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": ["the_content"],
+  "active": true,
+  "description": "",
+  "modified": 1602624623
+}

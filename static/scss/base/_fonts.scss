@@ -1,0 +1,25 @@
+@mixin font-face($family-name, $file-name, $font-weight: normal, $font-style: normal) {
+  @font-face {
+    $font-path: '../../static/fonts/#{$file-name}';
+    font-display: auto;
+    font-family: '#{$family-name}';
+    font-style: $font-style;
+    font-weight: $font-weight;
+    src: url($font-path+'.woff') format('woff'), url($font-path+'.otf') format('opentype');
+  }
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+// Euclid
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+@include font-face('Euclid', 'EuclidCircularB-Light', $fw-light);
+@include font-face('Euclid', 'EuclidCircularB-LightItalic', $fw-light, italic);
+@include font-face('Euclid', 'EuclidCircularB-Medium', $fw-regular);
+@include font-face('Euclid', 'EuclidCircularB-Bold', $fw-bold);
+
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+// Saol
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+@include font-face('Saol', 'SaolDisplay-Medium');

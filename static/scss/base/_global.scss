@@ -1,0 +1,107 @@
+// ---------------------------------------------------------------------------
+// HTML & Body
+// ---------------------------------------------------------------------------
+
+html {
+  @include body-text($c-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-size-adjust: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+
+  &.menu--open {
+    overflow: hidden;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Defaults
+// ---------------------------------------------------------------------------
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.icon svg {
+  width: 100%;
+  display: block;
+}
+
+// ---------------------------------------------------------------------------
+// Text highlight
+// ---------------------------------------------------------------------------
+
+::selection {
+  background: $c-yellow;
+  text-shadow: none;
+}
+
+// ---------------------------------------------------------------------------
+// Skip to content link
+// ---------------------------------------------------------------------------
+
+.skip-to-content {
+  position: absolute;
+  left: -999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: -99;
+  text-decoration: none;
+  color: $c-white;
+
+  &:focus,
+  &:active {
+    background-color: $c-black;
+    top: 0;
+    left: 0;
+    width: auto;
+    height: auto;
+    overflow: auto;
+    padding: 16px 20px;
+    z-index: 99;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Lazysizes: https://github.com/aFarkas/lazysizes
+// ---------------------------------------------------------------------------
+
+.lazyload,
+.lazyloading {
+  opacity: 0;
+}
+
+.lazyloaded {
+  transition: opacity 0.3s;
+  opacity: 1;
+}
+
+// For twig template debugging
+pre {
+  font-family: monospace;
+  font-size: 12px;
+  background-color: #f8f8f8;
+}
+
+#content {
+  &:focus {
+    outline: 0;
+  }
+}

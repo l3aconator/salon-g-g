@@ -1,0 +1,82 @@
+.single__title {
+  @include headline($c-white);
+  padding-top: 180px;
+  margin-bottom: $spacing;
+}
+
+.single__main {
+  @include vertical-margins();
+
+  @include mq($md, 'max') {
+    margin-top: $spacing-sm;
+
+    .single-content--no-img {
+      padding-top: $spacing-sm;
+    }
+  }
+}
+
+.single__block {
+  @include vertical-margins();
+}
+
+.single-content--no-img {
+  max-width: 660px;
+}
+
+.single__grid {
+  @include ungrid();
+
+  @include mq($md) {
+    @include flex-between();
+  }
+}
+
+.single__col {
+  @include two-up;
+}
+
+.single__figure {
+  @include mq($md, 'max') {
+    margin-bottom: $spacing;
+  }
+}
+
+.block__split-content .split-content__body {
+  order: -1;
+}
+
+.single__figure-button {
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  position: relative;
+  cursor: pointer;
+
+  &:after {
+    @include transition(transform);
+    content: '';
+    display: block;
+    width: 80px;
+    height: 80px;
+    background-color: rgba($c-black, 0.5);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -40px;
+    margin-left: -40px;
+    background-image: url(data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2022%2028%22%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M21.625%2014.484L.875%2026.015c-.484.266-.875.031-.875-.516v-23c0-.547.391-.781.875-.516l20.75%2011.531c.484.266.484.703%200%20.969z%22%2F%3E%3C%2Fsvg%3E);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 35%;
+    transform: scale(0.9);
+  }
+
+  &:hover:after {
+    transform: scale(1);
+  }
+}

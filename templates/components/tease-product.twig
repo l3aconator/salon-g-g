@@ -1,0 +1,24 @@
+{{ fn('timber_set_product', tease) }}
+
+<article {{ fn('post_class', ['product-tease', 'archive-tease']) }}>
+  <div class="tease__image">
+    {% include "components/overlay-link.twig" with {
+      href: tease.link,
+      imgSrc: tease.post_image ? tease.post_image.src('feature_square') : false,
+      imgAlt: tease.post_image ? tease.post_image.alt : false,
+      placeholder: true,
+      buttonText: 'View Product',
+      overlayText: overlayTitle ? tease.title : false,
+      showOverlayIfNoImage: overlayTitle ? true : false
+    } %}
+  </div>
+
+  {% if not overlayTitle %}
+    {% do action('woocommerce_before_shop_loop_item_title') %}
+    <h2 class="tease__title">
+      <a class="tease__link" href="{{ tease.link }}">{{ tease.title }}</a>
+    </h2>
+    {% do action( 'woocommerce_after_shop_loop_item_title' ) %}
+    {% do action( 'woocommerce_after_shop_loop_item' ) %}
+  {% endif %}
+</article>

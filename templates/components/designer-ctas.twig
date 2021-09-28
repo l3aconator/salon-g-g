@@ -1,0 +1,16 @@
+{% set inquirySubject = options.site_designers.inquiry_email_subject | default('Designer Inquiry - {{ designerName }}') | replace({'{{ designerName }}': designer.title, '{{designerName}}' : designer.title}) %}
+{% set inquiryButtonText = options.site_designers.inquiry_button | default('Inquire About Custom Work') | replace({'{{ designerName }}': designer.title, '{{designerName}}' : designer.title}) %}
+
+<div class="designer-ctas content">
+  {% if designer.products.found_posts > 0 %}
+    <p><a class="btn" href="{{ designer.shop_link }}">Work For Sale</a></p>
+  {% endif %}
+
+  <p><a class="btn" href="mailto:{{ options.site_contact.email }}?subject={{ inquirySubject | url_encode }}">{{ inquiryButtonText }}</a></p>
+
+  {% if show_catalog %}
+  <p><a class="btn" href="mailto:{{ options.site_contact.email }}?subject={{ show_catalog ~ ' Catalogue Request' | url_encode }}">Request Show Catalogue</a></p>
+  {% else %}
+  <p><a class="btn" href="mailto:{{ options.site_contact.email }}?subject={{ 'Catalogue Request | ' ~ designer.title | url_encode }}">Request Catalogue</a></p>
+  {% endif %}
+</div>

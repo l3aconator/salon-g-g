@@ -1,0 +1,6 @@
+.overlay__link {
+  @include overlay();
+  display: block;
+  color: inherit;
+  overflow: hidden;
+}

@@ -1,0 +1,31 @@
+.featured-press {
+  @include vertical-margins;
+  display: none;
+
+  @include mq($md) {
+    @include ungrid;
+    display: flex;
+  }
+}
+
+.featured-press__content,
+.featured-press__image {
+  @include two-up;
+}
+
+.featured-press__content {
+  @include mq($md, max) {
+    margin-bottom: $spacing;
+  }
+}
+
+.featured-press__title {
+  font-family: $ff-headline;
+  font-size: $fs-xxl;
+  margin-bottom: $spacing;
+}
+
+.featured-press__preview {
+  margin-bottom: $spacing;
+  color: $c-blue;
+}

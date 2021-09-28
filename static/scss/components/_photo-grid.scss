@@ -1,0 +1,106 @@
+/** This will work for same width, differing heights option **/
+
+// .photo-grid {
+//   column-count: 2;
+//   column-gap: $spacing-sm;
+// }
+
+// .photo-grid__cell {
+//   margin-bottom: $spacing-sm;
+// }
+
+/** Aligning on the horizontal axis **/
+
+.photo-grid {
+  @include vertical-margins();
+
+  @include mq($sm) {
+    display: grid;
+    grid-template-columns: repeat(11, 1fr);
+    gap: $spacing-sm;
+    margin-top: $spacing-xl;
+  }
+}
+
+.photo-grid__cell {
+  position: relative;
+  color: inherit;
+  text-decoration: none;
+  display: block;
+
+  &.cell--small {
+    grid-column: span 5;
+  }
+  &.cell--large {
+    grid-column: span 6;
+  }
+
+  &:nth-child(4n + 1),
+  &:nth-child(4n + 2) {
+    align-self: end;
+  }
+
+  @include mq($sm, 'max') {
+    + .photo-grid__cell {
+      margin-top: $spacing-sm;
+    }
+  }
+}
+
+.photo-grid__cart-icon {
+  @include transition(opacity);
+  opacity: 1;
+  position: absolute;
+  width: 72px;
+  height: 72px;
+  background-color: rgba($c-black, 0.6);
+  z-index: 9;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    width: 60%;
+    display: block;
+  }
+
+  a.photo-grid__cell:hover & {
+    opacity: 0;
+  }
+}
+
+.photo-grid__hover {
+  @include transition(opacity);
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: $spacing;
+  background-color: rgba($c-dark-blue, 0.5);
+  text-align: center;
+
+  a.photo-grid__cell:hover & {
+    opacity: 1;
+  }
+}
+
+.photo-grid__hover-title {
+  font-size: $fs-lg;
+  color: $c-white;
+  margin-bottom: 1em;
+}
+
+.photo-grid__hover-btn {
+  display: inline-block;
+  padding: 1em 2em;
+  background-color: $c-white;
+  font-weight: $fw-regular;
+}

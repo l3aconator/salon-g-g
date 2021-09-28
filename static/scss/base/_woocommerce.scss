@@ -1,0 +1,64 @@
+/** Overrides for woocommerce **/
+
+.woocommerce #content a.button,
+.woocommerce #content button.button,
+.woocommerce #content input.button {
+  border-radius: 0;
+}
+
+.woocommerce form .form-row {
+  padding: 0;
+  margin: $spacing-sm 0;
+}
+
+.woocommerce h2 {
+  font-size: $fs-xxl;
+  font-family: $ff-headline;
+}
+
+.woocommerce #content .woocommerce-error,
+.woocommerce #content .woocommerce-info,
+.woocommerce #content .woocommerce-message {
+  border-color: $c-light-purple;
+  padding: $spacing-sm;
+
+  &:before {
+    display: none;
+  }
+
+  @include mq($xs) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: $spacing;
+    padding-right: $spacing;
+  }
+
+  .button {
+    order: 1;
+    margin-left: $spacing-sm;
+    flex: 0 0 auto;
+    @include mq($xs, 'max') {
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+}
+
+.woocommerce .shop-main .woocommerce-ordering,
+.woocommerce-page .shop-main .woocommerce-ordering,
+.woocommerce .shop-main .woocommerce-result-count,
+.woocommerce-page .shop-main .woocommerce-result-count {
+  float: none;
+}
+
+.woocommerce-privacy-policy-text {
+  margin-bottom: $spacing;
+}
+
+// Account
+// -----------
+
+.woocommerce-MyAccount-navigation li + li {
+  margin-top: 0.5rem;
+}

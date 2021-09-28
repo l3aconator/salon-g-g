@@ -1,0 +1,21 @@
+.wp-block[data-type='salon/text-columns'] {
+  max-width: 960px;
+
+  .text-columns {
+    background-color: $c-gray-purple;
+
+    @include mq() {
+      display: flex;
+    }
+
+    .rich-text {
+      padding: $spacing;
+      flex: 1;
+    }
+  }
+
+  .button-container {
+    text-align: right;
+    margin-top: 10px;
+  }
+}

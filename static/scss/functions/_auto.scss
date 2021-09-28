@@ -1,0 +1,7 @@
+@function auto($value) {
+  @if $value == 'a' {
+    @return auto;
+  } @else {
+    @return $value;
+  }
+}

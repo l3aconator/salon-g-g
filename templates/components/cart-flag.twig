@@ -1,0 +1,15 @@
+{% if cart.show_flag  %}
+<aside class="cart-flag__track">
+  <a href="{{ cart.link }}" class="cart-flag">
+    <span class="cart-flag__cart-icon icon">
+      {% include "includes/icons/cart.svg" %}
+    </span>
+    <span>{{ cart.count }} item{{ cart.count > 1 ? 's' : ''}}</span>
+    <span class="cart-flag__subtotal">${{ cart.subtotal }}</span>
+    <span class="cart-flag__chevron icon">
+      {% include "includes/icons/chevron-right.svg" %}
+    </span>
+  </a>
+</aside>
+{% endif %}
+

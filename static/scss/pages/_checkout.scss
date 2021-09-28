@@ -1,0 +1,138 @@
+.woocommerce-checkout h3 {
+  font-size: $fs-lg;
+  font-weight: $fw-regular;
+}
+
+.woocommerce-checkout .col2-set {
+  margin-bottom: $spacing;
+}
+
+.woocommerce table.shop_table {
+  th,
+  td {
+    padding: 0.5em 0;
+  }
+
+  .product-total {
+    padding-left: 0.5em;
+    text-align: right;
+  }
+
+  .cart-subtotal {
+    td,
+    th {
+      padding-top: $spacing;
+      border-top-width: 2px;
+    }
+  }
+
+  .cart-subtotal td,
+  .order-total td {
+    text-align: right;
+  }
+}
+
+.woocommerce table.shop_table td #add_payment_method #payment,
+.woocommerce-cart #payment,
+.woocommerce-checkout #payment {
+  background-color: transparent;
+  @include mq($md) {
+    width: 55%;
+  }
+}
+
+.woocommerce-page .woocommerce-checkout .col2-set {
+  @include mq($md) {
+    .col-1 {
+      width: 55%;
+    }
+    .col-2 {
+      width: 42%;
+    }
+  }
+}
+
+#add_payment_method #payment ul.payment_methods,
+.woocommerce-cart #payment ul.payment_methods,
+.woocommerce-checkout #payment ul.payment_methods {
+  padding: 0;
+  border-bottom: 0;
+
+  .payment_method_stripe > label {
+    font-size: $fs-lg;
+    font-weight: $fw-regular;
+  }
+}
+
+#add_payment_method #payment ul.payment_methods li,
+.woocommerce-cart #payment ul.payment_methods li,
+.woocommerce-checkout #payment ul.payment_methods li {
+  font-weight: $fw-light;
+  .stripe-icon {
+    display: inline-block;
+  }
+}
+
+.woocommerce-cart #payment div.payment_box,
+.woocommerce-checkout #payment div.payment_box {
+  color: inherit;
+  padding: 0;
+  margin: 0;
+  font-size: $fs-base;
+  border-radius: 0;
+  line-height: inherit;
+  background-color: transparent;
+  margin-top: $spacing-sm;
+
+  &:before {
+    display: none;
+  }
+
+  p {
+    font-size: $fs-base;
+    line-height: 1.5;
+  }
+}
+
+#add_payment_method #payment div.payment_box .form-row,
+.woocommerce-cart #payment div.payment_box .form-row,
+.woocommerce-checkout #payment div.payment_box .form-row {
+  margin: 0;
+  padding: 0;
+}
+
+.wc-stripe-elements-field,
+.wc-stripe-iban-element-field {
+  background-color: $c-gray-f;
+  border: 1px solid $c-gray-f;
+  font-size: $fs-base;
+  padding: 0.5em;
+}
+
+#add_payment_method #payment div.form-row,
+.woocommerce-cart #payment div.form-row,
+.woocommerce-checkout #payment div.form-row {
+  padding: 0;
+  margin: 0;
+  font-size: $fs-sm;
+
+  &.place-order {
+    margin-top: $spacing;
+  }
+}
+
+.woocommerce #payment #place_order,
+.woocommerce-page #payment #place_order {
+  float: none;
+  width: 100%;
+  display: block;
+}
+
+.woocommerce-SavedPaymentMethods-saveNew {
+  display: none;
+}
+
+.woocommerce-terms-and-conditions-wrapper {
+  max-width: 660px;
+  margin-bottom: $spacing;
+}

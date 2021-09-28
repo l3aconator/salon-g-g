@@ -1,0 +1,49 @@
+@mixin overlay() {
+  position: relative;
+
+  .overlay-hover-block {
+    @include transition(opacity);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $c-overlay;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: $spacing-sm;
+    text-align: center;
+
+    .btn {
+      pointer-events: none;
+    }
+
+    .overlay-hover__text {
+      color: $c-white;
+      margin-bottom: $spacing-sm;
+      font-size: $fs-lg;
+    }
+  }
+
+  &.overlay__link--show-overlay .overlay-hover-block,
+  &:hover .overlay-hover-block {
+    opacity: 1;
+  }
+
+  &.overlay__link--show-overlay .btn {
+    color: $c-white;
+    background-color: transparent;
+    border-color: transparent;
+  }
+  &.overlay__link--show-overlay:hover .btn {
+    color: $c-blue;
+    background-color: $c-white;
+    border-color: $c-white;
+  }
+}

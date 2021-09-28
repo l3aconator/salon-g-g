@@ -1,0 +1,72 @@
+{% extends "pages/single.twig" %}
+
+{% block additionalContent %}
+
+{% if post.is_current %}
+
+<div class="site-wrapper{{ post.details_image is empty ? ' site-wrapper--small' : '' }}">
+
+  <div class="gallery__details{{ post.details_image ? ' gallery__details--has-img' : '' }}" style="{{ post.details_image ? 'background-image: url(' ~ post.details_image.src ~ ')' : '' }}">
+
+    <div class="details__pane">
+      <h4 class="subheader details__header">Event Details</h4>
+
+      <dl class="details__facts">
+      {% if post.opening_day %}
+        <div>
+          <dt>Opening day:</dt>
+          <dd>{{ post.meta('opening_day') }}</dd>
+        </div>
+      {% endif %}
+      {% if post.closing_day %}
+        <div>
+          <dt>Closing day:</dt>
+          <dd>{{ post.meta('closing_day') }}</dd>
+        </div>
+      {% endif %}
+      </dl>
+
+      <div class="details__content">
+        {{post.meta('event_details') }}
+      </div>
+
+      <div class="details__address">
+        {{post.meta('exhibition_address') }}
+      </div>
+
+
+      {% if rsvp_form %}
+      <button class="btn details__rsvp-button js-modal-trigger">RSVP</button>
+
+      {% embed "components/modal.twig" with { title: 'RSVP to ' ~ post.title } %}
+        {% block modalContent %}
+          {{ rsvp_form }}
+        {% endblock %}
+      {% endembed %}
+
+      {% else %}
+      <a href="mailto:{{ options.site_contact.email }}?subject={{ 'RSVP to ' ~ post.title | url_encode }}" class="btn details__rsvp-button">RSVP</a>
+      {% endif %}
+
+    </div>
+  </div>
+</div>
+
+{% endif %}
+
+{% endblock %}
+
+
+{% block recirculation %}
+
+{% if post.past_exhibitions %}
+
+<div class="gallery__recirc recirc">
+  <h2 class="site-wrapper site-wrapper--small sectionheader">Past Exhibitions</h2>
+  {% include "components/carousel.twig" with { items: post.past_exhibitions, options: { loop: true }, template: 'exhibition' } %}
+</div>
+
+{% endif %}
+
+
+{% endblock %}

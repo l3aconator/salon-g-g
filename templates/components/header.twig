@@ -1,0 +1,59 @@
+<div class="header-intersection"></div>
+
+<header class="site-header" id="site-masthead">
+  <div class="site-header__logo">
+    <a href="{{ site.link }}">{% include "includes/icons/logo.svg" %}</a>
+  </div>
+
+  {% if main_nav %}
+  <nav class="site-header__nav">
+    <div class="mobile-nav__header">
+      <div class="mobile-nav__logo">
+        <a href="{{ site.link }}"><img src="{{ theme.link }}/static/img/Salon-logo-white.png" alt="Salon"></a>
+      </div>
+
+      <button class="mobile-nav__close js-toggle-menu">
+        {% include "includes/icons/close.svg" %}
+      </button>
+    </div>
+
+    <ul class="main-nav">
+      {% for item in main_nav.items %}
+        <li class="main-nav__item {{ item.classes|join(' ') }} {{ item.link == '#' and item.children ? 'main-nav__item--has-subnav' : '' }}">
+          {% if item.link == '#' and item.children %}
+          <span class="main-nav__subnav-trigger js-toggle-class" data-t-elem-pos="parent" data-t-selector="li" data-t-class="item--expanded">{{ item.title }}</span>
+          {% else %}
+          <a href="{{ item.link }}" class="main-nav__link">{{ item.title }}</a>
+          {% endif %}
+
+          {% if item.children %}
+            <ul class="main-nav__subnav">
+              {% for child in item.children %}
+                <li class="subnav__item"><a href="{{ child.link }}" class="subnav__link">{{ child.title }}</a></li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </li>
+      {% endfor %}
+
+      {% if cart.count > 0 %}
+        <li class="main-nav__item mobile-nav__cart-link">
+          <a class="main-nav__link" href="{{ cart.link }}">
+            <span class="main-nav__cart-icon icon">
+              {% include "includes/icons/cart.svg" %}
+            </span>
+            <span>Cart</span>
+            <span class="main-nav__cart-count">{{ cart.count }} item{{ cart.count > 1 ? 's' : ''}}</span>&nbsp;
+            <span class="main-nav__subtotal">${{ cart.subtotal }}</span>
+          </a>
+        </li>
+      {% endif %}
+
+    </ul>
+  </nav>
+
+  <button class="site-header__mobile-trigger js-toggle-menu">
+    {% include "includes/icons/mobile-menu.svg" %}
+  </button>
+  {% endif %}
+</header>

@@ -1,0 +1,93 @@
+{
+  "name": "salon-wp-theme",
+  "version": "1.0.0",
+  "description": "A WordPress theme for Salon",
+  "author": "Nick braica",
+  "repository": "https://github.com/braican/salon-wp-theme",
+  "license": "ISC",
+  "testing": {
+    "urls": {
+      "local": "http://salon.ups.dock",
+      "staging": "",
+      "production": ""
+    },
+    "accessibility": {
+      "compliance": "Section508"
+    }
+  },
+  "bundlesize": [
+    {
+      "path": "./dist/app.js",
+      "maxSize": "10 kB"
+    },
+    {
+      "path": "./dist/app.css",
+      "maxSize": "16 kB"
+    }
+  ],
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
+  "scripts": {
+    "dev": "NODE_ENV=development webpack --progress --hide-modules --mode development",
+    "watch": "NODE_ENV=development webpack --progress --hide-modules --watch --mode development",
+    "build": "NODE_ENV=production webpack --progress --hide-modules --mode production",
+    "lint:scripts": "eslint static/js/**/*.js --cache",
+    "lint:php": "./vendor/bin/phpcs --standard=phpcs.xml.dist --error-severity=1 --warning-severity=8 -p",
+    "fix:php": "./vendor/bin/phpcbf",
+    "test:bundlesize": "bundlesize",
+    "test:a11y": "node tests/pa11y.js"
+  },
+  "lint-staged": {
+    "*.{js,css,json,md}": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && npm run lint:php"
+    }
+  },
+  "dependencies": {
+    "lazysizes": "^5.1.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/plugin-transform-react-jsx": "^7.3.0",
+    "@babel/preset-env": "^7.7.2",
+    "@upstatement/eslint-config": "^0.4.3",
+    "@upstatement/prettier-config": "^0.3.0",
+    "autoprefixer": "^9.7.1",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.6",
+    "babel-preset-env": "^1.7.0",
+    "browser-sync": "^2.26.7",
+    "browser-sync-webpack-plugin": "^2.2.2",
+    "bundlesize": "^0.17.2",
+    "css-loader": "^3.2.0",
+    "dotenv-webpack": "^1.7.0",
+    "eslint": "^6.7.2",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.21.2",
+    "file-loader": "^5.0.2",
+    "husky": "^3.1.0",
+    "lint-staged": "^9.5.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "pa11y": "^5.1.0",
+    "postcss-loader": "^3.0.0",
+    "prettier": "^1.19.1",
+    "sass": "^1.23.7",
+    "sass-loader": "7.*",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-middleware": "^3.7.2",
+    "webpack-modernizr-loader": "^5.0.0"
+  }
+}

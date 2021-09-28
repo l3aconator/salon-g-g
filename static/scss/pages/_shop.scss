@@ -1,0 +1,93 @@
+// Banner
+// -----------
+
+.shop-banner {
+  padding-top: $header-offset;
+  padding-top: calc(#{$spacing} + #{$header-offset});
+  background-color: $c-gray-purple;
+  padding-bottom: $spacing-lg;
+
+  @include mq($md) {
+    margin-bottom: $spacing-xl;
+  }
+}
+
+.shop-banner__wrapper {
+  position: relative;
+
+  @include mq($sm) {
+    &--half {
+      padding-right: 50%;
+    }
+  }
+}
+
+.woocommerce .shop-banner__image {
+  display: flex;
+  justify-content: center;
+
+  @include mq($sm) {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 180%;
+    width: 50%;
+    margin-bottom: 0;
+
+    img {
+      width: auto;
+      height: 100%;
+    }
+  }
+
+  @include mq($sm, 'max') {
+    margin-bottom: $spacing;
+
+    img {
+      max-width: 300px;
+    }
+  }
+}
+
+.shop-header {
+  @include headline;
+  margin-bottom: 0.5em;
+}
+
+.shop-banner__description {
+  max-width: 460px;
+}
+
+.shop-banner__link {
+  display: inline-block;
+  font-weight: $fw-regular;
+  margin-top: $spacing-sm;
+  color: inherit;
+}
+
+// Main
+// -----------
+
+.shop-main {
+  @include vertical-margins;
+  position: relative;
+  z-index: 2;
+}
+
+.shop-carousel,
+.shop-section {
+  @include vertical-margins;
+  padding-top: $spacing;
+  padding-bottom: $spacing;
+}
+
+.shop-section__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.slide__content-link {
+  @include hover();
+  color: inherit;
+}

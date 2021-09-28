@@ -1,0 +1,125 @@
+.woocommerce table.shop_table {
+  border: 0;
+
+  a.remove {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: $fw-regular;
+  }
+
+  th {
+    font-weight: $fw-light;
+    opacity: 0.5;
+  }
+
+  td {
+    @include mq($md, 'max') {
+      border-top: 0;
+    }
+  }
+
+  .product-remove {
+    @include mq($md, 'max') {
+      border-top: 1px solid $c-gray-purple;
+    }
+  }
+
+  .product-subtotal {
+    @include mq($md) {
+      text-align: right;
+      padding-right: 0;
+    }
+  }
+
+  .product-name a {
+    @include hover();
+    font-weight: $fw-regular;
+    color: inherit;
+  }
+
+  .woocommerce-Price-amount {
+    font-weight: $fw-regular;
+  }
+
+  button.button {
+    padding: 0.5em 1em;
+
+    &:disabled {
+      padding: 0.5em 1em;
+    }
+  }
+
+  button.button[name='update_cart'] {
+    float: right;
+  }
+
+  td.actions {
+    padding: $spacing 0 0 0;
+
+    .coupon {
+      @include mq($md, 'max') {
+        padding-bottom: $spacing-sm !important;
+      }
+
+      input[type='text'] {
+        @include mq($md) {
+          margin-right: $spacing-sm;
+        }
+      }
+    }
+  }
+}
+
+.woocommerce .cart-collaterals .cart_totals {
+  margin-top: $spacing;
+  border-top: 1px solid $c-gray-purple;
+  padding-top: $spacing;
+
+  h2 {
+    display: none;
+  }
+
+  .cart-subtotal {
+    display: none;
+  }
+  .order-total {
+    th,
+    td {
+      border-top: 0;
+    }
+
+    th {
+      padding: 0;
+      font-weight: $fw-regular;
+      color: $c-black;
+    }
+    td {
+      padding: 0;
+      text-align: right;
+      background-color: transparent;
+
+      @include mq($md) {
+        padding: 0 0 0 $spacing;
+      }
+
+      .woocommerce-Price-amount {
+        font-weight: $fw-bold;
+        font-size: $fs-lg;
+      }
+    }
+  }
+}
+
+.woocommerce #content table.cart td.actions .input-text,
+.woocommerce table.cart td.actions .input-text,
+.woocommerce-page #content table.cart td.actions .input-text,
+.woocommerce-page table.cart td.actions .input-text {
+  width: auto;
+}
+
+#add_payment_method table.cart td.actions .coupon .input-text,
+.woocommerce-cart table.cart td.actions .coupon .input-text,
+.woocommerce-checkout table.cart td.actions .coupon .input-text {
+  padding: 0.5em;
+}

@@ -1,0 +1,9 @@
+@mixin vertical-margins($top: $spacing-lg) {
+  margin-top: $spacing;
+  margin-bottom: $spacing;
+
+  @include mq($md) {
+    margin-top: $top;
+    margin-bottom: $spacing-lg;
+  }
+}

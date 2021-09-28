@@ -1,0 +1,99 @@
+{
+  "key": "group_5f4f35a2cc66d",
+  "title": "Press",
+  "fields": [
+    {
+      "key": "field_5f4f3689819f7",
+      "label": "Type",
+      "name": "press_type",
+      "type": "radio",
+      "instructions": "Choose the type of content that this Press links to.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "Link": "Link",
+        "Asset": "Asset"
+      },
+      "allow_null": 0,
+      "other_choice": 0,
+      "default_value": "",
+      "layout": "vertical",
+      "return_format": "value",
+      "save_other_choice": 0
+    },
+    {
+      "key": "field_5f4f3668819f6",
+      "label": "Link",
+      "name": "press_link",
+      "type": "url",
+      "instructions": "The link to the source of this Press post.",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_5f4f3689819f7",
+            "operator": "==",
+            "value": "Link"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "placeholder": ""
+    },
+    {
+      "key": "field_5f4f36e2819f8",
+      "label": "Asset",
+      "name": "press_asset",
+      "type": "file",
+      "instructions": "An asset that this Press post will link to.",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_5f4f3689819f7",
+            "operator": "==",
+            "value": "Asset"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "array",
+      "library": "all",
+      "min_size": "",
+      "max_size": "",
+      "mime_types": ""
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "press"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "acf_after_title",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "modified": 1600915926
+}

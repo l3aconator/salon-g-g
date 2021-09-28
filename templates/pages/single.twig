@@ -1,0 +1,90 @@
+{% set feature_photo = post.feature_photo ? Image(post.feature_photo) : false %}
+
+{% extends "layouts/base.twig" %}
+
+{% block pageBody %}
+
+{% include "components/banner.twig" %}
+
+<div class="main-frame single single--{{ post.post_type }}">
+
+  {% include "components/cart-flag.twig" %}
+
+  {% if post.content %}
+    <article class="site-wrapper site-wrapper--small single__main">
+      {% if feature_photo %}<div class="single__grid">{% endif %}
+
+        {% if feature_photo %}
+        <figure class="single__col single__figure">
+          {% if post.designer_video %}<button type="button" data-video="{{ post.designer_video }}" class="single__figure-button js-modal-trigger js-video-modal">{% endif %}
+          <img src="{{ feature_photo.src('feature') }}" srcset="{{ feature_photo.srcset }}" alt="{{ feature_photo.alt }}">
+          {% if post.designer_video %}</button>{% endif %}
+        </figure>
+        {% endif %}
+
+        <div class="content {{ feature_photo ? 'single__col' : 'single-content--no-img' }}">
+          {% if post.gallery_name %}
+          <h2 class="subheader">{{ post.gallery_name }}</h2>
+          {% endif %}
+
+          {{ post.content }}
+
+          {% if post.post_type == 'designer' %}
+            {% include "components/designer-ctas.twig" with { designer: post } %}
+          {% elseif post.post_type == 'exhibition' and post.designer %}
+            {% include "components/designer-ctas.twig" with { designer: post.designer, show_catalog: post.gallery_name } %}
+          {% endif %}
+        </div>
+
+      {% if feature_photo %}</div>{% endif %}
+    </article>
+  {% endif %}
+
+  {% block additionalContent %}{% endblock %}
+
+  {#
+  If there's a photo grid, render it. Note that we explicitly exclude this on
+  designer singles because there is legacy `photo_grid` content metadata in those
+  posts that wasn't deleted when we removed that field from the post type.
+  #}
+  {% if post.photo_grid and post.post_type != 'designer' %}
+    <section class="site-wrapper">
+      {% include "components/photo-grid.twig" with {photos: post.photo_grid} %}
+    </section>
+  {% endif %}
+
+  {% set photo_carousel = post.get_field('photo_carousel') %}
+  {% if photo_carousel and photo_carousel.images | length > 0 %}
+    <section class="single__block">
+      {% if photo_carousel.headline %}<h2 class="site-wrapper sectionheader">{{ photo_carousel.headline }}</h2>{% endif %}
+      {% include "components/carousel.twig" with { items: photo_carousel.images, options: { loop: true } } %}
+    </section>
+  {% endif %}
+
+  {% if post.products and post.products.found_posts %}
+  <div class="site-wrapper archive-wrap">
+    <h2 class="sectionheader">In The Shop</h2>
+    <div class="archive-loop">
+      {% for tease in post.products %}
+        {% include ['components/tease-product.twig', 'components/tease.twig'] with {tease: tease, overlayTitle: true} %}
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+
+  {% block archiveContent %}{% endblock %}
+
+  {% block recirculation %}{% endblock %}
+</div>
+
+{% if post.designer_video %}
+  {% embed "components/modal.twig" with { fixedWidth: true, id: 'modal-video-' ~ post.designer_video } %}
+    {% block modalContent %}
+      <div class="modal__video-wrapper"></div>
+    {% endblock %}
+  {% endembed %}
+{% endif %}
+
+{% endblock %}
+

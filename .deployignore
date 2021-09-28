@@ -1,0 +1,15 @@
+.env
+.env.sample
+.git
+.gitignore
+node_modules
+bin
+docker
+logs
+composer.json
+composer.lock
+docker-compose.yml
+Dockerfile
+wp-content
+plugins
+*.map

@@ -1,0 +1,12 @@
+.banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 40vh;
+  background-color: $c-purple;
+}
+
+.banner--img {
+  background-size: cover;
+  background-repeat: no-repeat;
+}
