@@ -1,3 +1,5 @@
+import MicroModal from 'micromodal';
+
 import { onDocumentReady } from './utils';
 
 // Components
@@ -30,4 +32,15 @@ onDocumentReady(() => {
   document.querySelectorAll('.wpcf7').forEach(el => new Form(el));
   document.querySelectorAll('.js-product-gallery').forEach(el => new ProductGallery(el));
   document.querySelectorAll('.js-video-modal[data-video]').forEach(el => new VideoModal(el));
+  MicroModal.init();
+
+  document.querySelector('.js-buttonSwapSignup').addEventListener('click', () => {
+    MicroModal.close('login-modal');
+    MicroModal.show('signup-modal');
+  });
+
+  document.querySelector('.js-buttonSwapLogin').addEventListener('click', () => {
+    MicroModal.close('signup-modal');
+    MicroModal.show('login-modal');
+  });
 });

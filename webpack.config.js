@@ -75,19 +75,6 @@ module.exports = {
     ],
   },
 
-  optimization: {
-    splitChunks: {
-      cacheGroups: {
-        commons: {
-          test: /[\\/]node_modules[\\/]/,
-          name: 'vendor',
-          chunks: 'all',
-          enforce: true,
-        },
-      },
-    },
-  },
-
   resolve: {
     alias: {
       modernizr$: path.resolve(__dirname, '.modernizrrc.js'),
@@ -101,7 +88,7 @@ module.exports = {
     new BrowserSyncPlugin({
       host: 'localhost',
       port: 3000,
-      proxy: 'http://salon.ups.dock',
+      proxy: 'https://salonn.local',
       files: ['dist/**/*.+(css|js)', '*.php', 'templates/**/*.twig'],
       open: false,
     }),

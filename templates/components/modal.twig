@@ -4,7 +4,7 @@
       {% if title %}
         <h4 class="modal__title">{{ title }}</h4>
       {% endif %}
-      <button class="modal__close icon js-modal-trigger">{% include "includes/icons/close.svg" %}</button>
+      <button class="modal__close icon js-modal-trigger" {% if id %} data-id="{{ id }}"{% endif %}>{% include "includes/icons/close.svg" %}</button>
     </div>
 
     {% block modalContent %}{% endblock %}

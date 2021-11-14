@@ -86,9 +86,9 @@
   <h3 class="sectionheader">{{ post.contact_block.title }}</h3>
   <p class="contact-block__text">{{ post.contact_block.content }}</p>
 
-  <button class="contact-block__btn btn js-modal-trigger">{{ post.contact_block.button_text | default('Contact Us') }}</button>
+  <button class="contact-block__btn btn" data-micromodal-trigger="contact-modal">{{ post.contact_block.button_text | default('Contact Us') }}</button>
 
-  {% embed "components/modal.twig" with { title: post.contact_block.modal_title } %}
+  {% embed "components/micro-modal.twig" with { title: post.contact_block.modal_title, id: 'contact-modal' } %}
     {% block modalContent %}
       {{ post.contact_block.form }}
     {% endblock %}
