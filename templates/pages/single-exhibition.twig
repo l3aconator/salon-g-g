@@ -36,9 +36,9 @@
 
 
       {% if rsvp_form %}
-      <button class="btn details__rsvp-button js-modal-trigger">RSVP</button>
+      <button class="btn details__rsvp-button" data-micromodal-trigger="rsvp-modal">RSVP</button>
 
-      {% embed "components/modal.twig" with { title: 'RSVP to ' ~ post.title } %}
+      {% embed "components/micro-modal.twig" with { title: 'RSVP to ' ~ post.title, id: 'rsvp-modal' } %}
         {% block modalContent %}
           {{ rsvp_form }}
         {% endblock %}

@@ -1,92 +1,203 @@
-$close-btn-padding: 18px;
+/**************************\
+  Basic Modal Styles
+\**************************/
 
 .modal {
-  @include transition(opacity visibility z-index);
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica,
+    ubuntu, roboto, noto, segoe ui, arial, sans-serif;
+}
+
+.modal__overlay {
   position: fixed;
-  z-index: -1;
-  opacity: 0;
-  visibility: hidden;
-  background-color: rgba($c-black, 0.5);
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  padding: $spacing / 2;
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
-  align-items: center;
   justify-content: center;
-
-  @include mq($sm) {
-    padding: $spacing;
-  }
-
-  &.modal--visible {
-    opacity: 1;
-    visibility: visible;
-    z-index: 999;
-  }
+  align-items: center;
+  z-index: 299;
 }
 
-.modal__content {
-  background-color: $c-white;
-  overflow: auto;
-  max-height: 90vh;
-  max-width: 762px;
-  padding: $spacing / 2;
-  text-align: left;
-
-  @include mq($sm) {
-    padding: $spacing;
-  }
-
-  [data-fixed-width] & {
-    width: 100%;
-  }
+.modal__container {
+  background-color: $c-gray-E;
+  padding: 30px;
+  width: 803px;
+  max-height: 100vh;
+  border-radius: 4px;
+  overflow-y: auto;
+  box-sizing: border-box;
+  z-index: 300;
+  position: relative;
 }
 
 .modal__header {
-  display: flex;
-  margin-bottom: $spacing-sm;
-  justify-content: space-between;
-  align-items: flex-start;
+  font-family: $ff-headline;
+  text-align: center;
+}
+
+.modal__title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: $ff-headline;
+  text-align: center;
+  font-size: $fs-xxl;
+  color: $c-black;
+  box-sizing: border-box;
 }
 
 .modal__close {
-  @include transition(background-color);
-  flex-shrink: 0;
-  width: 56px;
-  height: 56px;
-  cursor: pointer;
-  padding: $close-btn-padding;
-  background-color: transparent;
-  border-radius: 0;
-  margin: #{$close-btn-padding * -0.5} #{$close-btn-padding * -1} 0 auto;
+  background: transparent;
   border: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 56px;
+  position: absolute;
+  top: 6px;
+  right: 6px;
+}
 
-  &:hover {
-    background-color: $c-gray-purple;
+.modal__header .modal__close:before {
+  content: '\2715';
+}
+
+.modal__content {
+  max-width: 472px;
+  margin: 2rem auto;
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.8);
+
+  label {
+    color: $c-black;
+    font-weight: normal;
+    margin-bottom: 10px;
   }
 
-  svg g {
-    stroke: $c-black;
+  .btn {
+    width: fit-content;
+  }
+
+  .btn--center {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  hr {
+    margin: $spacing 0;
+  }
+
+  .modal--row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: $spacing-sm;
+  }
+
+  .modal--lostPassword {
+    display: flex;
+    justify-content: flex-end;
+
+    a {
+      font-weight: normal;
+      font-size: 0.8rem;
+      color: $c-black;
+      border-bottom: 1px solid $c-black;
+    }
+  }
+
+  input {
+    border-color: $c-black;
+    background-color: transparent;
+  }
+
+  .modal--formFooter {
+    text-align: center;
+
+    p {
+      color: $c-black;
+      font-weight: normal;
+      font-size: 0.8rem;
+    }
+
+    .btn {
+      margin-top: $spacing-sm;
+    }
+  }
+
+  .woocommerce-privacy-policy-text {
+    p {
+      color: $c-black;
+      font-weight: normal;
+      font-size: 0.8rem;
+    }
+
+    a {
+      color: $c-black;
+      border-bottom: 1px solid $c-black;
+    }
+  }
+}
+/**************************\
+  Demo Animation Style
+\**************************/
+@keyframes mmfadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 
-.modal__video-wrapper {
-  position: relative;
-  width: 100%;
-  height: 0;
-  padding-bottom: 56.25%;
-
-  iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+@keyframes mmfadeOut {
+  from {
+    opacity: 1;
   }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes mmslideIn {
+  from {
+    transform: translateY(15%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes mmslideOut {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-10%);
+  }
+}
+
+.micromodal-slide {
+  display: none;
+}
+
+.micromodal-slide.is-open {
+  display: block;
+}
+
+.micromodal-slide[aria-hidden='false'] .modal__overlay {
+  animation: mmfadeIn 0.3s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.micromodal-slide[aria-hidden='false'] .modal__container {
+  animation: mmslideIn 0.3s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.micromodal-slide[aria-hidden='true'] .modal__overlay {
+  animation: mmfadeOut 0.3s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.micromodal-slide[aria-hidden='true'] .modal__container {
+  animation: mmslideOut 0.3s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.micromodal-slide .modal__container,
+.micromodal-slide .modal__overlay {
+  will-change: transform;
 }

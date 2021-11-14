@@ -11,10 +11,11 @@
   @include transition(all);
   @include side-margins;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  padding-top: $spacing;
-  padding-bottom: $spacing;
+  padding-top: $spacing-sm;
+  padding-bottom: $spacing-sm;
   border-bottom: 1px solid transparent;
   position: fixed;
   top: 0;
@@ -48,6 +49,29 @@
   }
 }
 
+.site-links {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  color: rgba($c-white, 0.65);
+  font-size: 0.8rem;
+
+  a {
+    font-weight: $fw-regular;
+    color: rgba($c-white, 0.65);
+    @include hover();
+  }
+
+  .theme--dark &,
+  .site-header--fixed & {
+    color: rgba($c-text, 0.65);
+
+    a {
+      color: rgba($c-text, 0.65);
+    }
+  }
+}
+
 .mobile-nav__logo,
 .site-header__logo {
   width: $mobile-logo-width;
@@ -76,7 +100,7 @@
 
   .theme--dark & path,
   .site-header--fixed & path {
-    fill: $c-blue;
+    fill: #000323;
   }
 }
 

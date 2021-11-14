@@ -62,6 +62,17 @@ textarea {
     }
   }
 
+  &--light-purple {
+    background-color: $c-light-purple;
+    border-color: $c-light-purple;
+    color: $c-white;
+
+    &:hover {
+      background-color: darken($c-light-purple, 20%);
+      color: $c-white;
+    }
+  }
+
   &--dark-bg:hover {
     color: $c-text;
   }

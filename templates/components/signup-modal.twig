@@ -1,0 +1,32 @@
+{% extends 'components/micro-modal.twig' %}
+
+{% set id = 'signup-modal' %}
+{% set title = 'Sign Up' %}
+
+{% block modalContent %}
+<form method="post" {% do action( 'woocommerce_register_form_tag' ) %}>
+  {% do action( 'woocommerce_register_form_start' ) %}
+  <p class="modal--row">
+    <label for="reg_billing_first_name">{{'First name'|e('esc_html')}}<span class="required">*</span></label>
+    <input type="text" class="input-text" name="billing_first_name" id="reg_billing_first_name" value="" />
+  </p>
+  <p class="modal--row">
+    <label for="reg_billing_last_name">{{'Last name'|e('esc_html')}}<span class="required">*</span></label>
+    <input type="text" class="input-text" name="billing_last_name" id="reg_billing_last_name" value="" />
+  </p>
+  <p class="modal--row">
+    <label for="reg_email">{{ 'Email address'|e('esc_html') }}&nbsp;<span class="required">*</span></label>
+    <input type="email" class="woocommerce-Input woocommerce-Input--text input-text" name="email" id="reg_email" autocomplete="email" value="" />
+  </p>
+  <p class="modal--row">
+    <label for="reg_password">{{ 'Password'|e('esc_html') }}&nbsp;<span class="required">*</span></label>
+    <input type="password" class="woocommerce-Input woocommerce-Input--text input-text" name="password" id="reg_password" autocomplete="new-password" />
+  </p>
+  {% do action( 'woocommerce_register_form' ) %}
+  <p class="modal--row">
+    {{ fn('wp_nonce_field', 'woocommerce-register', 'woocommerce-register-nonce', false, false) }}
+    <button type="submit" class="btn btn--center btn--light-purple btn--inline" name="register" value="{{ 'Join Us'|e('esc_html') }}">{{ 'Join Us'|e('esc_html') }}</button>
+  </p>
+  {% do action( 'woocommerce_register_form_end' ) %}
+</form>
+{% endblock %}

@@ -62,3 +62,9 @@
     <p class="site-footer__copyright">&copy; Copyright Salon LLC. All rights reserved.
   </div>
 </footer>
+
+{% if user == false %}
+{% include "components/login-modal.twig" %}
+{% include "components/signup-modal.twig" %}
+{% endif %}
+

@@ -1,10 +1,20 @@
 <div class="header-intersection"></div>
 
 <header class="site-header" id="site-masthead">
+  <div class="site-links">
+    <div>
+      {% if user %}
+      <a href="/my-account">My account</a> | <a href="{{ fn('wc_logout_url') }}">Logout</a>
+      {% else %}
+      <div>
+        <a data-micromodal-trigger="login-modal" href='javascript:void(0);'>Login</a> | <a data-micromodal-trigger="signup-modal" href='javascript:void(0);'>Sign up</a>
+      </div>
+      {% endif %}
+    </div>
+  </div>
   <div class="site-header__logo">
     <a href="{{ site.link }}">{% include "includes/icons/logo.svg" %}</a>
   </div>
-
   {% if main_nav %}
   <nav class="site-header__nav">
     <div class="mobile-nav__header">

@@ -7,7 +7,7 @@
   "license": "ISC",
   "testing": {
     "urls": {
-      "local": "http://salon.ups.dock",
+      "local": "https://salonn.local/",
       "staging": "",
       "production": ""
     },
@@ -15,24 +15,14 @@
       "compliance": "Section508"
     }
   },
-  "bundlesize": [
-    {
-      "path": "./dist/app.js",
-      "maxSize": "10 kB"
-    },
-    {
-      "path": "./dist/app.css",
-      "maxSize": "16 kB"
-    }
-  ],
   "browserslist": [
     "> 1%",
     "last 2 versions"
   ],
   "scripts": {
-    "dev": "NODE_ENV=development webpack --progress --hide-modules --mode development",
-    "watch": "NODE_ENV=development webpack --progress --hide-modules --watch --mode development",
-    "build": "NODE_ENV=production webpack --progress --hide-modules --mode production",
+    "dev": "NODE_ENV=development webpack --progress --mode development",
+    "watch": "NODE_ENV=development webpack --progress --watch --mode development",
+    "build": "NODE_ENV=production webpack --progress --mode production",
     "lint:scripts": "eslint static/js/**/*.js --cache",
     "lint:php": "./vendor/bin/phpcs --standard=phpcs.xml.dist --error-severity=1 --warning-severity=8 -p",
     "fix:php": "./vendor/bin/phpcbf",
@@ -55,7 +45,8 @@
     }
   },
   "dependencies": {
-    "lazysizes": "^5.1.2"
+    "lazysizes": "^5.1.2",
+    "micromodal": "^0.4.6"
   },
   "devDependencies": {
     "@babel/core": "^7.7.2",
