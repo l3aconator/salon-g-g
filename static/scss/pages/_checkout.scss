@@ -10,7 +10,7 @@
 .woocommerce table.shop_table {
   th,
   td {
-    padding: 0.5em 0;
+    padding: 1em 0;
   }
 
   .product-total {
@@ -135,4 +135,15 @@
 .woocommerce-terms-and-conditions-wrapper {
   max-width: 660px;
   margin-bottom: $spacing;
+}
+
+.woocommerce-cart .wc-proceed-to-checkout a.checkout-button {
+  background-color: $c-light-purple;
+  border-color: $c-light-purple;
+  color: $c-white;
+
+  &:hover {
+    background-color: darken($c-light-purple, 20%);
+    color: $c-white;
+  }
 }

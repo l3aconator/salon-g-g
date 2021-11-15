@@ -1,6 +1,6 @@
 <a href="{{ href }}" class="overlay__link {{ imgSrc is empty and showOverlayIfNoImage ? 'overlay__link--show-overlay' : '' }}"{{ external ? ' target="_blank" ref="nofollow noreferrer"' : ''}}>
   {% if imgSrc %}
-    <img src="{{ imgSrc }}" alt="{{ imgAlt }}">
+    <img src="{{ imgSrc }}" alt="{{ imgAlt }}" loading="lazy">
   {% elseif placeholder %}
     <div class="tease__image-placeholder"></div>
   {% endif %}

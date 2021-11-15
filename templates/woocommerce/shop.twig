@@ -7,7 +7,7 @@
     <div class="shop-banner__wrapper{{ post.banner_image ? ' shop-banner__wrapper--half' : ''}}">
       {% if post.banner_image %}
         <div class="shop-banner__image">
-          <img src="{{ post.banner_image.src }}" alt="{{ post.banner_image.alt }}">
+          <img src="{{ post.banner_image.src }}" alt="{{ post.banner_image.alt }}" loading="lazy">
         </div>
       {% endif %}
 

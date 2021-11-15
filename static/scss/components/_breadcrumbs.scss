@@ -1,0 +1,28 @@
+.breadcrumbs {
+  display: flex;
+  margin-top: $spacing;
+}
+
+.breadcrumbs__item {
+  display: flex;
+
+  a {
+    color: $c-black;
+  }
+
+  &:not(:last-child) {
+    margin-right: 8px;
+
+    &:after {
+      margin-left: 8px;
+      content: '>';
+      display: block;
+    }
+  }
+
+  &:last-child {
+    a {
+      font-weight: normal;
+    }
+  }
+}

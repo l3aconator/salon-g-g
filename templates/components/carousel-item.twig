@@ -22,7 +22,7 @@
         {% set image = Image(image) %}
         {% endif %}
 
-        <img src="{{ image.src('carousel_image') }}" alt="{{ image.alt }}">
+        <img src="{{ image.src('carousel_image') }}" alt="{{ image.alt }}" loading="lazy">
       {% endif %}
     </div>
   {% endif %}

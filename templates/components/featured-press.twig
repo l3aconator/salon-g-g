@@ -23,7 +23,7 @@
 
     {% if tease.thumbnail %}
       <div class="featured-press__image">
-        <img src="{{ tease.thumbnail.src('grid_image') }}" srcset="{{ tease.thumbnail.srcset }}" alt="{{ tease.thumbnail.alt }}">
+        <img src="{{ tease.thumbnail.src('grid_image') }}" srcset="{{ tease.thumbnail.srcset }}" alt="{{ tease.thumbnail.alt }}" loading="lazy">
       </div>
     {% endif %}
   </div>

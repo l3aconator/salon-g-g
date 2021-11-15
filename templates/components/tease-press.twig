@@ -22,7 +22,7 @@
       </div>
     </div>
   {% elseif tease.thumbnail %}
-    <img src="{{ tease.thumbnail.src('grid_image') }}" srcset="{{ tease.thumbnail.srcset }}" alt="{{ tease.thumbnail.alt }}">
+    <img src="{{ tease.thumbnail.src('grid_image') }}" srcset="{{ tease.thumbnail.srcset }}" alt="{{ tease.thumbnail.alt }}" loading="lazy">
   {% else %}
     <div class="press-tease__blank">
       <h2 class="tease__title--press">{{ tease.title }}</h2>

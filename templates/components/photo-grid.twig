@@ -7,7 +7,7 @@
     <div class="photo-grid__cell {{ photo.class }}">
     {% endif %}
 
-    <img src="{{ photo.image.src }}" srcset="{{ photo.image.srcset }}" alt="{{ photo.image.alt }}">
+    <img src="{{ photo.image.src }}" srcset="{{ photo.image.srcset }}" alt="{{ photo.image.alt }}" loading="lazy">
 
     {% if photo.link %}
       <span class="photo-grid__cart-icon">
