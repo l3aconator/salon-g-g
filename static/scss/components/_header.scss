@@ -56,6 +56,11 @@
   color: rgba($c-white, 0.65);
   font-size: 0.8rem;
 
+  > div {
+    display: flex;
+    align-items: center;
+  }
+
   a {
     font-weight: $fw-regular;
     color: rgba($c-white, 0.65);
@@ -68,6 +73,48 @@
 
     a {
       color: rgba($c-text, 0.65);
+    }
+  }
+}
+
+.site--cartHeader {
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    border-bottom: none;
+    box-shadow: none;
+  }
+
+  .cartCount {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $c-white;
+    color: $c-medium-purple;
+    border-radius: 100px;
+    width: 17px;
+    height: 17px;
+    font-size: 12px;
+    margin-left: 5px;
+  }
+
+  circle,
+  path {
+    color: $c-white;
+  }
+
+  .theme--dark &,
+  .site-header--fixed & {
+    circle,
+    path {
+      color: $c-text;
+    }
+
+    .cartCount {
+      background-color: $c-medium-purple;
+      color: $c-white;
     }
   }
 }

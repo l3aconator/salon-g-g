@@ -1,14 +1,37 @@
 {% set feature_photo = post.feature_photo ? Image(post.feature_photo) : false %}
+{%  if post.slug == "my-account" %}
+  {% set header_theme = 'dark' %}
+  {% set is_trade = true %}
+{% endif %}
 
 {% extends "layouts/base.twig" %}
 
 {% block pageBody %}
 
-{% include "components/banner.twig" %}
+{%  if post.slug != "my-account" %}
+  {% include "components/banner.twig" %}
+{% endif %}
 
-<div class="main-frame single single--page">
-  {% include "components/cart-flag.twig" %}
+<div class="main-frame single single--page page--{{ post.slug }}">
+  {%  if post.slug == "my-account" %}
+    <header class="site-wrapper simple-page-header">
+      <div class="ecomm--header">
+        <hr />
+          <h1 class="sectionheader">{{ post.title }}</h1>
+        <hr />
+      </div>
+    </header>
 
+    <div class="site-wrapper simple-page-header">
+      <div class="my-account--trade">
+      {% if is_trade %}
+      <span>Trade Account</span>
+      {% else %}
+      <p>Want to apply for a trade account? <a href="#"> Click here.</a></p>
+      {% endif %}
+      </div>
+    </div>
+  {% endif %}
   <article>
     {% if post.content %}
       <div class="site-wrapper single__main">

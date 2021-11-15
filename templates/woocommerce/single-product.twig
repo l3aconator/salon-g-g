@@ -7,8 +7,6 @@
 {{ fn('timber_set_product', post) }}
 
 <div class="main-frame">
-  {% include "components/cart-flag.twig" %}
-
   {% do action('woocommerce_before_single_product') %}
 
   <article itemscope itemtype="http://schema.org/Product" class="single single-product-details {{ post.class }} site-wrapper">

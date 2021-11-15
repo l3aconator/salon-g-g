@@ -94,7 +94,10 @@ onDocumentReady(() => {
   // Update cart on qty change vs. user having to click button
   if (woocommerceTrigger) {
     const cartBtn = document.querySelector('.actions');
-    cartBtn.style.display = 'none';
+
+    if (cartBtn) {
+      cartBtn.style.display = 'none';
+    }
 
     woocommerceTrigger.addEventListener('mouseover', () => {
       const cartBtn = document.querySelector('.actions');
