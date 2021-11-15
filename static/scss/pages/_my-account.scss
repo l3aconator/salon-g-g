@@ -1,0 +1,137 @@
+.page--my-account {
+  .my-account--trade {
+    display: flex;
+    justify-content: flex-end;
+
+    a {
+      border-bottom: 1px solid $c-black;
+      color: $c-black;
+    }
+
+    span {
+      background-color: $c-medium-purple;
+      color: white;
+      border-radius: 8px;
+      padding: 0.5em 1em;
+    }
+  }
+
+  .site-wrapper.single__main {
+    margin-top: $spacing;
+  }
+
+  .woocommerce-Address-title h3 {
+    font-family: $ff-headline;
+    font-size: $fs-lg;
+  }
+
+  .woocommerce-MyAccount-navigation {
+    width: 100%;
+
+    @include mq($md) {
+      width: 25%;
+    }
+
+    ul {
+      .woocommerce-MyAccount-navigation-link {
+        margin-top: 0px;
+
+        a {
+          display: block;
+          width: 100%;
+          box-shadow: none !important;
+          padding: 1em !important;
+        }
+
+        &:not(:last-child) {
+          a {
+            border-bottom: 1px solid $c-light-blue;
+          }
+        }
+
+        &.is-active,
+        &:hover {
+          a {
+            background-color: #e9edf3;
+          }
+        }
+      }
+    }
+  }
+
+  .woocommerce-MyAccount-content {
+    background-color: $c-gray-E;
+    padding: $spacing;
+    border-left: 1px solid $c-light-blue;
+    width: 100%;
+
+    @include mq($md) {
+      width: 75%;
+    }
+
+    @include mq($md) {
+      min-height: 65vh;
+    }
+
+    p {
+      margin-top: 0px !important;
+    }
+  }
+
+  .woocommerce-message,
+  .woocommerce-info {
+    background-color: $c-white;
+  }
+
+  .woocommerce {
+    table.shop_table.woocommerce-orders-table {
+      th {
+        background-color: transparent;
+        color: $c-black;
+        border-right: none;
+        text-align: left;
+      }
+
+      td {
+        text-align: left;
+      }
+    }
+
+    input {
+      border-color: $c-black;
+      background-color: transparent;
+
+      &:focus,
+      &:hover,
+      &[aria-expanded='true'] {
+        border-color: rgba(0, 3, 35, 0.1);
+      }
+    }
+
+    a.button,
+    .woocommerce-Button {
+      @include transition(background-color border-color color);
+      cursor: pointer;
+      color: inherit;
+      display: inline-block;
+      border: 1px solid transparent;
+      text-align: center;
+      padding: 0.75em 1.25em !important;
+      font-weight: $fw-regular;
+      font-size: 1rem;
+      line-height: inherit;
+      background-color: $c-light-purple;
+      border-radius: 0;
+      border: none;
+      color: $c-white !important;
+      box-shadow: none !important;
+
+      &:hover {
+        background-color: darken($c-light-purple, 20%);
+        color: $c-white;
+        border: none !important;
+        box-shadow: none !important;
+      }
+    }
+  }
+}

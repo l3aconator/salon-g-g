@@ -4,7 +4,15 @@
   <div class="site-links">
     <div>
       {% if user %}
-      <a href="/my-account">My account</a> | <a href="{{ fn('wc_logout_url') }}">Logout</a>
+      <a href="/my-account">Account</a>
+      <a href="{{ cart.link }}" class="site--cartHeader">
+        <span>
+          {% include "includes/icons/cart.svg" %}
+        </span>
+        {% if cart.count != 0 %}
+        <span class="cartCount">{{ cart.count }}</span>
+        {% endif %}
+      </a>
       {% else %}
       <div>
         <a data-micromodal-trigger="login-modal" href='javascript:void(0);'>Login</a> | <a data-micromodal-trigger="signup-modal" href='javascript:void(0);'>Sign up</a>

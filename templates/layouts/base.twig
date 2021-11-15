@@ -3,7 +3,7 @@
 
 {% include "includes/head.twig" %}
 
-<body class="{{ body_class }}{% if pagename %} page-name-{{ pagename }}{% endif %} theme--{{ post.header_theme }}">
+<body class="{{ body_class }}{% if pagename %} page-name-{{ pagename }}{% endif %} theme--{% if header_theme %}{{ header_theme }}{% else %}{{ post.header_theme }}{% endif %}">
 
   <a href="#content" class="skip-to-content" tabindex="0">Skip to content</a>
 
