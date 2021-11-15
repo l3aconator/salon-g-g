@@ -17,7 +17,7 @@
         {% if feature_photo %}
         <figure class="single__col single__figure">
           {% if post.designer_video %}<button type="button" data-video="{{ post.designer_video }}" class="single__figure-button js-modal-trigger js-video-modal">{% endif %}
-          <img src="{{ feature_photo.src('feature') }}" srcset="{{ feature_photo.srcset }}" alt="{{ feature_photo.alt }}">
+          <img src="{{ feature_photo.src('feature') }}" srcset="{{ feature_photo.srcset }}" alt="{{ feature_photo.alt }}" loading="lazy">
           {% if post.designer_video %}</button>{% endif %}
         </figure>
         {% endif %}
