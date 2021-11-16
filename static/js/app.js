@@ -56,6 +56,7 @@ function runQty(woocommerceTrigger) {
 }
 
 onDocumentReady(() => {
+  new Menu();
   MicroModal.init();
   const woocommerceTrigger = document.querySelector('.wp-block-editor-content');
   const signupTrigger = document.querySelector('.js-buttonSwapSignup');

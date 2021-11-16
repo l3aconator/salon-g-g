@@ -162,6 +162,11 @@ class Shop extends Post {
 		return $section;
 	}
 
+	// public function products() {
+	// 	$products_repo = new ProductRepository();
+	// 	return $products_repo->by_designer( $this->ID )->get();
+	// }
+
 
 	/** ---------- Private getters ---------- */
 

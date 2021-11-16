@@ -1,12 +1,34 @@
+.woocommerce nav.woocommerce-pagination {
+  text-align: right;
+  margin-top: $spacing-lg;
+}
+
 .woocommerce .shop-main nav.woocommerce-pagination ul {
   border: 0;
 }
 .woocommerce .shop-main nav.woocommerce-pagination ul li {
   border: 0;
-  margin-left: 2px;
-  margin-right: 2px;
+  margin-left: 8px;
+  margin-right: 8px;
 }
 .woocommerce .shop-main nav.woocommerce-pagination ul li a,
 .woocommerce .shop-main nav.woocommerce-pagination ul li span {
   color: $c-text;
+
+  &.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  &.prev,
+  &.next {
+    @include transition(all);
+    border: 1px solid $c-black;
+
+    &:hover {
+      background-color: transparent;
+      border-color: rgba($c-black, 0.65);
+    }
+  }
 }

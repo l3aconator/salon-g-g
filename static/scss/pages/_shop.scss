@@ -74,7 +74,6 @@
   z-index: 2;
 }
 
-.shop-carousel,
 .shop-section {
   @include vertical-margins;
   padding-top: $spacing;
@@ -85,6 +84,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  .ecomm--header {
+    width: 100%;
+    margin-bottom: $spacing;
+
+    h1,
+    h2 {
+      flex-shrink: 0;
+      padding-right: 20px;
+      margin-bottom: 0px;
+    }
+  }
 }
 
 .slide__content-link {

@@ -1,4 +1,4 @@
-.theme--dark:not(.shop-homepage) {
+.theme--dark {
   padding-top: $header-offset;
 
   @include mq($md, 'max') {

@@ -20,8 +20,9 @@
   }
 }
 
-.archive-tease {
-  @include three-up;
+.archive-tease,
+.carousel__slide {
+  @include four-up;
   width: 100%;
 }
 

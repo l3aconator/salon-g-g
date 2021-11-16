@@ -10,12 +10,6 @@
 .site-header {
   @include transition(all);
   @include side-margins;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: $spacing-sm;
-  padding-bottom: $spacing-sm;
   border-bottom: 1px solid transparent;
   position: fixed;
   top: 0;
@@ -23,28 +17,28 @@
   right: 0;
   z-index: 10;
 
+  .site-header__wrapper {
+    max-width: $max-width;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: $spacing-sm;
+    padding-bottom: $spacing-sm;
+    margin: 0 auto;
+  }
+
   .theme--dark &:not(.site-header--fixed) {
     background-color: $c-gray-purple;
   }
 
-  @include mq($md, 'max') {
-    .has-cart:not(.woocommerce-cart):not(.woocommerce-checkout) & {
-      padding-top: $spacing * 2;
-      padding-top: calc(#{$spacing} + #{$mobile-cart-banner-height});
-    }
-  }
-
   &--fixed {
     background-color: $c-white;
-    padding-top: $spacing-sm;
-    padding-bottom: $spacing-sm;
-    border-bottom-color: $c-gray-purple;
 
-    @include mq($md, 'max') {
-      .has-cart:not(.woocommerce-cart):not(.woocommerce-checkout) & {
-        padding-top: $spacing-sm * 2;
-        padding-top: calc(#{$spacing-sm} + #{$mobile-cart-banner-height});
-      }
+    .site-header__wrapper {
+      padding-top: $spacing-sm;
+      padding-bottom: $spacing-sm;
+      border-bottom-color: $c-gray-purple;
     }
   }
 }
