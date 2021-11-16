@@ -249,9 +249,9 @@
   "location": [
     [
       {
-        "param": "page_type",
+        "param": "page",
         "operator": "==",
-        "value": "shop_page"
+        "value": "5"
       }
     ]
   ],
@@ -263,5 +263,6 @@
   "hide_on_screen": ["the_content"],
   "active": true,
   "description": "",
-  "modified": 1624322847
+  "show_in_rest": 0,
+  "modified": 1637031211
 }

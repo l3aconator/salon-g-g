@@ -1,7 +1,9 @@
 <section class="shop-carousel">
   <div class="shop-section__header site-wrapper">
-    <h2 class="sectionheader sectionheader--shop">{{ carousel.title }}</h2>
-    <a class="cta-link" href="{{ carousel.link }}">View All <span class="cta-link__arrow">&rarr;</span></a>
+    <div class="ecomm--header">
+      <h2 class="sectionheader sectionheader--shop">{{ carousel.title }}</h2>
+      <hr />
+    </div>
   </div>
-  {% include "components/carousel.twig" with { items: carousel.products, options: { loop: true, size: 'half' }, template: 'product' } %}
+  {% include "components/carousel.twig" with { items: carousel.products, options: { loop: true, size: 'quarter' }, template: 'product' } %}
 </section>

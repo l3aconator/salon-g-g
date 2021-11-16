@@ -1,67 +1,83 @@
 {% extends 'layouts/base.twig' %}
 
 {% block pageBody %}
+<div class="main-frame">
+  <div class="site-wrapper shop-main">
 
-<div class="shop-banner">
-  <div class="site-wrapper">
-    <div class="shop-banner__wrapper{{ post.banner_image ? ' shop-banner__wrapper--half' : ''}}">
-      {% if post.banner_image %}
-        <div class="shop-banner__image">
-          <img src="{{ post.banner_image.src }}" alt="{{ post.banner_image.alt }}" loading="lazy">
-        </div>
-      {% endif %}
-
-      <h1 class="shop-header">{{ post.banner_title }}</h1>
-
-      {% if post.banner_description %}
-      <p class="shop-banner__description">{{ post.banner_description }}</p>
-      {% endif %}
-
-      {% if post.banner_link %}
-      <a class="shop-banner__link cta-link" href="{{ post.banner_link }}">Shop {{ post.banner_term }} <span class="cta-link__arrow">&rarr;</span></a>
-      {% endif %}
-
-    </div>
-  </div>
-</div>
-
-<div class="main-frame main-frame--shop">
-  <div class="shop-main">
-
-    <div class="site-wrapper">
+    <header class="shop-archive__header">
       {% include "components/archive-controls.twig" with {
         shop: true,
-        hide_instock: true,
         search_type: 'product',
         active_filter: title,
+        hide_instock: true,
         filters: [
           {
             label: 'Category',
             options: categories
-          },
-          {
-            label: 'Designers',
-            options: designers
           }
         ]
       } %}
-    </div>
+      <div class="shop-section__header">
+        <div class="ecomm--header">
+          <h1 class="sectionheader sectionheader--shop">New In</h1>
+          <hr />
+        </div>
+      </div>
+    </header>
 
     {% do action('woocommerce_before_main_content') %}
     {% do action('woocommerce_before_shop_loop') %}
 
-    {% set carousel_1 = post.carousel_1 %}
-    {% if carousel_1 %}
-      {% include "components/shop-carousel.twig" with { carousel: carousel_1 } %}
-    {% endif %}
+    {% if post and post.carousel_1|length %}
 
-    {% set featured_categories = post.featured_categories %}
+        {% for products in post.carousel_1 %}
+          <div class="static-carousel--quarter">
+            <div class=" static-carousel__slides">
+              {% for product in products %}
+              <article class="carousel__slide carousel__slide--product">
+                {% if product.thumbnail %}
+                  <div class="slide__image">
+                    {% include "components/overlay-link.twig" with {
+                      href: product.link,
+                      imgSrc: product.post_image.src('feature_square'),
+                      imgAlt: product.post_image.alt,
+                      buttonText: 'View'
+                    } %}
+                  </div>
+                {% else %}
+                <div class="slide__image slide__image--placeholder">
+                  {% include "components/overlay-link.twig" with {
+                      href: product.link,
+                      imgSrc: theme.link ~ "/static/img/placeholder.svg",
+                      imgAlt: "Placeholder",
+                      buttonText: 'View'
+                    } %}
+                </div>
+                {% endif %}
+                <div class="slide__content">
+                  <div class="slide__row">
+                    <h6 class="slide__designer">{{ product.designer }}</h6>
+                    {% if is_trade and product.meta('trade_price') %}
+                      <p class="slide__price slide__price--trade"><strike>${{product.meta('trade_price')}}</strike></p>
+                    {% endif %}
+                  </div>
+                  <div class="slide__row slide__row--title">
+                    <h3 class="slide__title"><a href="{{ product.link }}" class="slide__content-link">{{ product.title }}</a></h3>
+                    <p class="slide__price">${{ product.price }}</p>
+                  </div>
+                </div>
+              </article>
+              {% endfor %}
+          </div>
+        </div>
+      {% endfor %}
 
-    {% if featured_categories %}
-    <section class="shop-section">
-      <h2 class="sectionheader sectionheader--shop site-wrapper">{{ featured_categories.title }}</h2>
-      {% include "components/featured-categories.twig" with { blocks: featured_categories.blocks } %}
-    </section>
+      {% if products.pagination %}
+        {% include "components/pagination.twig" with {pagination: products.pagination} %}
+      {% endif %}
+
+    {% else %}
+      <p>No products.</p>
     {% endif %}
 
     {% do action('woocommerce_after_shop_loop') %}

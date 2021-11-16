@@ -1,3 +1,13 @@
 .shop-archive__header {
   margin-bottom: $spacing;
+
+  .archive__controls {
+    margin-bottom: $spacing;
+  }
+
+  .ecomm--header {
+    h1 {
+      padding-left: 0px;
+    }
+  }
 }

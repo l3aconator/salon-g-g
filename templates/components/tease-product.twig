@@ -1,24 +1,39 @@
 {{ fn('timber_set_product', tease) }}
 
-<article {{ fn('post_class', ['product-tease', 'archive-tease']) }}>
-  <div class="tease__image">
+<article class="carousel__slide carousel__slide--product">
+  {% if tease.thumbnail %}
+    <div class="slide__image">
+      <img src="{{theme.link}}/static/img/in-stock-badge.svg" alt="In-stock" class="slide__stockBadge" />
+      {% include "components/overlay-link.twig" with {
+        href: tease.link,
+        imgSrc: tease.post_image.src('feature_square'),
+        imgAlt: tease.post_image.alt,
+        buttonText: 'View'
+      } %}
+    </div>
+  {% else %}
+  <div class="slide__image slide__image--placeholder">
+    <img src="{{theme.link}}/static/img/in-stock-badge.svg" alt="In-stock" class="slide__stockBadge" />
     {% include "components/overlay-link.twig" with {
-      href: tease.link,
-      imgSrc: tease.post_image ? tease.post_image.src('feature_square') : false,
-      imgAlt: tease.post_image ? tease.post_image.alt : false,
-      placeholder: true,
-      buttonText: 'View Product',
-      overlayText: overlayTitle ? tease.title : false,
-      showOverlayIfNoImage: overlayTitle ? true : false
-    } %}
+        href: tease.link,
+        imgSrc: theme.link ~ "/static/img/placeholder.svg",
+        imgAlt: "Placeholder",
+        buttonText: 'View'
+      } %}
   </div>
-
-  {% if not overlayTitle %}
-    {% do action('woocommerce_before_shop_loop_item_title') %}
-    <h2 class="tease__title">
-      <a class="tease__link" href="{{ tease.link }}">{{ tease.title }}</a>
-    </h2>
-    {% do action( 'woocommerce_after_shop_loop_item_title' ) %}
-    {% do action( 'woocommerce_after_shop_loop_item' ) %}
   {% endif %}
+  <div class="slide__content">
+    <div class="slide__row">
+      <h6 class="slide__designer">{{ designer ? designer : tease.designer }}</h6>
+      {% if is_trade and tease.meta('trade_price') %}
+        <p class="slide__price slide__price--trade"><strike>${{tease.meta('trade_price')}}</strike></p>
+      {% endif %}
+    </div>
+    <div class="slide__row slide__row--title">
+      <h3 class="slide__title"><a href="{{ tease.link }}" class="slide__content-link">{{ tease.title }}</a></h3>
+      {% if tease.price %}
+        <p class="slide__price">${{ tease.price }}</p>
+      {% endif %}
+    </div>
+  </div>
 </article>

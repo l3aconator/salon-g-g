@@ -14,35 +14,33 @@
           {
             label: 'Category',
             options: categories
+          },
+          {
+            label: 'Designers',
+            options: designers
           }
         ]
       } %}
-      <div class="shop-section__header">
-        <div class="ecomm--header">
-          {% if query %}
-            <h1 class="sectionheader sectionheader--shop">Search results for: <span class="archive__query">{{ query }}</span></h1>
-          {% elseif title %}
-            <h1 class="sectionheader sectionheader--shop">{{ title }}</h1>
-          {% endif %}
-          <hr />
-        </div>
-      </div>
+
+      {% if query %}
+        <h1 class="sectionheader">Search results for: <span class="archive__query">{{ query }}</span></h1>
+      {% elseif title %}
+        <h1 class="sectionheader">{{ title }}</h1>
+      {% endif %}
     </header>
 
     {% do action('woocommerce_before_main_content') %}
     {% do action('woocommerce_before_shop_loop') %}
 
     {% if products and products|length %}
-      <div class="static-carousel--quarter static-carousel--quarter__looper">
-          <div class=" static-carousel__slides">
-            {% for tease in products %}
-              {% include ["components/tease-product.twig"] with { tease: tease, designer: title } %}
-            {% endfor %}
-        </div>
+      <div class="archive-loop">
+        {% for tease in products %}
+          {% include ["components/tease-product.twig"] with { tease: tease } %}
+        {% endfor %}
       </div>
 
-      {% if products.pagination %}
-        {% include "components/pagination.twig" with {pagination: products.pagination} %}
+      {% if pagination %}
+        {% include "components/pagination.twig" with {pagination: pagination} %}
       {% endif %}
 
     {% else %}

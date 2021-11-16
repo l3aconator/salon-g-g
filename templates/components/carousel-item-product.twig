@@ -1,5 +1,6 @@
+{% set is_trade = true %}
 
-<article class="carousel__slide carousel__slide--product {{ item.thumbnail is empty ? ' carousel__slide--noimg' : '' }}" {{ clone ? '' : 'data-slide' }}>
+<article class="carousel__slide carousel__slide--product" {{ clone ? '' : 'data-slide' }}>
   {% if item.thumbnail %}
     <div class="slide__image">
       {% include "components/overlay-link.twig" with {
@@ -9,10 +10,26 @@
         buttonText: 'View'
       } %}
     </div>
+  {% else %}
+  <div class="slide__image slide__image--placeholder">
+    {% include "components/overlay-link.twig" with {
+        href: item.link,
+        imgSrc: theme.link ~ "/static/img/placeholder.svg",
+        imgAlt: "Placeholder",
+        buttonText: 'View'
+      } %}
+  </div>
   {% endif %}
-
   <div class="slide__content">
-    <h3 class="slide__title"><a href="{{ item.link }}" class="slide__content-link">{{ item.title }}</a></h3>
-    <p class="slide__price">${{ item.price }}</p>
+    <div class="slide__row">
+      <h6 class="slide__designer">{{ item.designer }}</h6>
+      {% if is_trade and item.meta('trade_price') %}
+        <p class="slide__price slide__price--trade"><strike>${{item.meta('trade_price')}}</strike></p>
+      {% endif %}
+    </div>
+    <div class="slide__row slide__row--title">
+      <h3 class="slide__title"><a href="{{ item.link }}" class="slide__content-link">{{ item.title }}</a></h3>
+      <p class="slide__price">${{ item.price }}</p>
+    </div>
   </div>
 </article>

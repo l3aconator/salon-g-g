@@ -1,5 +1,5 @@
 .archive__controls {
-  margin-bottom: $spacing-lg;
+  margin-bottom: $spacing-sm;
 
   @include mq($xl, 'max') {
     font-size: 16px;
@@ -24,6 +24,7 @@
 
 .control__hover {
   position: relative;
+  cursor: pointer;
 
   @include mq($lg, 'max') {
     display: none;
@@ -32,9 +33,22 @@
 .control__active {
   font-weight: $fw-regular;
   display: block;
-  padding: 1em 2em 1em 0;
+  padding: 1em 1em 1em 1em;
+  border: 1px solid $c-black;
+
+  &:not(:last-child) {
+    margin-right: 30px;
+  }
+
+  &:hover,
+  &:focus-within {
+    &:after {
+      transform: rotate(180deg);
+    }
+  }
 
   &:after {
+    @include transition(all);
     content: '';
     display: inline-block;
     width: 12px;
@@ -50,6 +64,7 @@
 .control__hover-dropdown {
   position: absolute;
   box-shadow: 0 0 18px rgba($c-black, 0.1);
+  border: 1px solid rgba($c-black, 0.1);
   display: none;
   z-index: 9;
   background-color: $c-white;
@@ -85,7 +100,7 @@
     color: $c-blue;
 
     &:hover {
-      color: $c-black;
+      color: rgba($c-black, 0.65);
     }
   }
 }
@@ -180,7 +195,7 @@
 
 .archive-search {
   position: relative;
-  flex: 1;
+  margin-left: auto;
 }
 
 .archive-search__label {
@@ -199,35 +214,36 @@
 }
 
 .archive-search__input {
-  width: 100%;
+  @include transition(all);
   display: block;
   background-color: transparent;
   border: 0;
-  padding: 1rem 1rem 1rem 3rem;
+  border-bottom: 1px solid $c-black;
+  padding: 1rem 1rem 0.5rem 3rem;
 
   &::-webkit-input-placeholder {
     /* Chrome/Opera/Safari */
-    color: $c-blue;
+    color: $c-light-purple;
     font-weight: $fw-regular;
   }
   &::-moz-placeholder {
     /* Firefox 19+ */
-    color: $c-blue;
+    color: $c-light-purple;
     font-weight: $fw-regular;
   }
   &:-ms-input-placeholder {
     /* IE 10+ */
-    color: $c-blue;
+    color: $c-light-purple;
     font-weight: $fw-regular;
   }
   &:-moz-placeholder {
     /* Firefox 18- */
-    color: $c-blue;
+    color: $c-light-purple;
     font-weight: $fw-regular;
   }
 
   &:focus {
-    background-color: $c-gray-purple;
+    border-color: rgba($c-black, 0.65) !important;
     outline: 0;
   }
 }

@@ -21,6 +21,25 @@
       "multiple": 0,
       "return_format": "object",
       "ui": 1
+    },
+    {
+      "key": "field_61933bb448257",
+      "label": "Trade Price",
+      "name": "trade_price",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": "",
+      "maxlength": ""
     }
   ],
   "location": [
@@ -40,5 +59,6 @@
   "hide_on_screen": "",
   "active": true,
   "description": "",
-  "modified": 1602792762
+  "show_in_rest": 0,
+  "modified": 1637039058
 }

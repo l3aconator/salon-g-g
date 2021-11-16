@@ -59,6 +59,15 @@ class Product extends Post {
 	}
 
 	/**
+	 * Get the stock.
+	 *
+	 * @return string
+	 */
+	public function stock() {
+		return $this->product-get_stock_quantity();
+	}
+
+	/**
 	 * Get the product designer.
 	 *
 	 * @return Salon\Models\Designer|boolean
