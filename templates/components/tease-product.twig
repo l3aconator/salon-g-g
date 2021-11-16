@@ -1,4 +1,5 @@
 {{ fn('timber_set_product', tease) }}
+{% set is_trade = user.meta('is_trade') %}
 
 <article class="carousel__slide carousel__slide--product">
   {% if tease.thumbnail %}

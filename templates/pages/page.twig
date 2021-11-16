@@ -1,7 +1,7 @@
 {% set feature_photo = post.feature_photo ? Image(post.feature_photo) : false %}
 {%  if post.slug == "my-account" %}
   {% set header_theme = 'dark' %}
-  {% set is_trade = true %}
+  {% set is_trade = user.meta('is_trade') %}
 {% endif %}
 
 {% extends "layouts/base.twig" %}
@@ -27,7 +27,7 @@
       {% if is_trade %}
       <span>Trade Account</span>
       {% else %}
-      <p>Want to apply for a trade account? <a href="#"> Click here.</a></p>
+      <p>Want to apply for a trade account? <a href="javascript:void(0);" data-micromodal-trigger="trade-modal-main"> Click here.</a></p>
       {% endif %}
       </div>
     </div>

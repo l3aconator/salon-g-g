@@ -12,6 +12,7 @@ import Modal from './components/modal';
 import Form from './components/form';
 import ProductGallery from './components/product-gallery';
 import VideoModal from './components/videomodal';
+import './components/trade-modal';
 
 export const modals = {};
 
@@ -102,7 +103,11 @@ onDocumentReady(() => {
 
     woocommerceTrigger.addEventListener('mouseover', () => {
       const cartBtn = document.querySelector('.actions');
-      cartBtn.style.display = 'none';
+
+      if (cartBtn) {
+        cartBtn.style.display = 'none';
+      }
+
       runQty(woocommerceTrigger);
     });
   }
