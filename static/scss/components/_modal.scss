@@ -59,6 +59,36 @@
   content: '\2715';
 }
 
+.cf7mls-btns .action-button,
+.cf7mls_back.action-button,
+.wpcf7-submit {
+  @include transition(background-color border-color color);
+  cursor: pointer;
+  color: inherit;
+  display: block;
+  border: 1px solid transparent;
+  text-align: center;
+  padding: 0.75em 1.25em;
+  font-weight: $fw-regular;
+  font-size: 1rem;
+  line-height: inherit;
+  border-radius: 0;
+  background-color: $c-light-purple;
+  border-color: $c-light-purple;
+  color: $c-white;
+
+  &:hover {
+    background-color: darken($c-light-purple, 20%);
+    color: $c-white;
+  }
+}
+
+.wpcf7-submit {
+  width: unset;
+  border-radius: 0 !important;
+  font-weight: normal !important;
+}
+
 .modal__content {
   max-width: 472px;
   margin: 2rem auto;
@@ -102,7 +132,7 @@
     }
   }
 
-  input {
+  input:not([type='submit']) {
     border-color: $c-black;
     background-color: transparent;
   }
@@ -131,6 +161,39 @@
     a {
       color: $c-black;
       border-bottom: 1px solid $c-black;
+    }
+  }
+
+  .wpcf7-list-item {
+    display: block;
+    margin: 0px;
+  }
+
+  .wpcf7-select {
+    background-color: transparent;
+    @include transition(all);
+
+    &:focus {
+      outline: none;
+      border-color: rgba(0, 3, 35, 0.1);
+    }
+  }
+
+  select option {
+    padding: 4px;
+
+    &:checked {
+      background: $c-white;
+    }
+  }
+
+  .wpcf7-textarea {
+    background-color: transparent;
+    border: 1px solid black;
+
+    &:focus {
+      outline: none;
+      border-color: rgba(0, 3, 35, 0.1);
     }
   }
 }
@@ -200,4 +263,79 @@
 .micromodal-slide .modal__container,
 .micromodal-slide .modal__overlay {
   will-change: transform;
+}
+
+#signup-modal {
+  .modal--flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    @include mq($md, 'max') {
+      .modal--row {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.modal__content .woocommerce-privacy-policy-text {
+  display: none;
+}
+
+.modal--switch {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: $spacing;
+  margin-top: $spacing;
+
+  span {
+    font-weight: normal;
+  }
+
+  input[type='checkbox'] {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+  }
+
+  label {
+    width: 52px;
+    height: 30px;
+    display: block;
+    background-color: transparent;
+    border-radius: 100px;
+    position: relative;
+    cursor: pointer;
+    transition: 0.5s;
+    margin-bottom: 0px;
+    border: 1px solid $c-black;
+  }
+
+  label::after {
+    content: '';
+    width: 24px;
+    height: 24px;
+    border: 1px solid $c-black;
+    background-color: $c-white;
+    position: absolute;
+    border-radius: 70px;
+    top: 2px;
+    left: 2px;
+    transition: 0.5s;
+  }
+
+  input:checked + label:after {
+    left: calc(100% - 2px);
+    transform: translateX(-100%);
+  }
+
+  input:checked + label {
+    background-color: $c-black;
+  }
+
+  label:active:after {
+    width: 24px;
+  }
 }

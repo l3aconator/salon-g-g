@@ -1,0 +1,10 @@
+{% extends 'components/micro-modal.twig' %}
+{% set trade_form_shortcode = options.trade_form_shortcode %}
+
+{% set id = 'trade-modal-main' %}
+{% set title = 'Trade Account Application' %}
+
+{% block modalContent %}
+<div class="trade__modal">
+  {{ fn('do_shortcode', trade_form_shortcode) }}</div>
+{% endblock %}

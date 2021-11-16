@@ -252,6 +252,25 @@
           ]
         }
       ]
+    },
+    {
+      "key": "field_6193ddaf06e5a",
+      "label": "Trade Form Shortcode",
+      "name": "trade_form_shortcode",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": "",
+      "maxlength": ""
     }
   ],
   "location": [
@@ -271,5 +290,6 @@
   "hide_on_screen": "",
   "active": true,
   "description": "",
-  "modified": 1626996441
+  "show_in_rest": 0,
+  "modified": 1637080510
 }
