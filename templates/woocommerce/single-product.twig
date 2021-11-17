@@ -98,7 +98,7 @@
                 {% do action('woocommerce_single_product_summary') %}
                 {% do action('woocommerce_after_variations_form') %}
               </div>
-              <a href="#" class="btn btn--light-purple btn--outline">Request a quote</a>
+              <a data-micromodal-trigger="quote-modal" href='javascript:void(0);' class="btn btn--light-purple btn--outline">Request a quote</a>
             </div>
             <p><a class="product__returnPolicy" href="/return-policy">Return Policy</a></p>
           </div>
@@ -120,4 +120,5 @@
 
 </div>
 
+{% include "components/quote-modal.twig" %}
 {% endblock  %}

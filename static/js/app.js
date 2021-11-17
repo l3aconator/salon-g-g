@@ -14,6 +14,7 @@ import Form from './components/form';
 import ProductGallery from './components/product-gallery';
 import VideoModal from './components/videomodal';
 import './components/trade-modal';
+import './components/quote-modal';
 
 export const modals = {};
 
