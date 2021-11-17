@@ -3,7 +3,7 @@
 
   @include mq($md, 'max') {
     &.has-cart {
-      padding-top: $header-offset + $mobile-cart-banner-height;
+      padding-top: $header-offset - 10;
     }
   }
 }

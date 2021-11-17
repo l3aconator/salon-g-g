@@ -39,7 +39,7 @@
                 {% if product.thumbnail %}
                   <div class="slide__image">
                     {% if product.meta('made_to_order') == false %}
-                      <img src="{{theme.link}}/static/img/made-to-order-badge.svg" alt="Made to order" class="slide__stockBadge" />
+                      <img src="{{theme.link}}/static/img/made-to-order-badge.svg" alt="Made to order" class="slide__stockBadge slide__madeToOrder" />
                     {% else %}
                       <img src="{{theme.link}}/static/img/in-stock-badge.svg" alt="In-stock" class="slide__stockBadge" />
                     {% endif %}
@@ -53,7 +53,7 @@
                 {% else %}
                 <div class="slide__image slide__image--placeholder">
                   {% if product.meta('made_to_order') == false %}
-                    <img src="{{theme.link}}/static/img/made-to-order-badge.svg" alt="Made to order" class="slide__stockBadge" />
+                    <img src="{{theme.link}}/static/img/made-to-order-badge.svg" alt="Made to order" class="slide__stockBadge slide__madeToOrder" />
                   {% else %}
                     <img src="{{theme.link}}/static/img/in-stock-badge.svg" alt="In-stock" class="slide__stockBadge" />
                   {% endif %}
