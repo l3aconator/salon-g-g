@@ -1,12 +1,10 @@
 {% extends 'layouts/base.twig' %}
-{% set is_trade = user.meta('is_trade') %}
+{% set is_trade = 'Trade Customer' in user.roles %}
 
 {% set hasImage = post.thumbnail or post.product_gallery  %}
 {% set stock = post.stock %}
 
 {% block pageBody %}
-
-<pre>{{ post.print_r }}</pre>
 
 {{ fn('timber_set_product', post) }}
 
@@ -51,11 +49,11 @@
       </div>
       {% endif %}
 
-      <div class="single__col content">
+      <div class="single__col content {% if not hasImage %}single__colNoImage{% endif %}">
         <div>
           <ul class="breadcrumbs">
             <li class="breadcrumbs__item breadcrumbs__item--noUnderline"><a href="/shop">Store</a></li>
-            <li class="breadcrumbs__item breadcrumbs__item--noUnderline breadcrumbs__item--active"><a href="{{ post.link }}">{{ post.title }}</a></li>
+            <li class="breadcrumbs__item breadcrumbs__item--noUnderline breadcrumbs__item--active"><a href="{{ post.link }}">{{ post.title|slice(0,30) }}…</a></li>
           </ul>
 
           <div class="product__meta">
@@ -64,8 +62,12 @@
             <p class="product__designerName"><a href="{{ post.designer.link }}">{{ post.designer }}</a></p>
             {% endif %}
             <div class="product__price">
-              {% if post.price and is_trade %}<p><strike>${{ post.price }}</strike><p>{% endif %}
-              <p>{% if post.price %}${{ post.price }}{% else %}<strong>Price Upon Request</strong>{% endif %}<p>
+              {% if post.meta('price_upon_request') %}
+              <p>Price Upon Request</p>
+              {% else %}
+              {% if post.meta('trade_price') and is_trade %}<p class="product__priceTrade"><strike>${{ post.price }}</strike><p>{% else %}<p>${{ post.price }}</p>{% endif %}
+              {% if post.meta('trade_price') and is_trade %}<p>${{ post.meta('trade_price') }}<p>{% endif %}
+              {% endif %}
             </div>
           </div>
 
@@ -77,18 +79,26 @@
               <div>{{ post.content|slice(0, 191) }}…</div>
               <div><button type="button" class="btn--link" id="product__showMore" data-open="false">Read more +</button></div>
             </div>
-          </div>
-          {% endif %}
-
-          <div class="product__summary summary entry-summary">
+            {% if post.meta('dimensions') %}
+            <div class="product__dimensions">
+              <p class="product__dimensionsHeading">Dimensions <button class="product__dimensionsToggle">+</button></p>
+              <p class="product__dimensionsContent">{{ post.meta('dimensions') }}</p>
+            </div>
+            {% endif %}
             <div class="product__attachment">
               {{ fn('do_shortcode', '[display_attachments hide_title="true" hide_size_label="true" hide_description="true"]') }}
             </div>
+          </div>
+          {% endif %}
+
+          <div class="product__summary summary entry-summary {% if post.meta('price_upon_request') %}product__summaryPriceHidden{% endif %}">
             <div class="product__actions">
               <div>
+                {% do action('woocommerce_before_variations_form') %}
                 {% do action('woocommerce_single_product_summary') %}
+                {% do action('woocommerce_after_variations_form') %}
               </div>
-              <a href="#" class="btn btn--light-purple btn--outline">Request a quote</a>
+              <a data-micromodal-trigger="quote-modal" href='javascript:void(0);' class="btn btn--light-purple btn--outline">Request a quote</a>
             </div>
             <p><a class="product__returnPolicy" href="/return-policy">Return Policy</a></p>
           </div>
@@ -110,4 +120,5 @@
 
 </div>
 
+{% include "components/quote-modal.twig" %}
 {% endblock  %}

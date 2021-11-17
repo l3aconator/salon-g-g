@@ -34,6 +34,10 @@
 
 .single__col {
   @include two-up;
+
+  &.single__colNoImage {
+    margin: 0 auto;
+  }
 }
 
 .single__figure {
@@ -43,7 +47,7 @@
 }
 
 .single-product {
-  .site-wrapper {
+  .site-wrapper:not(.site-footer__wrapper) {
     padding: 0px;
     margin: 0px;
     max-width: 100%;
@@ -66,6 +70,7 @@
       font-size: 16px;
       line-height: 24px;
       margin-bottom: 8px;
+      color: $c-black;
     }
 
     .breadcrumbs {
