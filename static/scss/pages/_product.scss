@@ -122,6 +122,32 @@ table.variations {
   margin-bottom: 0px;
 }
 
+.woocommerce.single-product form.cart.variations_form .tawcvs-swatches .swatch {
+  padding: 0px;
+  width: 25px;
+  height: 25px;
+}
+
+.woocommerce.single-product form.cart.variations_form .tawcvs-swatches .swatch:before {
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  border-width: 2px;
+  border-color: transparent;
+}
+
+.woocommerce.single-product form.cart.variations_form .tawcvs-swatches .swatch.selected:before {
+  border-color: $c-black;
+}
+
+.woocommerce.single-product
+  form.cart.variations_form
+  .tawcvs-swatches
+  .swatch.swatch-color.selected:after {
+  display: none !important;
+}
+
 .product__attachment {
   margin-bottom: $spacing-sm;
   margin-top: $spacing-sm;
