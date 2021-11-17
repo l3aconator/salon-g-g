@@ -37,6 +37,7 @@ class Product extends Post {
 		parent::__construct( $p );
 		$this->set_designer();
 		$this->product = wc_get_product( $this->ID );
+		$this->stock = get_post_meta( $this->ID, '_stock_status', true );
 	}
 
 	/**

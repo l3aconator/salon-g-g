@@ -1,4 +1,5 @@
 import MicroModal from 'micromodal';
+import 'fslightbox';
 
 import { onDocumentReady } from './utils';
 
@@ -62,6 +63,8 @@ onDocumentReady(() => {
   const woocommerceTrigger = document.querySelector('.wp-block-editor-content');
   const signupTrigger = document.querySelector('.js-buttonSwapSignup');
   const loginTrigger = document.querySelector('.js-buttonSwapSignup');
+  const attachmentButton = document.querySelector('.wcpoa_attachmentbtn');
+  const showMore = document.querySelector('#product__showMore');
 
   new Toggler();
   new CartHandler();
@@ -109,6 +112,27 @@ onDocumentReady(() => {
       }
 
       runQty(woocommerceTrigger);
+    });
+  }
+
+  if (attachmentButton) {
+    attachmentButton.innerHTML = 'Download Specification Sheet';
+  }
+
+  if (showMore) {
+    showMore.addEventListener('click', el => {
+      const contentElMain = document.querySelector('.product__contentShort');
+      const contentEl = document.querySelector('.product__contentShort div');
+
+      if (el.target.dataset.open === 'true') {
+        contentEl.innerHTML = contentElMain.dataset.contentShort;
+        el.target.setAttribute('data-open', false);
+        el.target.innerHTML = 'Read more +';
+      } else {
+        contentEl.innerHTML = contentElMain.dataset.content;
+        el.target.setAttribute('data-open', true);
+        el.target.innerHTML = 'Read less -';
+      }
     });
   }
 });

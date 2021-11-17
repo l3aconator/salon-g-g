@@ -1,8 +1,12 @@
 {% extends 'layouts/base.twig' %}
+{% set is_trade = user.meta('is_trade') %}
 
 {% set hasImage = post.thumbnail or post.product_gallery  %}
+{% set stock = post.stock %}
 
 {% block pageBody %}
+
+<pre>{{ post.print_r }}</pre>
 
 {{ fn('timber_set_product', post) }}
 
@@ -16,26 +20,82 @@
 
       {% if hasImage %}
       <div class="single__col single__figure">
-        {% include "components/product-gallery.twig" %}
+        <div class="carousel__wrapper js-carousel">
+          <div class="carousel__viewport">
+            <div class="carousel__track" data-track>
+              {% for img in post.product_gallery %}
+                <article class="carousel__slide carousel__slideProductGallery" data-slide>
+                  <img src="{{ img.full }}" loading="lazy">
+                </article>
+              {% endfor %}
+            </div>
+          </div>
+          <button class="carousel__control carousel__control--prev" data-control="prev">
+            <span>Previous</span>
+            {% include "includes/icons/chevron-left.svg" %}
+          </button>
+          <button class="carousel__control carousel__control--next" data-control="next">
+            <span>Next</span>
+            {% include "includes/icons/chevron-right.svg" %}
+          </button>
+        </div>
+        <ul class="product__stickyGallery">
+          {% for img in post.product_gallery %}
+            <li class="product__stickyGalleryItem">
+              <a data-fslightbox="gallery-lightbox" href="{{ img.full }}">
+                <img src="{{ img.full }}" loading="lazy">
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
       </div>
       {% endif %}
 
       <div class="single__col content">
-        <h1 class="product__title">{{ post.title }}</h1>
+        <div>
+          <ul class="breadcrumbs">
+            <li class="breadcrumbs__item breadcrumbs__item--noUnderline"><a href="/shop">Store</a></li>
+            <li class="breadcrumbs__item breadcrumbs__item--noUnderline breadcrumbs__item--active"><a href="{{ post.link }}">{{ post.title }}</a></li>
+          </ul>
 
-        {% if post.designer %}
-        <p>Designer: <a href="{{ post.designer.link }}">{{ post.designer.title }}</a></p>
-        {% endif %}
+          <div class="product__meta">
+            <h1 class="product__title">{{ post.title }}</h1>
+            {% if post.designer %}
+            <p class="product__designerName"><a href="{{ post.designer.link }}">{{ post.designer }}</a></p>
+            {% endif %}
+            <div class="product__price">
+              {% if post.price and is_trade %}<p><strike>${{ post.price }}</strike><p>{% endif %}
+              <p>{% if post.price %}${{ post.price }}{% else %}<strong>Price Upon Request</strong>{% endif %}<p>
+            </div>
+          </div>
 
-        {% do action('woocommerce_before_single_product_summary') %}
+          {% do action('woocommerce_before_single_product_summary') %}
 
-        <div class="content">{{ post.content }}</div>
+          {% if post.content %}
+          <div class="content">
+            <div class="product__contentShort" data-content="{{ post.content }}" data-content-short="{{ post.content|slice(0, 191) }}…">
+              <div>{{ post.content|slice(0, 191) }}…</div>
+              <div><button type="button" class="btn--link" id="product__showMore" data-open="false">Read more +</button></div>
+            </div>
+          </div>
+          {% endif %}
 
-        <div class="summary entry-summary">
-          {% do action('woocommerce_single_product_summary') %}
+          <div class="product__summary summary entry-summary">
+            <div class="product__attachment">
+              {{ fn('do_shortcode', '[display_attachments hide_title="true" hide_size_label="true" hide_description="true"]') }}
+            </div>
+            <div class="product__actions">
+              <div>
+                {% do action('woocommerce_single_product_summary') %}
+              </div>
+              <a href="#" class="btn btn--light-purple btn--outline">Request a quote</a>
+            </div>
+            <p><a class="product__returnPolicy" href="/return-policy">Return Policy</a></p>
+          </div>
+
+          {% do action('woocommerce_after_single_product_summary') %}
+
         </div>
-
-        {% do action('woocommerce_after_single_product_summary') %}
       </div>
 
       {% if hasImage %}</div>{% endif %}

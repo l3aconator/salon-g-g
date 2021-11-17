@@ -76,6 +76,12 @@ textarea {
   &--dark-bg:hover {
     color: $c-text;
   }
+
+  &--outline {
+    background-color: transparent;
+    color: currentColor;
+    border-color: currentColor;
+  }
 }
 
 .cta-link {
