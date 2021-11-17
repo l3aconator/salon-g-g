@@ -45,6 +45,7 @@
     }
   },
   "dependencies": {
+    "fslightbox": "^3.3.0-2",
     "lazysizes": "^5.1.2",
     "micromodal": "^0.4.6"
   },

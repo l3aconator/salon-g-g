@@ -1,10 +1,17 @@
+{% set stock = tease.stock %}
+
 {{ fn('timber_set_product', tease) }}
 {% set is_trade = user.meta('is_trade') %}
 
 <article class="carousel__slide carousel__slide--product">
   {% if tease.thumbnail %}
     <div class="slide__image">
+      {% if stock == 'outofstock' %}
+      <img src="{{theme.link}}/static/img/made-to-order-badge.svg" alt="Made to order" class="slide__stockBadge" />
+      {% elseif stock == 'instock' %}
       <img src="{{theme.link}}/static/img/in-stock-badge.svg" alt="In-stock" class="slide__stockBadge" />
+      {% else %}
+      {% endif %}
       {% include "components/overlay-link.twig" with {
         href: tease.link,
         imgSrc: tease.post_image.src('feature_square'),
@@ -14,7 +21,12 @@
     </div>
   {% else %}
   <div class="slide__image slide__image--placeholder">
+    {% if stock == 'outofstock' %}
+    <img src="{{theme.link}}/static/img/made-to-order-badge.svg" alt="Made to order" class="slide__stockBadge" />
+    {% elseif stock == 'instock' %}
     <img src="{{theme.link}}/static/img/in-stock-badge.svg" alt="In-stock" class="slide__stockBadge" />
+    {% else %}
+    {% endif %}
     {% include "components/overlay-link.twig" with {
         href: tease.link,
         imgSrc: theme.link ~ "/static/img/placeholder.svg",

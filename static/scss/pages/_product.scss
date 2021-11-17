@@ -1,11 +1,85 @@
 .product__title {
   @include headline();
+  font-size: $fs-xl;
+  margin-top: $spacing-sm;
+  margin-bottom: $spacing-sm;
+}
+
+.product__price {
+  margin-top: $spacing-sm;
+  margin-bottom: $spacing-sm;
+  font-size: $fs-lg;
+  font-weight: bold;
+}
+
+.product__designerName {
+  text-transform: uppercase;
+  font-weight: thin;
+  font-size: 16px;
+}
+
+.product__summary {
+  margin-top: $spacing;
 }
 
 .summary .price {
   font-size: $fs-lg;
   font-weight: $fw-bold;
   margin-bottom: $spacing;
+  display: none;
+}
+
+.product__actions {
+  margin-top: $spacing-sm;
+  margin-bottom: $spacing-sm;
+  display: flex;
+  align-items: center;
+
+  > div {
+    margin-right: 16px;
+  }
+}
+
+.product__returnPolicy {
+  font-size: 16px !important;
+  color: $c-light-purple !important;
+}
+
+.product__stickyGalleryItem {
+  @include mq($md) {
+    border-right: 1px solid $c-light-purple;
+  }
+}
+
+.product__stickyGalleryItem {
+  img {
+    width: 100%;
+  }
+}
+
+.product__attachment .wcpoa_attachmentbtn {
+  float: none !important;
+  box-shadow: inset 0 -0.06em 0 currentColor;
+  padding-bottom: 0.1em;
+  color: $c-black;
+  font-weight: bold;
+  background-color: transparent !important;
+  padding: 0px !important;
+  display: inline !important;
+  width: unset !important;
+}
+
+#product__showMore {
+  background-color: transparent;
+  border: none;
+  padding: 0px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.summary .cart .quantity {
+  display: none !important;
 }
 
 .variations {
@@ -44,6 +118,18 @@
 
 .woocommerce #content .single-product-details .single_add_to_cart_button {
   width: 100%;
+  @include transition(background-color border-color color);
+  cursor: pointer;
+  color: $c-white;
+  display: block;
+  border: 1px solid transparent;
+  text-align: center;
+  padding: 0.75em 1.25em;
+  font-weight: $fw-regular;
+  font-size: 1rem;
+  background-color: $c-light-purple;
+  line-height: inherit;
+  border-radius: 0;
 
   &.loading {
     opacity: 1;
