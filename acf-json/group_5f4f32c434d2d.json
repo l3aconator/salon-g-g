@@ -40,6 +40,63 @@
       "prepend": "",
       "append": "",
       "maxlength": ""
+    },
+    {
+      "key": "field_6194a1a132e65",
+      "label": "Dimensions",
+      "name": "dimensions",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": "",
+      "maxlength": ""
+    },
+    {
+      "key": "field_6194a3ffe7a5a",
+      "label": "Made to Order?",
+      "name": "made_to_order",
+      "type": "true_false",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "message": "",
+      "default_value": 0,
+      "ui": 0,
+      "ui_on_text": "",
+      "ui_off_text": ""
+    },
+    {
+      "key": "field_6194a413e7a5b",
+      "label": "Price Upon Request?",
+      "name": "price_upon_request",
+      "type": "true_false",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 0,
+      "message": "",
+      "ui": 0,
+      "ui_on_text": "",
+      "ui_off_text": ""
     }
   ],
   "location": [
@@ -60,5 +117,5 @@
   "active": true,
   "description": "",
   "show_in_rest": 0,
-  "modified": 1637039058
+  "modified": 1637131304
 }

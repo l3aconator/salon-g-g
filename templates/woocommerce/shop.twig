@@ -1,5 +1,5 @@
 {% extends 'layouts/base.twig' %}
-{% set is_trade = user.meta('is_trade') %}
+{% set is_trade = 'Trade Customer' in user.roles %}
 
 {% block pageBody %}
 <div class="main-frame">
@@ -38,6 +38,11 @@
               <article class="carousel__slide carousel__slide--product">
                 {% if product.thumbnail %}
                   <div class="slide__image">
+                    {% if product.meta('made_to_order') == false %}
+                      <img src="{{theme.link}}/static/img/made-to-order-badge.svg" alt="Made to order" class="slide__stockBadge" />
+                    {% else %}
+                      <img src="{{theme.link}}/static/img/in-stock-badge.svg" alt="In-stock" class="slide__stockBadge" />
+                    {% endif %}
                     {% include "components/overlay-link.twig" with {
                       href: product.link,
                       imgSrc: product.post_image.src('feature_square'),
@@ -47,6 +52,11 @@
                   </div>
                 {% else %}
                 <div class="slide__image slide__image--placeholder">
+                  {% if product.meta('made_to_order') == false %}
+                    <img src="{{theme.link}}/static/img/made-to-order-badge.svg" alt="Made to order" class="slide__stockBadge" />
+                  {% else %}
+                    <img src="{{theme.link}}/static/img/in-stock-badge.svg" alt="In-stock" class="slide__stockBadge" />
+                  {% endif %}
                   {% include "components/overlay-link.twig" with {
                       href: product.link,
                       imgSrc: theme.link ~ "/static/img/placeholder.svg",
@@ -58,13 +68,15 @@
                 <div class="slide__content">
                   <div class="slide__row">
                     <h6 class="slide__designer">{{ product.designer }}</h6>
-                    {% if is_trade and product.meta('trade_price') %}
+                    {% if is_trade and product.meta('trade_price') and product.meta('price_upon_request') == false %}
                       <p class="slide__price slide__price--trade"><strike>${{product.meta('trade_price')}}</strike></p>
                     {% endif %}
                   </div>
                   <div class="slide__row slide__row--title">
                     <h3 class="slide__title"><a href="{{ product.link }}" class="slide__content-link">{{ product.title }}</a></h3>
-                    <p class="slide__price">${{ product.price }}</p>
+                    {% if product.price and product.meta('price_upon_request') == false %}
+                      <p class="slide__price">${{ product.price }}</p>
+                    {% endif %}
                   </div>
                 </div>
               </article>

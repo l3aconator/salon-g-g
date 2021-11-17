@@ -1,16 +1,15 @@
+{% set is_trade = 'Trade Customer' in user.roles %}
 {% set stock = tease.stock %}
 
 {{ fn('timber_set_product', tease) }}
-{% set is_trade = user.meta('is_trade') %}
 
 <article class="carousel__slide carousel__slide--product">
   {% if tease.thumbnail %}
     <div class="slide__image">
-      {% if stock == 'outofstock' %}
-      <img src="{{theme.link}}/static/img/made-to-order-badge.svg" alt="Made to order" class="slide__stockBadge" />
-      {% elseif stock == 'instock' %}
-      <img src="{{theme.link}}/static/img/in-stock-badge.svg" alt="In-stock" class="slide__stockBadge" />
+      {% if tease.meta('made_to_order') == false %}
+        <img src="{{theme.link}}/static/img/made-to-order-badge.svg" alt="Made to order" class="slide__stockBadge" />
       {% else %}
+        <img src="{{theme.link}}/static/img/in-stock-badge.svg" alt="In-stock" class="slide__stockBadge" />
       {% endif %}
       {% include "components/overlay-link.twig" with {
         href: tease.link,
@@ -21,11 +20,10 @@
     </div>
   {% else %}
   <div class="slide__image slide__image--placeholder">
-    {% if stock == 'outofstock' %}
-    <img src="{{theme.link}}/static/img/made-to-order-badge.svg" alt="Made to order" class="slide__stockBadge" />
-    {% elseif stock == 'instock' %}
-    <img src="{{theme.link}}/static/img/in-stock-badge.svg" alt="In-stock" class="slide__stockBadge" />
+    {% if tease.meta('made_to_order') == false %}
+      <img src="{{theme.link}}/static/img/made-to-order-badge.svg" alt="Made to order" class="slide__stockBadge" />
     {% else %}
+      <img src="{{theme.link}}/static/img/in-stock-badge.svg" alt="In-stock" class="slide__stockBadge" />
     {% endif %}
     {% include "components/overlay-link.twig" with {
         href: tease.link,
@@ -38,13 +36,13 @@
   <div class="slide__content">
     <div class="slide__row">
       <h6 class="slide__designer">{{ designer ? designer : tease.designer }}</h6>
-      {% if is_trade and tease.meta('trade_price') %}
+      {% if is_trade and tease.meta('trade_price') and tease.meta('price_upon_request') == false %}
         <p class="slide__price slide__price--trade"><strike>${{tease.meta('trade_price')}}</strike></p>
       {% endif %}
     </div>
     <div class="slide__row slide__row--title">
       <h3 class="slide__title"><a href="{{ tease.link }}" class="slide__content-link">{{ tease.title }}</a></h3>
-      {% if tease.price %}
+      {% if tease.price and tease.meta('price_upon_request') == false %}
         <p class="slide__price">${{ tease.price }}</p>
       {% endif %}
     </div>

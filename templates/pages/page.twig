@@ -1,7 +1,7 @@
 {% set feature_photo = post.feature_photo ? Image(post.feature_photo) : false %}
 {%  if post.slug == "my-account" %}
   {% set header_theme = 'dark' %}
-  {% set is_trade = user.meta('is_trade') %}
+  {% set is_trade = 'Trade Customer' in user.roles %}
 {% endif %}
 
 {% extends "layouts/base.twig" %}

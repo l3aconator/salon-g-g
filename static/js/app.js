@@ -65,6 +65,7 @@ onDocumentReady(() => {
   const loginTrigger = document.querySelector('.js-buttonSwapSignup');
   const attachmentButton = document.querySelector('.wcpoa_attachmentbtn');
   const showMore = document.querySelector('#product__showMore');
+  const dimensionsToggle = document.querySelector('.product__dimensionsToggle');
 
   new Toggler();
   new CartHandler();
@@ -133,6 +134,19 @@ onDocumentReady(() => {
         el.target.setAttribute('data-open', true);
         el.target.innerHTML = 'Read less -';
       }
+    });
+  }
+
+  if (dimensionsToggle) {
+    dimensionsToggle.addEventListener('click', el => {
+      if (el.target.classList.contains('open')) {
+        el.target.innerHTML = '+';
+      } else {
+        el.target.innerHTML = '-';
+      }
+
+      document.querySelector('.product__dimensionsContent').classList.toggle('open');
+      el.target.classList.toggle('open');
     });
   }
 });

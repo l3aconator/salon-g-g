@@ -1,4 +1,4 @@
-{% set is_trade = user.meta('is_trade') %}
+{% set is_trade = 'Trade Customer' in user.roles %}
 
 <article class="carousel__slide carousel__slide--product" {{ clone ? '' : 'data-slide' }}>
   {% if item.thumbnail %}
