@@ -27,7 +27,9 @@
       {% if is_trade %}
       <span>Trade Account</span>
       {% else %}
-      <p>Want to apply for a trade account? <a href="javascript:void(0);" data-micromodal-trigger="trade-modal-main"> Click here.</a></p>
+        {% if user %}
+        <p>Want to apply for a trade account? <a href="javascript:void(0);" data-micromodal-trigger="trade-modal-main"> Click here.</a></p>
+        {% endif %}
       {% endif %}
       </div>
     </div>

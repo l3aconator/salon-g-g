@@ -39,7 +39,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1em;
+    // padding: 10px;
+    width: 37px;
+    height: 37px;
 
     &:hover,
     &:focus {
@@ -87,7 +89,7 @@
 
     &.product-name {
       font-family: $ff-headline;
-      font-size: $fs-xl;
+      font-size: 25px;
     }
 
     &.product-thumbnail {
@@ -236,6 +238,7 @@
     margin: 0px;
     font-size: $fs-xl;
     padding: 0px 30px;
+    flex-shrink: 0;
   }
 
   hr {

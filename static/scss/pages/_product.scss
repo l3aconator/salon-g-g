@@ -45,6 +45,7 @@
   .product__dimensionsHeading {
     font-weight: bold;
     font-size: 14px;
+    cursor: pointer;
   }
 
   .product__dimensionsContent {
@@ -184,7 +185,6 @@ table.variations {
   .reset_variations {
     color: inherit;
     font-size: $fs-base;
-    margin-left: $spacing-sm;
     display: inline-block;
     font-size: 14px;
     text-transform: uppercase;

@@ -23,5 +23,11 @@
   </article>
 </div>
 
+{% if not user %}
+<script>
+  window.shouldTriggerModal = true;
+</script>
+{% endif %}
+
 {% endblock %}
 

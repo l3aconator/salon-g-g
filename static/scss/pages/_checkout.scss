@@ -3,6 +3,10 @@
   font-weight: $fw-regular;
 }
 
+.woocommerce-checkout .wcpoa_order_attachments {
+  display: none !important;
+}
+
 .woocommerce-form-login-toggle {
   display: none;
 }
@@ -219,16 +223,24 @@
 
   table.shop_table td {
     border: none;
+
+    &.product-total {
+      text-align: right;
+    }
   }
 
   table.shop_table td.product-name {
-    font-size: $fs-lg;
+    font-size: 20px;
   }
 
   .woocommerce-checkout-review-order-table.shop_table thead th {
     background-color: $c-medium-purple;
     color: $c-white;
     padding: 1em;
+
+    &.product-total {
+      color: $c-medium-purple;
+    }
   }
 
   .product-quantity {
@@ -238,6 +250,7 @@
     padding: 4px 10px;
     border-radius: 8px;
     font-size: 0.8rem;
+    display: none;
   }
 
   table.shop_table .cart-subtotal th {
@@ -276,4 +289,29 @@
   padding: 1em;
   text-transform: uppercase;
   font-size: 18px !important;
+}
+
+#stripe-payment-data {
+  a {
+    @include transition(all);
+    color: $c-black;
+    box-shadow: inset 0 -0.06em 0 currentColor;
+
+    &:hover {
+      box-shadow: inset 0 -0.14em 0 currentColor;
+    }
+  }
+}
+
+.woocommerce-terms-and-conditions-checkbox-text {
+  a {
+    @include transition(all);
+    font-weight: bold;
+    color: $c-black;
+    box-shadow: inset 0 -0.06em 0 currentColor;
+
+    &:hover {
+      box-shadow: inset 0 -0.14em 0 currentColor;
+    }
+  }
 }

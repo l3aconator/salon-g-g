@@ -62,11 +62,10 @@ onDocumentReady(() => {
   new Menu();
   MicroModal.init();
   const woocommerceTrigger = document.querySelector('.wp-block-editor-content');
-  const signupTrigger = document.querySelector('.js-buttonSwapSignup');
   const loginTrigger = document.querySelector('.js-buttonSwapSignup');
   const attachmentButton = document.querySelector('.wcpoa_attachmentbtn');
   const showMore = document.querySelector('#product__showMore');
-  const dimensionsToggle = document.querySelector('.product__dimensionsToggle');
+  const dimensionsToggle = document.querySelector('.product__dimensionsHeading');
 
   new Toggler();
   new CartHandler();
@@ -84,22 +83,19 @@ onDocumentReady(() => {
   document.querySelectorAll('.js-product-gallery').forEach(el => new ProductGallery(el));
   document.querySelectorAll('.js-video-modal[data-video]').forEach(el => new VideoModal(el));
 
-  if (signupTrigger) {
-    signupTrigger.addEventListener('click', () => {
+  if (loginTrigger) {
+    loginTrigger.addEventListener('click', () => {
       MicroModal.close('login-modal');
       MicroModal.show('signup-modal');
     });
   }
 
-  if (loginTrigger) {
-    loginTrigger.addEventListener('click', () => {
-      MicroModal.close('signup-modal');
-      MicroModal.show('login-modal');
-    });
+  if (window.shouldTriggerModal) {
+    MicroModal.show('login-modal');
   }
 
-  // Update cart on qty change vs. user having to click button
   if (woocommerceTrigger) {
+    // Update cart on qty change vs. user having to click button
     const cartBtn = document.querySelector('.actions');
 
     if (cartBtn) {
@@ -139,15 +135,21 @@ onDocumentReady(() => {
   }
 
   if (dimensionsToggle) {
-    dimensionsToggle.addEventListener('click', el => {
-      if (el.target.classList.contains('open')) {
-        el.target.innerHTML = '+';
+    dimensionsToggle.addEventListener('click', () => {
+      const button = document.querySelector('.product__dimensionsToggle');
+      if (button.classList.contains('open')) {
+        button.innerHTML = '+';
       } else {
-        el.target.innerHTML = '-';
+        button.innerHTML = '-';
       }
 
       document.querySelector('.product__dimensionsContent').classList.toggle('open');
-      el.target.classList.toggle('open');
+      button.classList.toggle('open');
     });
+  }
+
+  if (window.location.pathname === '/checkout/') {
+    document.querySelector('.woocommerce-checkout-review-order-table .product-name').innerHTML =
+      'Your Order';
   }
 });

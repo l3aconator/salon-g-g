@@ -9,7 +9,7 @@ function callback(mutationsList) {
   mutationsList.forEach(mutation => {
     if (mutation.attributeName === 'class') {
       if (mutation.target.classList.contains('sent')) {
-        MicroModal.close('trade-modal-main');
+        document.querySelector('#trade-modal-main .fieldset-cf7mls-wrapper').style.display = 'none';
         localStorage.removeItem(keyName);
       }
     }

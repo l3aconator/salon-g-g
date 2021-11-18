@@ -32,8 +32,8 @@
     {% if post and post.carousel_1|length %}
 
         {% for products in post.carousel_1 %}
-          <div class="static-carousel--quarter">
-            <div class=" static-carousel__slides">
+          <div class="static-carousel--quarter static-carousel--quarter__looper">
+            <div class="static-carousel__slides">
               {% for product in products %}
               <article class="carousel__slide carousel__slide--product">
                 {% if product.thumbnail %}

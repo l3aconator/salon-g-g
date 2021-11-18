@@ -38,9 +38,11 @@
 
       <ul class="main-nav">
         {% for item in main_nav.items %}
-          <li class="main-nav__item {{ item.classes|join(' ') }} {{ item.link == '#' and item.children ? 'main-nav__item--has-subnav' : '' }}">
+          <li class="main-nav__item {{ item.classes|join(' ') }} {{ item.link == '#' or 'shop' in item.link and item.children ? 'main-nav__item--has-subnav' : '' }}">
             {% if item.link == '#' and item.children %}
             <span class="main-nav__subnav-trigger js-toggle-class" data-t-elem-pos="parent" data-t-selector="li" data-t-class="item--expanded">{{ item.title }}</span>
+            {% elseif 'shop' in item.link and item.children %}
+            <a href="{{ item.link }}" class="main-nav__subnav-trigger js-toggle-class" data-t-elem-pos="parent" data-t-selector="li" data-t-class="item--expanded">{{ item.title }}</a>
             {% else %}
             <a href="{{ item.link }}" class="main-nav__link">{{ item.title }}</a>
             {% endif %}

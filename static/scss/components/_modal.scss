@@ -3,8 +3,7 @@
 \**************************/
 
 .modal {
-  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica,
-    ubuntu, roboto, noto, segoe ui, arial, sans-serif;
+  font-family: $ff-body;
 }
 
 .modal__overlay {
@@ -338,4 +337,15 @@
   label:active:after {
     width: 24px;
   }
+}
+
+.wpcf7-response-output {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 0px;
+}
+
+.wpcf7-form-control-wrap {
+  margin-top: 10px;
+  display: inline-block;
 }
