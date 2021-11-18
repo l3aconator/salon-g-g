@@ -4,7 +4,8 @@
 {% set title = 'Login' %}
 
 {% block modalContent %}
-<form method="post">
+{% do action('woocommerce_before_customer_login_form') %}
+<form method="post" class="woocommerce-form woocommerce-form-login login">
   {% do action( 'woocommerce_login_form_start' ) %}
   <p class="modal--row">
     <label for="username">{{'Email Address'|e('esc_html')}}&nbsp;<span class="required">*</span></label>
@@ -31,4 +32,5 @@
   <p>By creating an account, you will be able to checkout, keep an archive of your downloads, download tearsheets, create a trade account and more...</p>
   <button type="button" class="js-buttonSwapSignup btn btn--light-purple btn--inline" name="go_to_signup" value="Sign up">{{'Sign up'|e('esc_html')}}</button>
 </div>
+{% do action('woocommerce_after_customer_login_form') %}
 {% endblock %}

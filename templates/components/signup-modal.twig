@@ -4,7 +4,8 @@
 {% set title = 'Sign Up' %}
 
 {% block modalContent %}
-<form method="post" {% do action( 'woocommerce_register_form_tag' ) %}>
+{% do action('woocommerce_before_customer_login_form') %}
+<form method="post" class="woocommerce-form woocommerce-form-register register" {% do action( 'woocommerce_register_form_tag' ) %}>
   {% do action( 'woocommerce_register_form_start' ) %}
   <div class="modal--flex">
     <p class="modal--row">
@@ -36,4 +37,5 @@
   </p>
   {% do action( 'woocommerce_register_form_end' ) %}
 </form>
+{% do action('woocommerce_after_customer_login_form') %}
 {% endblock %}
