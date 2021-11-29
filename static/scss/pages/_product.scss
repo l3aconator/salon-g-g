@@ -86,8 +86,21 @@
 }
 
 .product__stickyGalleryItem {
+  position: relative;
+
   @include mq($md) {
     border-right: 1px solid $c-light-purple;
+  }
+
+  .product__stockBadge {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    width: 102px;
+
+    &.product__madeToOrder {
+      width: 142px;
+    }
   }
 }
 

@@ -111,6 +111,20 @@
 
     .carousel__slideProductGallery {
       max-height: 400px;
+      position: relative;
+
+      .product__stockBadge {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 102px;
+        height: auto;
+        object-fit: none;
+
+        &.product__madeToOrder {
+          width: 142px;
+        }
+      }
     }
 
     .product__stickyGallery {
