@@ -35,12 +35,14 @@ class WoocommerceManager {
         remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
         remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
 
+
         // Add some actions.
         add_action( 'woocommerce_before_quantity_input_field', array( $this, 'add_quantity_label' ) );
         add_filter( 'woocommerce_add_to_cart_fragments', array( $this, 'manage_add_to_cart_response' ) );
         add_filter( 'is_woocommerce', array( $this, 'manage_woocommerce_screens' ) );
         add_theme_support( 'woocommerce' );
         add_action( 'woocommerce_created_customer', array( $this, 'wooc_save_extra_register_fields' ) );
+		add_filter( 'woocommerce_cart_item_name', array( $this, 'wooc_product_image_on_checkout' ), 10, 3 );
     }
 
     /**
@@ -51,6 +53,30 @@ class WoocommerceManager {
     public function add_quantity_label() {
         echo '<span class="quantity__label">Quantity</span>';
     }
+
+    /**
+     * Add product thumbnail
+     *
+     * @return void
+     */
+    public function wooc_product_image_on_checkout( $name, $cart_item, $cart_item_key ) {
+		/* Return if not checkout page */
+		if ( ! is_checkout() ) {
+			return $name;
+		}
+
+		/* Get product object */
+		$_product = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
+
+		/* Get product thumbnail */
+		$thumbnail = $_product->get_image();
+
+		/* Add wrapper to image and add some css */
+		$image = '<div class="ts-product-image" style="width: 97px; height: 97px; display: inline-block; padding-right: 7px; vertical-align: middle;">' . $thumbnail . '</div>';
+
+		/* Prepend image to name and return it */
+		return $image . '<span class="ts-product-title">' . $name . '</span>';
+	}
 
     /**
      * Add some custom fields to save to DB

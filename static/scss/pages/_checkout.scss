@@ -35,7 +35,8 @@
   }
 
   .cart-subtotal td,
-  .order-total td {
+  .order-total td,
+  .tax-total td {
     text-align: right;
   }
 
@@ -226,11 +227,33 @@
 
     &.product-total {
       text-align: right;
+      vertical-align: top;
     }
   }
 
   table.shop_table td.product-name {
     font-size: 20px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .ts-product-title {
+      width: 65%;
+    }
+
+    .ts-product-image {
+      margin-right: 6px;
+      width: 35%;
+
+      img {
+        border: 1px solid $c-gray-E;
+      }
+    }
+
+    dl.variation {
+      width: 100%;
+      margin-left: 103px;
+    }
   }
 
   .woocommerce-checkout-review-order-table.shop_table thead th {
@@ -258,7 +281,8 @@
   }
 
   .cart-subtotal,
-  .order-total {
+  .order-total,
+  .tax-total {
     th {
       text-align: left;
     }

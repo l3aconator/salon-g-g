@@ -1,0 +1,8 @@
+.woocommerce-message,
+.woocommerce-info {
+  border-top-color: $c-medium-purple;
+
+  &:before {
+    color: $c-medium-purple;
+  }
+}
