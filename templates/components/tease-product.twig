@@ -6,10 +6,11 @@
 <article class="carousel__slide carousel__slide--product">
   {% if tease.thumbnail %}
     <div class="slide__image">
-      {% if tease.meta('made_to_order') == false %}
+      {% if tease.custom._stock_status == 'instock' and not tease.meta('price_upon_request') %}
+        <img src="{{theme.link}}/static/img/in-stock-badge.svg" alt="In-stock" class="slide__stockBadge" />
+      {% elseif tease.meta('made_to_order') or tease.meta('price_upon_request') %}
         <img src="{{theme.link}}/static/img/made-to-order-badge.svg" alt="Made to order" class="slide__stockBadge slide__madeToOrder" />
       {% else %}
-        <img src="{{theme.link}}/static/img/in-stock-badge.svg" alt="In-stock" class="slide__stockBadge" />
       {% endif %}
       {% include "components/overlay-link.twig" with {
         href: tease.link,
@@ -20,10 +21,11 @@
     </div>
   {% else %}
   <div class="slide__image slide__image--placeholder">
-    {% if tease.meta('made_to_order') == false %}
+    {% if tease.custom._stock_status == 'instock' and not tease.meta('price_upon_request') %}
+      <img src="{{theme.link}}/static/img/in-stock-badge.svg" alt="In-stock" class="slide__stockBadge" />
+    {% elseif tease.meta('made_to_order') or tease.meta('price_upon_request') %}
       <img src="{{theme.link}}/static/img/made-to-order-badge.svg" alt="Made to order" class="slide__stockBadge slide__madeToOrder" />
     {% else %}
-      <img src="{{theme.link}}/static/img/in-stock-badge.svg" alt="In-stock" class="slide__stockBadge" />
     {% endif %}
     {% include "components/overlay-link.twig" with {
         href: tease.link,

@@ -23,6 +23,14 @@
             <div class="carousel__track" data-track>
               {% for img in post.product_gallery %}
                 <article class="carousel__slide carousel__slideProductGallery" data-slide>
+                  {% if loop.first %}
+                    {% if post.custom._stock_status == 'instock' and not post.meta('price_upon_request') %}
+                      <img src="{{theme.link}}/static/img/in-stock-badge.svg" alt="In-stock" class="product__stockBadge" />
+                    {% elseif post.meta('made_to_order') or post.meta('price_upon_request') %}
+                      <img src="{{theme.link}}/static/img/made-to-order-badge.svg" alt="Made to order" class="product__stockBadge product__madeToOrder" />
+                    {% else %}
+                    {% endif %}
+                  {% endif %}
                   <img src="{{ img.full }}" loading="lazy">
                 </article>
               {% endfor %}
@@ -41,6 +49,14 @@
           {% for img in post.product_gallery %}
             <li class="product__stickyGalleryItem">
               <a data-fslightbox="gallery-lightbox" href="{{ img.full }}">
+                {% if loop.first %}
+                  {% if post.custom._stock_status == 'instock' and not post.meta('price_upon_request') %}
+                    <img src="{{theme.link}}/static/img/in-stock-badge.svg" alt="In-stock" class="product__stockBadge" />
+                  {% elseif post.meta('made_to_order') or post.meta('price_upon_request') %}
+                    <img src="{{theme.link}}/static/img/made-to-order-badge.svg" alt="Made to order" class="product__stockBadge product__madeToOrder" />
+                  {% else %}
+                  {% endif %}
+                {% endif %}
                 <img src="{{ img.full }}" loading="lazy">
               </a>
             </li>
