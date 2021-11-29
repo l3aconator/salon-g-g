@@ -116,6 +116,11 @@ table.variations {
     font-size: 14px;
     font-weight: normal;
     text-transform: uppercase;
+
+    .product__selectedVariant {
+      text-transform: capitalize;
+      font-weight: bold;
+    }
   }
 }
 
