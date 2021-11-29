@@ -11,6 +11,7 @@ onDocumentReady(() => {
   const showMore = document.querySelector('#product__showMore');
   const dimensionsToggle = document.querySelector('.product__dimensionsHeading');
   const variationSelectorAll = document.querySelectorAll('.tawcvs-swatches');
+  const variationTable = document.querySelector('.variations');
 
   // Plugin doesn't allow customizing the text
   // so we have to monkey patch through JS
@@ -81,6 +82,58 @@ onDocumentReady(() => {
               }
             });
         });
+    });
+  }
+
+  // If page has variants and is over 7
+  // Hide the overflow and add a button to toggle
+  if (variationTable) {
+    const openHTML = '<span>+</span> View all options';
+    const closeHTML = '<span>-</span> Close options';
+    const limit = 6;
+
+    variationTable.querySelectorAll('tr').forEach((el, index) => {
+      const swatches = el.querySelectorAll('.swatch');
+      const needsSwatches = el.querySelectorAll('.tawcvs-swatches').length !== 0;
+      const tableColumn = document.createElement('td');
+
+      if (needsSwatches === false || swatches.length <= limit) {
+        return;
+      }
+
+      tableColumn.classList.add('toggle');
+      tableColumn.innerHTML = openHTML;
+      el.appendChild(tableColumn);
+
+      swatches.forEach((el, index) => {
+        if (index >= limit) {
+          el.style.display = 'none';
+        }
+      });
+
+      el.querySelector('.toggle').addEventListener('click', ({ target }) => {
+        const column = target;
+        const currentRow = variationTable.querySelector(`tr:nth-child(${index + 1})`);
+        const rowSwatches = currentRow.querySelectorAll('.swatch');
+
+        if (column.classList.contains('open')) {
+          column.innerHTML = openHTML;
+          column.classList.remove('open');
+
+          rowSwatches.forEach((el, index) => {
+            if (index >= limit) {
+              el.style.display = 'none';
+            }
+          });
+        } else {
+          column.innerHTML = closeHTML;
+          column.classList.add('open');
+
+          rowSwatches.forEach(el => {
+            el.style.display = 'block';
+          });
+        }
+      });
     });
   }
 });

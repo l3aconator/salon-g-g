@@ -135,6 +135,13 @@ table.variations {
       font-weight: bold;
     }
   }
+
+  .toggle {
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 12px;
+  }
 }
 
 .woocommerce.single-product form.cart.variations_form .tawcvs-swatches {
@@ -145,6 +152,10 @@ table.variations {
   padding: 0px;
   width: 25px;
   height: 25px;
+}
+
+.woocommerce.single-product form.cart.variations_form .tawcvs-swatches .swatch-item-wrapper {
+  margin-bottom: 4px !important;
 }
 
 .woocommerce.single-product form.cart.variations_form .tawcvs-swatches .swatch:before {
@@ -206,6 +217,7 @@ table.variations {
     display: inline-block;
     font-size: 14px;
     text-transform: uppercase;
+    display: none !important;
   }
 }
 
