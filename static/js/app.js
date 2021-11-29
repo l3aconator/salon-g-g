@@ -15,6 +15,9 @@ import ProductGallery from './components/product-gallery';
 import VideoModal from './components/videomodal';
 import './components/trade-modal';
 import './components/quote-modal';
+import './components/product-page';
+
+// TODO: This needs a lovely refactor, built this to get done quicker
 
 export const modals = {};
 
@@ -63,9 +66,6 @@ onDocumentReady(() => {
   MicroModal.init();
   const woocommerceTrigger = document.querySelector('.wp-block-editor-content');
   const loginTrigger = document.querySelector('.js-buttonSwapSignup');
-  const attachmentButton = document.querySelector('.wcpoa_attachmentbtn');
-  const showMore = document.querySelector('#product__showMore');
-  const dimensionsToggle = document.querySelector('.product__dimensionsHeading');
 
   new Toggler();
   new CartHandler();
@@ -110,41 +110,6 @@ onDocumentReady(() => {
       }
 
       runQty(woocommerceTrigger);
-    });
-  }
-
-  if (attachmentButton) {
-    attachmentButton.innerHTML = 'Download Specification Sheet';
-  }
-
-  if (showMore) {
-    showMore.addEventListener('click', el => {
-      const contentElMain = document.querySelector('.product__contentShort');
-      const contentEl = document.querySelector('.product__contentShort div');
-
-      if (el.target.dataset.open === 'true') {
-        contentEl.innerHTML = contentElMain.dataset.contentShort;
-        el.target.setAttribute('data-open', false);
-        el.target.innerHTML = 'Read more +';
-      } else {
-        contentEl.innerHTML = contentElMain.dataset.content;
-        el.target.setAttribute('data-open', true);
-        el.target.innerHTML = 'Read less -';
-      }
-    });
-  }
-
-  if (dimensionsToggle) {
-    dimensionsToggle.addEventListener('click', () => {
-      const button = document.querySelector('.product__dimensionsToggle');
-      if (button.classList.contains('open')) {
-        button.innerHTML = '+';
-      } else {
-        button.innerHTML = '-';
-      }
-
-      document.querySelector('.product__dimensionsContent').classList.toggle('open');
-      button.classList.toggle('open');
     });
   }
 
