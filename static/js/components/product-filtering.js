@@ -13,11 +13,11 @@ onDocumentReady(() => {
         el => el.dataset.filter === params,
       );
 
-      if (hoverControl) {
+      if (hoverControl && activeItem.length !== 0) {
         hoverControl.innerHTML = `Sort by ${activeItem[0].innerHTML}`;
       }
 
-      if (selectControl) {
+      if (selectControl && activeItem.length !== 0) {
         selectControl.innerHTML = `Sort by ${activeItem[0].innerHTML}`;
       }
     });
