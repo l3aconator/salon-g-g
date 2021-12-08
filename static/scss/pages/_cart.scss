@@ -286,13 +286,8 @@
 
       &:before {
         font-size: 18px;
-        text-transform: uppercase;
-        font-weight: normal !important;
-        margin-bottom: 15px;
-        padding: 0.25em 1em;
+        font-weight: bold;
         font-family: $ff-body;
-        background-color: $c-medium-purple;
-        color: $c-white;
         display: block;
         width: 100%;
         float: none !important;

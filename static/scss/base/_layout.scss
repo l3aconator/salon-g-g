@@ -8,10 +8,10 @@
   }
 
   &.single-product {
-    padding-top: $header-offset - 20;
+    padding-top: $header-offset;
 
     @include mq($md, 'max') {
-      padding-top: $header-offset - 30;
+      padding-top: $header-offset - 15;
     }
   }
 }

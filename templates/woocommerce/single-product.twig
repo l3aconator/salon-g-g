@@ -69,6 +69,9 @@
         <div>
           <ul class="breadcrumbs">
             <li class="breadcrumbs__item breadcrumbs__item--noUnderline"><a href="/shop">Store</a></li>
+            {% if post.category.name %}
+            <li class="breadcrumbs__item breadcrumbs__item--noUnderline"><a href="/shop/category/{{ post.category.slug }}">{{ post.category.name }}</a></li>
+            {% endif %}
             <li class="breadcrumbs__item breadcrumbs__item--noUnderline breadcrumbs__item--active"><a href="{{ post.link }}">{{ post.title|slice(0,30) }}…</a></li>
           </ul>
 
