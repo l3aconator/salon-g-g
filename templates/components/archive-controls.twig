@@ -15,7 +15,7 @@
           <ul class="control__hover-list">
             {% for opt in f.options %}
               {% set link = shop and opt.post_type == 'designer' ? opt.shop_link : opt.link %}
-              <li><a href="{{ link }}">{{ opt.title }}</a></li>
+              <li><a href="{{ link }}" {% if opt.sort %}data-filter="{{ opt.sort }}"{% endif %}>{{ opt.title }}</a></li>
             {% endfor %}
           </ul>
         </div>

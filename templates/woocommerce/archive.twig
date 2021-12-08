@@ -14,6 +14,31 @@
           {
             label: 'Category',
             options: categories
+          },
+          {
+            label: 'Sort',
+            options: [
+              {
+                title: 'Price',
+                link: '?sortBy=price',
+                sort: 'sortBy=price'
+              },
+              {
+                title: 'Title',
+                link: '?sortBy=title',
+                sort: 'sortBy=title'
+              },
+              {
+                title: 'A-Z',
+                link: '?sort=ASC',
+                sort: 'sort=ASC'
+              },
+              {
+                title: 'Z-A',
+                link: '?sort=DESC',
+                sort: 'sort=DESC'
+              }
+            ]
           }
         ]
       } %}
