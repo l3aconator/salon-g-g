@@ -15,7 +15,7 @@ import ProductGallery from './components/product-gallery';
 import VideoModal from './components/videomodal';
 import './components/trade-modal';
 import './components/quote-modal';
-import './components/product-page';
+import './components/product-filtering';
 
 // TODO: This needs a lovely refactor, built this to get done quicker
 

@@ -280,6 +280,10 @@ class ThemeManager {
 				$query->set( 'orderby', 'meta_value_num' );
 				$query->set( 'meta_key', '_price' );
 			}
+
+			if ( $query->get( 'sortBy' ) == 'date' ) {
+				$query->set( 'orderby', 'publish_date' );
+			}
 		}
 
 		if ( ! is_admin() && $query->is_main_query() && $query->is_archive && is_tax( 'designer_type' ) ) {

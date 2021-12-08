@@ -12,32 +12,42 @@
         hide_instock: true,
         filters: [
           {
-            label: 'Category',
+            label: 'Filter',
             options: categories
           },
           {
-            label: 'Sort',
+            label: 'Sort by',
             options: [
               {
-                title: 'Price',
-                link: '?sortBy=price',
-                sort: 'sortBy=price'
+                title: 'Latest',
+                link: '?sortBy=date&sort=DESC',
+                sort: 'sortBy=date&sort=DESC'
               },
               {
-                title: 'Title',
-                link: '?sortBy=title',
-                sort: 'sortBy=title'
+                title: 'Oldest',
+                link: '?sortBy=date&sort=ASC',
+                sort: 'sortBy=date&sort=ASC'
               },
               {
-                title: 'A-Z',
-                link: '?sort=ASC',
-                sort: 'sort=ASC'
+                title: 'Price - Highest',
+                link: '?sortBy=price&sort=ASC',
+                sort: 'sortBy=price&sort=ASC'
               },
               {
-                title: 'Z-A',
-                link: '?sort=DESC',
-                sort: 'sort=DESC'
-              }
+                title: 'Price - Lowest',
+                link: '?sortBy=price&sort=DESC',
+                sort: 'sortBy=price&sort=DESC'
+              },
+              {
+                title: 'Title - A-Z',
+                link: '?sortBy=title&sort=ASC',
+                sort: 'sortBy=title&sort=ASC'
+              },
+              {
+                title: 'Title - Z-A',
+                link: '?sortBy=title&sort=DESC',
+                sort: 'sortBy=title&sort=DESC'
+              },
             ]
           }
         ]

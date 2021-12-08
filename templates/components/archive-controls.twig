@@ -9,8 +9,8 @@
           {% set localActive = opt.title %}
         {% endif %}
       {% endfor %}
-      <div class="control__hover">
-        <span class="control__active">{{ localActive }}</span>
+      <div class="control__hover {% if f.label == 'Sort by' %}control__sort{% endif %}">
+        <span class="control__active {% if f.label == 'Filter' %}control__filterIcon{% endif %}">{{ localActive }}</span>
         <div class="control__hover-dropdown">
           <ul class="control__hover-list">
             {% for opt in f.options %}
@@ -21,11 +21,11 @@
         </div>
       </div>
 
-      <select class="control__select" onchange="this.value ? window.location = this.value : null">
+      <select class="control__select {% if f.label == 'Sort by' %}control__sort{% endif %}" onchange="this.value ? window.location = this.value : null">
         <option value="">{{ f.label }}</option>
         {% for opt in f.options %}
           {% set link = shop and opt.post_type == 'designer' ? opt.shop_link : opt.link %}
-          <option value="{{ link }}" {{ opt.title == active_filter ? 'selected' : '' }}>{{ opt.title }}</option>
+          <option value="{{ link }}" {{ opt.title == active_filter ? 'selected' : '' }} {% if opt.sort %}data-filter="{{ opt.sort }}"{% endif %}>{{ opt.title }}</option>
         {% endfor %}
       </select>
     {% endfor %}
