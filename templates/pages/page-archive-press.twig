@@ -12,7 +12,7 @@
 
   <div class="site-wrapper archive-wrap">
     {% if posts %}
-      <div class="archive-loop {% if post.show_featured_post %}archive-loop--hide-first-mobile{% endif %}">
+      <div class="archive-loop {% if post.show_featured_post %}archive-loop--hide-first-mobile{% endif %}  static-carousel__slides static-carousel--quarter">
         {% for tease in posts %}
           {% include ['components/tease-press.twig', 'components/tease.twig'] with {tease: tease} %}
         {% endfor %}

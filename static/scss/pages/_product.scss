@@ -24,6 +24,10 @@
   text-transform: uppercase;
   font-weight: thin;
   font-size: 16px;
+
+  a {
+    box-shadow: unset !important;
+  }
 }
 
 .product__summary {
@@ -94,7 +98,7 @@
 
   .product__stockBadge {
     position: absolute;
-    top: 60px;
+    top: 20px;
     right: 20px;
     width: 102px;
 
@@ -184,8 +188,7 @@ table.variations {
 
   .wcpoa_attachmentbtn {
     float: none !important;
-    box-shadow: inset 0 -0.06em 0 currentColor;
-    padding-bottom: 0.1em;
+    box-shadow: unset !important;
     color: $c-black !important;
     font-weight: bold;
     background-color: transparent !important;
@@ -304,4 +307,8 @@ table.variations {
       transform: translateX(3px);
     }
   }
+}
+
+.disabled.wc-variation-selection-needed {
+  display: none !important;
 }

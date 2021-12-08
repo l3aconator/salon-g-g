@@ -47,10 +47,18 @@
 }
 
 .single-product {
-  .site-wrapper:not(.site-footer__wrapper) {
+  .site-wrapper {
     padding: 0px;
     margin: 0px;
     max-width: 100%;
+  }
+
+  .site-footer {
+    .site-wrapper {
+      @include side-margins;
+      max-width: $max-width;
+      margin: 0 auto;
+    }
   }
 
   .single__main {
@@ -86,7 +94,7 @@
 
       @include mq($md) {
         position: sticky;
-        top: 150px;
+        top: -100px;
       }
     }
   }

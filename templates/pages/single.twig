@@ -62,7 +62,7 @@
   {% if post.products and post.products.found_posts %}
   <div class="site-wrapper archive-wrap">
     <h2 class="sectionheader">In The Shop</h2>
-    <div class="archive-loop">
+    <div class="archive-loop  static-carousel__slides static-carousel--quarter">
       {% for tease in post.products %}
         {% include ['components/tease-product.twig', 'components/tease.twig'] with {tease: tease, overlayTitle: true} %}
       {% endfor %}

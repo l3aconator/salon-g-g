@@ -33,7 +33,7 @@
     {% do action('woocommerce_before_shop_loop') %}
 
     {% if products and products|length %}
-      <div class="archive-loop">
+      <div class="archive-loop static-carousel__slides static-carousel--quarter">
         {% for tease in products %}
           {% include ["components/tease-product.twig"] with { tease: tease } %}
         {% endfor %}

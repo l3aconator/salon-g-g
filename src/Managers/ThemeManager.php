@@ -271,6 +271,15 @@ class ThemeManager {
 
 				$query->set( 'meta_query', $meta_query );
 			}
+
+			if ( $query->get( 'sort' ) ) {
+				$query->set( 'order', $query->get( 'sort' ) );
+			}
+
+			if ( $query->get( 'sortBy' ) == 'price' ) {
+				$query->set( 'orderby', 'meta_value_num' );
+				$query->set( 'meta_key', '_price' );
+			}
 		}
 
 		if ( ! is_admin() && $query->is_main_query() && $query->is_archive && is_tax( 'designer_type' ) ) {
@@ -291,6 +300,8 @@ class ThemeManager {
 	public function add_query_vars( $vars ) {
 		$vars[] = 'in_stock';
 		$vars[] = 'designer_shop';
+		$vars[] = 'sort';
+		$vars[] = 'sortBy';
 		return $vars;
 	}
 

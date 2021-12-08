@@ -38,6 +38,7 @@ class Product extends Post {
 		$this->set_designer();
 		$this->product = wc_get_product( $this->ID );
 		$this->stock = get_post_meta( $this->ID, '_stock_status', true );
+		$this->category = array_values(get_the_terms( $this->ID, 'product_cat' ))[0];
 	}
 
 	/**
@@ -67,6 +68,15 @@ class Product extends Post {
 	public function stock() {
 		return $this->product-get_stock_quantity();
 	}
+
+	// /**
+	//  * Get the category.
+	//  *
+	//  * @return string
+	//  */
+	// public function category() {
+	// 	return $this->meta( 'category' );
+	// }
 
 	/**
 	 * Get the product designer.
