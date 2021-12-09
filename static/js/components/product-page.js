@@ -9,7 +9,7 @@ function findVariantLabelToAppend(selector) {
 onDocumentReady(() => {
   const attachmentButton = document.querySelector('.wcpoa_attachmentbtn');
   const showMore = document.querySelector('#product__showMore');
-  const dimensionsToggle = document.querySelector('.product__dimensionsHeading');
+  const customFieldsToggle = document.querySelectorAll('.product__customField');
   const variationSelectorAll = document.querySelectorAll('.tawcvs-swatches');
   const variationTable = document.querySelector('.variations');
 
@@ -39,17 +39,19 @@ onDocumentReady(() => {
 
   // If a product has dimension
   // handle the expansion / collapse of the toggle
-  if (dimensionsToggle) {
-    dimensionsToggle.addEventListener('click', () => {
-      const button = document.querySelector('.product__dimensionsToggle');
-      if (button.classList.contains('open')) {
-        button.innerHTML = '+';
-      } else {
-        button.innerHTML = '-';
-      }
+  if (customFieldsToggle.length !== 0) {
+    customFieldsToggle.forEach(customField => {
+      customField.addEventListener('click', () => {
+        const button = customField.querySelector('.product__customFieldToggle');
+        if (button.classList.contains('open')) {
+          button.innerHTML = '+';
+        } else {
+          button.innerHTML = '-';
+        }
 
-      document.querySelector('.product__dimensionsContent').classList.toggle('open');
-      button.classList.toggle('open');
+        customField.querySelector('.product__customFieldContent').classList.toggle('open');
+        button.classList.toggle('open');
+      });
     });
   }
 

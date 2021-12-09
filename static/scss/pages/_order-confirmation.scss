@@ -1,17 +1,31 @@
 .woocommerce-order-received {
   .woocommerce table.shop_table thead th {
     padding: 1em;
-    text-align: center;
+    text-align: left;
+  }
+
+  .woocommerce-attachment-details {
+    display: none;
+  }
+
+  .wc-item-meta {
+    font-size: 16px;
+    line-height: 19px;
+    font-family: $ff-body;
+
+    strong {
+      font-weight: normal;
+    }
   }
 
   .woocommerce-order-details__title {
-    text-align: center;
+    text-align: left;
     margin-bottom: $spacing;
     font-size: $fs-xl;
   }
 
   .woocommerce-table__product-name {
-    text-align: center;
+    text-align: left;
 
     a {
       &:hover {

@@ -40,27 +40,32 @@
   }
 }
 
-.product__dimensions {
-  padding-top: 10px;
-  border-top: 1px solid #cbd8e3;
+.product__customField {
   color: #6d748a;
   font-size: 16px;
+  padding-top: 8px;
 
-  .product__dimensionsHeading {
+  &:first-child {
+    border-top: 1px solid #cbd8e3;
+    padding-top: 10px;
+  }
+
+  .product__customFieldHeading {
     font-weight: bold;
     font-size: 14px;
     cursor: pointer;
   }
 
-  .product__dimensionsContent {
+  .product__customFieldContent {
     display: none;
+    color: $c-dark-blue;
 
     &.open {
       display: block;
     }
   }
 
-  .product__dimensionsToggle {
+  .product__customFieldToggle {
     padding: 0px;
     border: none;
     background-color: transparent;
@@ -307,8 +312,4 @@ table.variations {
       transform: translateX(3px);
     }
   }
-}
-
-.disabled.wc-variation-selection-needed {
-  display: none !important;
 }
