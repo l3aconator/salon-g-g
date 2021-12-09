@@ -43,6 +43,7 @@ class WoocommerceManager {
         add_theme_support( 'woocommerce' );
         add_action( 'woocommerce_created_customer', array( $this, 'wooc_save_extra_register_fields' ) );
 		add_filter( 'woocommerce_cart_item_name', array( $this, 'wooc_product_image_on_checkout' ), 10, 3 );
+		add_filter( 'woocommerce_product_variation_title_include_attributes', array( $this, 'custom_product_variation_title' ), 10, 2 );
     }
 
     /**
@@ -67,6 +68,9 @@ class WoocommerceManager {
 
 		/* Get product object */
 		$_product = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
+		$id = $_product->id;
+		$custom_fields = get_field("custom_fields", $id );
+		$html = '';
 
 		/* Get product thumbnail */
 		$thumbnail = $_product->get_image();
@@ -74,8 +78,12 @@ class WoocommerceManager {
 		/* Add wrapper to image and add some css */
 		$image = '<div class="ts-product-image" style="width: 97px; height: 97px; display: inline-block; padding-right: 7px; vertical-align: middle;">' . $thumbnail . '</div>';
 
+		foreach ($custom_fields as $field) {
+			$html .= '<p class="product__extraFields">' . $field['display_name'] . ': ' . $field['content'] . '</p>';
+		}
+
 		/* Prepend image to name and return it */
-		return $image . '<span class="ts-product-title">' . $name . '</span>';
+		return $image . '<span class="ts-product-title">' . $name . '<div>' . $html . '</div>' . '</span>';
 	}
 
     /**

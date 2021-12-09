@@ -98,12 +98,16 @@
               <div>{{ post.content|slice(0, 191) }}…</div>
               <div><button type="button" class="btn--link" id="product__showMore" data-open="false">Read more +</button></div>
             </div>
-            {% if post.meta('dimensions') %}
-            <div class="product__dimensions">
-              <p class="product__dimensionsHeading">Dimensions <button class="product__dimensionsToggle">+</button></p>
-              <p class="product__dimensionsContent">{{ post.meta('dimensions') }}</p>
-            </div>
+            <div class="product__customFields">
+            {% if post.meta('custom_fields') %}
+              {% for field in post.meta('custom_fields') %}
+              <div class="product__customField">
+                <p class="product__customFieldHeading">{{ field.display_name }} <button class="product__customFieldToggle">+</button></p>
+                <p class="product__customFieldContent">{{ field.content }}</p>
+              </div>
+              {% endfor %}
             {% endif %}
+            </div>
             <div class="product__attachment">
               {% if user %}
               {{ fn('do_shortcode', '[display_attachments hide_title="true" hide_size_label="true" hide_description="true"]') }}
