@@ -16,6 +16,7 @@ import VideoModal from './components/videomodal';
 import './components/trade-modal';
 import './components/quote-modal';
 import './components/product-filtering';
+import './components/product-page';
 
 // TODO: This needs a lovely refactor, built this to get done quicker
 
