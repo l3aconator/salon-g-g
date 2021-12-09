@@ -43,7 +43,7 @@ class WoocommerceManager {
         add_theme_support( 'woocommerce' );
         add_action( 'woocommerce_created_customer', array( $this, 'wooc_save_extra_register_fields' ) );
 		add_filter( 'woocommerce_cart_item_name', array( $this, 'wooc_product_image_on_checkout' ), 10, 3 );
-		add_filter( 'woocommerce_product_variation_title_include_attributes', array( $this, 'custom_product_variation_title' ), 10, 2 );
+		add_filter( 'woocommerce_order_item_name', array( $this, 'wooc_order_item_name' ), 10, 2 );
     }
 
     /**
@@ -56,7 +56,7 @@ class WoocommerceManager {
     }
 
     /**
-     * Add product thumbnail
+     * Add product thumbnail and custom fields
      *
      * @return void
      */
@@ -84,6 +84,23 @@ class WoocommerceManager {
 
 		/* Prepend image to name and return it */
 		return $image . '<span class="ts-product-title">' . $name . '<div>' . $html . '</div>' . '</span>';
+	}
+
+    /**
+     * Add custom fields to order confirmation
+     *
+     * @return void
+     */
+    public function wooc_order_item_name( $item_name, $item ) {
+		$id = $item->get_product_id();
+		$custom_fields = get_field("custom_fields", $id );
+		$html = '';
+
+		foreach ($custom_fields as $field) {
+			$html .= '<p class="product__extraFields">' . $field['display_name'] . ': ' . $field['content'] . '</p>';
+		}
+		// make filter magic happen here...
+    	return $item_name . $html;
 	}
 
     /**

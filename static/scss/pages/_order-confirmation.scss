@@ -8,13 +8,17 @@
     display: none;
   }
 
+  .product-quantity {
+    display: none;
+  }
+
   .wc-item-meta {
     font-size: 16px;
     line-height: 19px;
     font-family: $ff-body;
 
     strong {
-      font-weight: normal;
+      font-weight: 300;
     }
   }
 
