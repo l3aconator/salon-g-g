@@ -4,9 +4,14 @@ const modalTrigger = document.querySelector('[data-micromodal-trigger="quote-mod
 
 if (modalTrigger) {
   modalTrigger.addEventListener('click', () => {
-    document.querySelector('input[name="VariantSelections"]').value = document.querySelector(
-      'input[name="variation_id"]',
-    ).value;
+    const variants = document.querySelectorAll('.product__selectedVariant');
+    const variantSelections = document.querySelector('input[name="VariantSelections"]');
+
+    if (variants.length !== 0) {
+      variantSelections.value = Array.from(variants)
+        .map(el => el.innerHTML)
+        .join(' ');
+    }
   });
 }
 

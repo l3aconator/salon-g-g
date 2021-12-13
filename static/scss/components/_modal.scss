@@ -5,7 +5,9 @@
 .modal {
   font-family: $ff-body;
 
-  .woocommerce-form.checkout_coupon, .woocommerce-form.login, .woocommerce-form.register {
+  .woocommerce-form.checkout_coupon,
+  .woocommerce-form.login,
+  .woocommerce-form.register {
     padding: 0px;
     border: none;
   }
@@ -53,6 +55,12 @@
   font-size: $fs-xxl;
   color: $c-black;
   box-sizing: border-box;
+}
+
+.modal__description {
+  font-family: $ff-body;
+  max-width: 450px;
+  margin: 0 auto;
 }
 
 .modal__close {
@@ -380,7 +388,6 @@
 }
 
 .login_msg {
-
   &.fail,
   &.success {
     margin-top: $spacing;

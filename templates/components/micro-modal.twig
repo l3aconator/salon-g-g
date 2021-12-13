@@ -7,6 +7,9 @@
           {{ title }}
         </h2>
         {% endif %}
+        {% if description %}
+          <p class="modal__description">{{ description }}</p>
+        {% endif %}
         <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
       </header>
       <main class="modal__content" id="{{ id }}-content">

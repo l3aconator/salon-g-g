@@ -80,14 +80,6 @@
             {% if post.designer %}
             <p class="product__designerName"><a href="{{ post.designer.link }}">{{ post.designer }}</a></p>
             {% endif %}
-            <div class="product__price">
-              {% if post.meta('price_upon_request') %}
-              <p>Price Upon Request</p>
-              {% else %}
-              {% if post.meta('trade_price') and is_trade %}<p class="product__priceTrade"><strike>${{ post.price }}</strike><p>{% else %}<p>${{ post.price }}</p>{% endif %}
-              {% if post.meta('trade_price') and is_trade %}<p>${{ post.meta('trade_price') }}<p>{% endif %}
-              {% endif %}
-            </div>
           </div>
 
           {% do action('woocommerce_before_single_product_summary') %}
@@ -122,6 +114,8 @@
           </div>
           {% endif %}
 
+          <hr class="product__divider" />
+
           <div class="product__summary summary entry-summary {% if post.meta('price_upon_request') %}product__summaryPriceHidden{% endif %}">
             <div class="product__actions">
               <div>
@@ -150,6 +144,16 @@
   {% do action('woocommerce_after_single_product') %}
 
 </div>
+
+<script>
+  var el = document.querySelector('.summary .price');
+  {% if post.meta('price_upon_request') %}
+    el.innerHTML = 'Price Upon Request';
+  {% endif %}
+  {% if post.meta('trade_price') and is_trade and not post.meta('price_upon_request') %}
+    el.innerHTML = '<strike class="trade__price">${{ post.price }}</strike>' + ' ${{ post.meta("trade_price") }}';
+  {% endif %}
+</script>
 
 {% include "components/quote-modal.twig" %}
 {% endblock  %}
