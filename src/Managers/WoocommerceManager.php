@@ -44,6 +44,7 @@ class WoocommerceManager {
         add_action( 'woocommerce_created_customer', array( $this, 'wooc_save_extra_register_fields' ) );
 		add_filter( 'woocommerce_cart_item_name', array( $this, 'wooc_product_image_on_checkout' ), 10, 3 );
 		add_filter( 'woocommerce_order_item_name', array( $this, 'wooc_order_item_name' ), 10, 2 );
+		add_action('add_meta_boxes', array( $this, 'remove_short_description' ), 999);
     }
 
     /**
@@ -54,6 +55,15 @@ class WoocommerceManager {
     public function add_quantity_label() {
         echo '<span class="quantity__label">Quantity</span>';
     }
+
+    /**
+     * Remove short description field
+     *
+     * @return void
+     */
+    public function remove_short_description() {
+		remove_meta_box( 'postexcerpt', 'product', 'normal');
+	}
 
     /**
      * Add product thumbnail and custom fields

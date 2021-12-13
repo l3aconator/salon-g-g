@@ -8,10 +8,17 @@
   text-transform: uppercase;
   font-weight: thin;
   font-size: 16px;
+  margin-top: 8px;
   margin-bottom: $spacing-sm;
 
   a {
     box-shadow: unset !important;
+    border-bottom: 1px solid currentColor;
+    @include transition(all);
+
+    &:hover {
+      border-color: transparent;
+    }
   }
 }
 
@@ -19,7 +26,7 @@
   margin-bottom: 6px;
 }
 
-.woocommerce-Price-amount {
+.woocommerce-variation-price .woocommerce-Price-amount {
   margin-bottom: 22px;
   display: inline-block;
 }
@@ -314,4 +321,13 @@ table.variations {
       transform: translateX(3px);
     }
   }
+}
+
+.woocommerce-product-details__short-description {
+  display: none;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 8px;
+  color: #000323;
+  margin: $spacing-sm;
 }

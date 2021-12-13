@@ -68,7 +68,7 @@
       <div class="single__col content {% if not hasImage %}single__colNoImage{% endif %}">
         <div>
           <ul class="breadcrumbs">
-            <li class="breadcrumbs__item breadcrumbs__item--noUnderline"><a href="/shop">Store</a></li>
+            <li class="breadcrumbs__item breadcrumbs__item--noUnderline"><a href="/shop">Shop</a></li>
             {% if post.category.name %}
             <li class="breadcrumbs__item breadcrumbs__item--noUnderline"><a href="/shop/category/{{ post.category.slug }}">{{ post.category.name }}</a></li>
             {% endif %}
@@ -151,7 +151,7 @@
     el.innerHTML = 'Price Upon Request';
   {% endif %}
   {% if post.meta('trade_price') and is_trade and not post.meta('price_upon_request') %}
-    el.innerHTML = '<strike class="trade__price">${{ post.price }}</strike>' + ' ${{ post.meta("trade_price") }}';
+    el.innerHTML = '<strike class="trade__price">${{ post.price }}</strike>' + el.innerHTML;
   {% endif %}
 </script>
 
