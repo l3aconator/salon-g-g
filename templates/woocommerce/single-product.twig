@@ -151,7 +151,7 @@
     el.innerHTML = 'Price Upon Request';
   {% endif %}
   {% if post.meta('trade_price') and is_trade and not post.meta('price_upon_request') %}
-    el.innerHTML = '<strike class="trade__price">${{ post.price }}</strike>' + el.innerHTML;
+    el.innerHTML = '<strike class="trade__price">${{ post.price }}</strike> ' + el.innerHTML;
   {% endif %}
 </script>
 
