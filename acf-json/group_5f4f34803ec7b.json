@@ -115,13 +115,13 @@
       }
     ]
   ],
-  "menu_order": 0,
-  "position": "acf_after_title",
+  "menu_order": 1,
+  "position": "normal",
   "style": "default",
   "label_placement": "top",
   "instruction_placement": "label",
   "hide_on_screen": "",
   "active": true,
   "description": "Add a space for additional post images.",
-  "modified": 1602792259
+  "show_in_rest": 0
 }
