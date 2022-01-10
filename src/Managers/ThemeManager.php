@@ -102,6 +102,7 @@ class ThemeManager {
 		register_nav_menus(
 			array(
 				'main_nav' => 'Main navigation',
+				'shop_filters' => 'Shop Filters',
 			)
 		);
 	}

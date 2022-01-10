@@ -1,6 +1,12 @@
 {% extends 'layouts/base.twig' %}
 {% set is_trade = 'Trade Customer' in user.roles %}
 
+{% set options = [] %}
+
+{% for item in shop_filters.items %}
+    {% set options = options|merge([{ title: item.title, link: item.link, }]) %}
+{% endfor %}
+
 {% block pageBody %}
 <div class="main-frame">
   <div class="site-wrapper shop-main">
@@ -14,7 +20,7 @@
         filters: [
           {
             label: 'Filter',
-            options: categories
+            options: options == [] ? categories : options,
           },
           {
             label: 'Sort by',
