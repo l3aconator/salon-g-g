@@ -26,9 +26,12 @@ if (quoteModal) {
 
   document.addEventListener(
     'wpcf7mailsent',
-    function() {
-      document.querySelector('.wpcf7-response-output').innerHTML =
-        'Thank you for your request, we will be in touch with a quote shortly.';
+    () => {
+      // awful hack but we have a race condition
+      setTimeout(() => {
+        document.querySelector('.wpcf7-response-output').innerHTML =
+          'Thank you for your request, we will be in touch with a quote shortly.';
+      }, 75);
     },
     false,
   );
