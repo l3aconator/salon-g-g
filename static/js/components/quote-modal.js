@@ -29,6 +29,7 @@ if (quoteModal) {
     () => {
       // awful hack but we have a race condition
       setTimeout(() => {
+        document.querySelector('#quote-modal .modal__description').style.display = 'none';
         document.querySelector('.wpcf7-response-output').innerHTML =
           'Thank you for your request, we will be in touch with a quote shortly.';
       }, 75);

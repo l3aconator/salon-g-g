@@ -105,6 +105,8 @@ class Product extends Post {
 				return array(
 					'thumbnail' => $img->src( 'thumbnail' ),
 					'full'      => $img->src( 'shop_single' ),
+					'original'  => $img->src( 'original' ),
+					'hero'      => $img->src( 'hero' ),
 					'alt'       => $img->alt(),
 				);
 			},

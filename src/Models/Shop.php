@@ -208,7 +208,7 @@ class Shop extends Post {
 		$term          = new Term( $content['tag'], 'product_tag' );
 
 		$carousel['title']    = $content['title'];
-		$carousel['products'] = $products_repo->by_tag( $content['tag'], 6 )->get();
+		$carousel['products'] = $products_repo->by_tag( $content['tag'], 24 )->get();
 		$carousel['link']     = $term->link;
 
 		if ( ! $carousel['title'] ) {
