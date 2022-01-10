@@ -67,6 +67,7 @@ class ContextManager {
 	 */
 	public function menus( $context ) {
 		$context['main_nav'] = new Menu( 'main_nav' );
+		$context['shop_filters'] = new Menu( 'shop_filters' );
 		return $context;
 	}
 
