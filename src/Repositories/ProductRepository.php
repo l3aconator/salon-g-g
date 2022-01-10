@@ -20,7 +20,7 @@ class ProductRepository extends Repository {
 	 *
 	 * @return Repository
 	 */
-	public function by_designer( $designer, $limit = 10, $paged = 0 ) {
+	public function by_designer( $designer, $limit = 24, $paged = 0 ) {
 
 		// Set sane defaults so we don't do full table scans.
 		if ( $limit <= 0 || $limit > 1000 ) {
@@ -58,7 +58,7 @@ class ProductRepository extends Repository {
 			'post_type'      => self::POST_TYPE,
 			'post_status'    => 'publish',
 			'orderby'        => 'post_title',
-			'order'          => 'DESC',
+			'order'          => 'ASC',
 			'meta_query'     => $meta_query,
 		);
 
@@ -77,7 +77,7 @@ class ProductRepository extends Repository {
 	 *
 	 * @return Repository
 	 */
-	public function by_tag( $tags, $limit = 10 ) {
+	public function by_tag( $tags, $limit = 24 ) {
 
 		// Set sane defaults so we don't do full table scans.
 		if ( $limit <= 0 || $limit > 1000 ) {
@@ -89,7 +89,7 @@ class ProductRepository extends Repository {
 			'post_type'      => self::POST_TYPE,
 			'post_status'    => 'publish',
 			'orderby'        => 'post_title',
-			'order'          => 'DESC',
+			'order'          => 'ASC',
 			'tax_query'      => array(
 				array(
 					'taxonomy' => 'product_tag',

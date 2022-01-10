@@ -31,7 +31,7 @@
                     {% else %}
                     {% endif %}
                   {% endif %}
-                  <img src="{{ img.full }}" loading="lazy">
+                  <img src="{{ img.hero }}" loading="lazy">
                 </article>
               {% endfor %}
             </div>
@@ -48,7 +48,7 @@
         <ul class="product__stickyGallery">
           {% for img in post.product_gallery %}
             <li class="product__stickyGalleryItem">
-              <a data-fslightbox="gallery-lightbox" href="{{ img.full }}">
+              <a data-fslightbox="gallery-lightbox" href="{{ img.hero }}">
                 {% if loop.first %}
                   {% if post.custom._stock_status == 'instock' and not post.meta('price_upon_request') %}
                     <img src="{{theme.link}}/static/img/in-stock-badge.svg" alt="In-stock" class="product__stockBadge" />
@@ -57,7 +57,7 @@
                   {% else %}
                   {% endif %}
                 {% endif %}
-                <img src="{{ img.full }}" loading="lazy">
+                <img src="{{ img.hero }}" loading="lazy">
               </a>
             </li>
           {% endfor %}
