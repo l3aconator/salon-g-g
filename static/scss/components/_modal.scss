@@ -185,6 +185,14 @@
     margin: 0px;
   }
 
+  .wpcf7-form-control-wrap {
+    width: 100%;
+  }
+
+  .quote__modal .wpcf7-response-output {
+    margin-top: 0px !important;
+  }
+
   .wpcf7-select {
     background-color: transparent;
     @include transition(all);

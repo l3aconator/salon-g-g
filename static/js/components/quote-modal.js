@@ -23,4 +23,14 @@ if (quoteModal) {
       }
     });
   }
+
+  document.addEventListener(
+    'wpcf7mailsent',
+    function() {
+      document
+        .querySelector('.wpcf7-response-output')
+        .innerHTML('Thank you for your request, we will be in touch with a quote shortly.');
+    },
+    false,
+  );
 }
