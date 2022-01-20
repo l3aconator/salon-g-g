@@ -45,6 +45,7 @@ class WoocommerceManager {
 		add_filter( 'woocommerce_cart_item_name', array( $this, 'wooc_product_image_on_checkout' ), 10, 3 );
 		add_filter( 'woocommerce_order_item_name', array( $this, 'wooc_order_item_name' ), 10, 2 );
 		add_action('add_meta_boxes', array( $this, 'remove_short_description' ), 999);
+        add_filter( 'init', array( $this, 'wc_tax_exempt_user_roles' ), 22 );
     }
 
     /**
@@ -64,6 +65,22 @@ class WoocommerceManager {
     public function remove_short_description() {
 		remove_meta_box( 'postexcerpt', 'product', 'normal');
 	}
+
+    /**
+     * Remove short description field
+     *
+     * @return void
+     */
+    public function wc_tax_exempt_user_roles() {
+        if ( ! is_admin() ) {
+            global $woocommerce;
+            if ( current_user_can('trade_customer')) {
+                $woocommerce->customer->set_is_vat_exempt(true);
+            } else {
+                $woocommerce->customer->set_is_vat_exempt(false);
+            }
+        }
+    }
 
     /**
      * Add product thumbnail and custom fields
