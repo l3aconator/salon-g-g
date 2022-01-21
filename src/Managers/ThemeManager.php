@@ -59,6 +59,7 @@ class ThemeManager {
 		add_theme_support( 'menus' );
 
 		add_image_size( 'hero', 1400 );
+		add_image_size( 'hero_smaller', 1000 );
 		add_image_size( 'feature', 486 );
 		add_image_size( 'homepage_callout', 880, 660, true );
 		add_image_size( 'grid_image', 800 );

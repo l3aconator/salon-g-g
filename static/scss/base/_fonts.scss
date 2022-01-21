@@ -1,7 +1,7 @@
 @mixin font-face($family-name, $file-name, $font-weight: normal, $font-style: normal) {
   @font-face {
     $font-path: '../../static/fonts/#{$file-name}';
-    font-display: auto;
+    font-display: swap;
     font-family: '#{$family-name}';
     font-style: $font-style;
     font-weight: $font-weight;
