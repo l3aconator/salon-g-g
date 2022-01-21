@@ -76,8 +76,6 @@ class WoocommerceManager {
             global $woocommerce;
             if ( current_user_can('trade_customer')) {
                 $woocommerce->customer->set_is_vat_exempt(true);
-            } else {
-                $woocommerce->customer->set_is_vat_exempt(false);
             }
         }
     }

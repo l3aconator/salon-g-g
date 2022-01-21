@@ -191,3 +191,16 @@
     transform: scale(1);
   }
 }
+
+.page-id-49 {
+  .wpcf7-form p label {
+    width: 100%;
+  }
+
+  .wpcf7-form-control-wrap {
+    &.user-message,
+    &.user-email {
+      width: 100%;
+    }
+  }
+}
